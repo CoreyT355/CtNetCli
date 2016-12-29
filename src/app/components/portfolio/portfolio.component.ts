@@ -9,13 +9,15 @@ import 'rxjs/add/operator/map';
 import { JobsService } from '../jobs/jobs.service';
 import { SkillsService } from '../skills/skills.service';
 
+import { FirebaseListObservable } from 'angularfire2';
+
 @Component({
     selector: 'ctnet-portfolio',
     templateUrl: './portfolio.component.html'
 })
 export class PortfolioComponent implements OnInit {
     name: string = "About Me";
-    skills: Array<Skill>;
+    skills: FirebaseListObservable<any>;
     jobs: Array<Job>;
     error: any;
     constructor(http: Http, private params: ActivatedRoute, private jobsService: JobsService, private skillsService: SkillsService) {
@@ -27,10 +29,7 @@ export class PortfolioComponent implements OnInit {
         .catch(error => this.error = error);
     }
     getSkills(): void {
-        this.skillsService
-        .getSkills()
-        .then(skills => this.skills = skills)
-        .catch(error => this.error = error);
+        this.skills = this.skillsService.getSkills();
     }
     ngOnInit(): void {
         this.getJobs();

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { AngularFireModule } from 'angularfire2';
 
 import { routing } from "./routes";
 import { AppComponent } from './app.component';
@@ -50,7 +51,8 @@ export const firebaseConfig = {
     FormsModule,
     HttpModule,
     JsonpModule,
-    routing
+    routing,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [
     ProjectsService,

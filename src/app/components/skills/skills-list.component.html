@@ -3,7 +3,7 @@
     <div class="content">
         <p class="intro">Below are the skills I use most on a daily basis. Please click <a href="#" target="_blank" title="full list of skills">here</a> for a more complete list of skills.</p>
         <ul class="list-group">
-            <li *ngFor="let skill of skills" class="list-group-item">
+            <li *ngFor="let skill of skills | async" class="list-group-item">
                 <ctnet-skill-item [skill]="skill"></ctnet-skill-item>
             </li>
         </ul>
