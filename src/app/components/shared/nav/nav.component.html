@@ -1,0 +1,26 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <span class="navbar-brand">Corey Tess</span>
+        </div>
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="nav navbar-nav">
+                <li><a [routerLink]="['/about/']" routerLinkActive="active">About</a></li>
+                <li><a [routerLink]="['/projects/']" routerLinkActive="active">Projects</a></li>
+                <li><a [routerLink]="['/portfolio/']" routerLinkActive="active">Portfolio</a></li>
+                <!--<li><a href="#">Blog</a></li>-->
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                <li><a href="https://www.linkedin.com/in/ctess" target="_blank"><i class="fa fa-lg fa-linkedin"></i></a></li>
+                <li><a href="http://stackoverflow.com/users/322478/coreyt" target="_blank"><i class="fa fa-lg fa-stack-overflow"></i></a></li>
+                <li><a href="https://github.com/CoreyT355" target="_blank"><i class="fa fa-lg fa-github"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

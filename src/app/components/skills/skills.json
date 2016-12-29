@@ -1,0 +1,26 @@
+[
+    {
+        "title": "C#",
+        "level": "Expert",
+        "style": "progress-bar-success",
+        "percentage": 100 
+    },
+    {
+        "title": "ASP.Net MVC",
+        "level": "Advanced",
+        "style": "progress-bar-success",
+        "percentage": 75 
+    },
+    {
+        "title": "AngularJS",
+        "level": "Intermediate",
+        "style": "progress-bar-success",
+        "percentage": 50 
+    },
+    {
+        "title": "jQuery",
+        "level": "Advanced",
+        "style": "progress-bar-success",
+        "percentage": 75 
+    }
+]

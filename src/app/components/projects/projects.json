@@ -1,0 +1,8 @@
+[
+    {
+        "title": "This website",
+        "subTitle": "My professional website and blog.",
+        "url": "",
+        "content": "<p>This website is my current project. It features Angular2, Bootstrap, and HTML5. </p><p>The template for this website was built from the <a href='http://themes.3rdwavemedia.com/website-templates/free-responsive-website-template-for-developers/' target='_blank'>Responsive Portfolio Developer Template</a> from 3rd Wave Media.</p><p>Several components make up this page, most notably are the Skills and Experience sections. Each of those sections are separate Angular components. Future versions of this will pull the data from a simple database or storage location.</p>"
+    }
+]
