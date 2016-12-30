@@ -1,7 +1,7 @@
 <div class="section-inner">
     <h2 class="heading">Latest Projects</h2>
     <div class="content">
-        <div *ngFor="let project of projects">
+        <div *ngFor="let project of projects | async">
             <ctnet-project-item [project]="project"></ctnet-project-item>
         </div>
     </div>

@@ -18,15 +18,12 @@ import { FirebaseListObservable } from 'angularfire2';
 export class PortfolioComponent implements OnInit {
     name: string = "About Me";
     skills: FirebaseListObservable<any>;
-    jobs: Array<Job>;
+    jobs: FirebaseListObservable<any>;
     error: any;
     constructor(http: Http, private params: ActivatedRoute, private jobsService: JobsService, private skillsService: SkillsService) {
     }
     getJobs(): void {
-        this.jobsService
-        .getJobs()
-        .then(jobs => this.jobs = jobs)
-        .catch(error => this.error = error);
+        this.jobs = this.jobsService.getJobs();
     }
     getSkills(): void {
         this.skills = this.skillsService.getSkills();

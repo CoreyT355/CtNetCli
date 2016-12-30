@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Project } from './project.model';
 import { ProjectsService } from './projects.service';
+import { FirebaseListObservable } from 'angularfire2';
 
 @Component({
     selector: 'ctnet-projects',
@@ -9,14 +10,11 @@ import { ProjectsService } from './projects.service';
 })
 export class ProjectsComponent implements OnInit {
     name: string = "Projects";
-    projects: Array<Project>;
+    projects: FirebaseListObservable<any>;
     error: any;
     constructor(private projectsService: ProjectsService ) { }
     getProjects(): void {
-        this.projectsService
-        .getProjects()
-        .then(projects => this.projects = projects)
-        .catch(error => this.error = error);
+        this.projects = this.projectsService.getProjects();
     }
     ngOnInit(): void {
         this.getProjects();

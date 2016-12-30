@@ -1,0 +1,235 @@
+{
+    "jobs": {
+        "one": {
+            "order": 1,
+            "title": "Senior Software Developer",
+            "company": "A.W. Chesterton",
+            "city": "Groveland",
+            "state": "MA",
+            "startDate": "10/01/2014",
+            "endDate": "Present",
+            "jobRoles": [
+                {
+                    "text": "Designed and implemented a new web application architecture from the data layer up to the web front-end",
+                    "order": 1
+                },
+                {
+                    "text": "Redesigned architecture improved maintainability and reduced code from 95k lines to 50k lines of code",
+                    "order": 2
+                },
+                {
+                    "text": "Created and implemented a coding standard",
+                    "order": 3
+                },
+                {
+                    "text": "Implemented Octopus Deploy and TFS for automated deployment from development to production",
+                    "order": 4
+                },
+                {
+                    "text": "Developed a RESTful Web API for use by a web and mobile applications using a Dapper data layer",
+                    "order": 5
+                },
+                {
+                    "text": "Migrated from TFS on premises to Visual Studio Team Services in the cloud",
+                    "order": 6
+                }
+            ]
+        },
+        "two": {
+            "order": 2,
+            "title": "Software Engineer",
+            "company": "Credible Inc.",
+            "city": "Portsmouth",
+            "state": "NH",
+            "startDate": "10/01/2013",
+            "endDate": "10/01/2014",
+            "jobRoles": [
+                {
+                    "text": "Successfully updated Credible’s electronic prescription system to comply with the 10.6 version of the Surescripts platform",
+                    "order": 1
+                },
+                {
+                    "text": "Participated in various projects involving government mandated Meaningful Use requirements for EHR and EMR software vendors",
+                    "order": 2
+                },
+                {
+                    "text": "Worked on several SQL based reports built according to state requirements",
+                    "order": 3
+                }
+            ]
+        },
+        "three": {
+            "order": 3,
+            "title": "Software Developer",
+            "company": "Merchants Fleet Management",
+            "city": "Hooksett",
+            "state": "NH",
+            "startDate": "10/01/2012",
+            "endDate": "10/01/2013",
+            "jobRoles": [
+                {
+                    "text": "Developed a mobile reporting site using HTML5, jQuery Mobile and the .Net Framework",
+                    "order": 1
+                },
+                {
+                    "text": "Planned and implemented a project migration for the team using Visual Studio 2012 and TFS 2012",
+                    "order": 2
+                },
+                {
+                    "text": "Designed and implemented a report aggregation system using the .Net Framework",
+                    "order": 3
+                },
+                {
+                    "text": "Built various portions of a proprietary API used within the organization",
+                    "order": 4
+                }
+            ]
+        },
+        "four": {
+            "order": 4,
+            "title": "Senior Web Developer",
+            "company": "Physicians Office Resource",
+            "city": "Bedford",
+            "state": "NH",
+            "startDate": "04/01/2012",
+            "endDate": "10/01/2012",
+            "jobRoles": [
+                {
+                    "text": "Developed a mobile site and application using jQuery Mobile and HTML5",
+                    "order": 1
+                },
+                {
+                    "text": "Developed a web service to search and display pharmaceutical information using .Net and MS SQL stored procedures",
+                    "order": 2
+                },
+                {
+                    "text": "Implemented MS SQL queries to automate weekly database updates using internal and external data",
+                    "order": 3
+                },
+                {
+                    "text": "Developed a click-to-call solution for the company website using jQuery and Phono.js",
+                    "order": 4
+                }
+            ]
+        },
+        "five": {
+            "order": 5,
+            "title": "Web Developer",
+            "company": "Southern New Hampshire University",
+            "city": "Manchester",
+            "state": "NH",
+            "startDate": "04/01/2010",
+            "endDate": "04/01/2012",
+            "jobRoles": [
+                {
+                    "text": "Developed code to improve back-end lead processing systems for new student inquiry and application",
+                    "order": 1
+                },
+                {
+                    "text": "Integrated proprietary lead processing system with various CRMs and third party vendor APIs",
+                    "order": 2
+                },
+                {
+                    "text": "Managed development and live web server environments using Windows Server 2008 R2 and IIS",
+                    "order": 3
+                }
+            ]
+        },
+        "six": {
+            "order": 6,
+            "title": "Web Developer",
+            "company": "Websolutions Technology Inc.",
+            "city": "Chicago",
+            "state": "IL",
+            "startDate": "12/01/2008",
+            "endDate": "04/01/2010",
+            "jobRoles": [
+                {
+                    "text": "Developed new sites, and new site functionality using C# and Ektron CMS400",
+                    "order": 1
+                },
+                {
+                    "text": "Worked with Salesforce to manage support cases pertaining to customer requests",
+                    "order": 2
+                },
+                {
+                    "text": "Managed a 100+ server environment used for web hosting and development",
+                    "order": 3
+                }
+            ]
+        },
+        "seven": {
+            "order": 7,
+            "title": "Senior Technical Support Engineer",
+            "company": "Ektron Inc.",
+            "city": "Nashua",
+            "state": "NH",
+            "startDate": "10/01/2006",
+            "endDate": "11/01/2008",
+            "jobRoles": [
+                {
+                    "text": "Created initial mockups demonstrating site potential when ported to the CMS400",
+                    "order": 1
+                },
+                {
+                    "text": "Contributed C# and VB.Net Ektron API examples for both internal and customer knowledge bases",
+                    "order": 2
+                },
+                {
+                    "text": "Worked closely with QA to test bugs found by customers",
+                    "order": 3
+                },
+                {
+                    "text": "Troubleshooting software and hardware based issues affecting websites managed by Ektron CMS400",
+                    "order": 4
+                },
+                {
+                    "text": "Responsible for the department’s VMWare virtual server environment used for testing by all technicians",
+                    "order": 5
+                },
+                {
+                    "text": "Managed cases and case assignments using Salesforce",
+                    "order": 6
+                }
+            ]
+        }
+    },
+    "skills": {
+        "one": {
+            "order": 1,
+            "title": "C#",
+            "level": "Expert",
+            "style": "progress-bar-success",
+            "percentage": 100
+        },
+        "two": {
+            "order": 2,
+            "title": "ASP.Net MVC",
+            "level": "Advanced",
+            "style": "progress-bar-success",
+            "percentage": 75
+        },
+        "three": {
+            "order": 3,
+            "title": "AngularJS",
+            "level": "Intermediate",
+            "style": "progress-bar-success",
+            "percentage": 50
+        },
+        "four": {
+            "order": 4,
+            "title": "jQuery",
+            "level": "Advanced",
+            "style": "progress-bar-success",
+            "percentage": 75
+        }
+    },
+    "projects": {
+        "one": {
+            "title": "This website",
+            "subTitle": "My professional website and blog.",
+            "url": "",
+            "content": "<p>This website is my current project. It features Angular2, Bootstrap, and HTML5. </p><p>The template for this website was built from the <a href='http://themes.3rdwavemedia.com/website-templates/free-responsive-website-template-for-developers/' target='_blank'>Responsive Portfolio Developer Template</a> from 3rd Wave Media.</p><p>Several components make up this page, most notably are the Skills and Experience sections. Each of those sections are separate Angular components. Future versions of this will pull the data from a simple database or storage location.</p>"
+        }
+    }
+}
