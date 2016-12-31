@@ -11,8 +11,7 @@ before_script:
   - npm install -g wintersmith
 
 script:
-  - wintersmith build
+  - ng build && mv dist/* .
 
 after_success:
   - firebase deploy --token=${FIREBASE_API_TOKEN}
-  
