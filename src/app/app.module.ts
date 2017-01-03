@@ -2,25 +2,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
-import { AngularFireModule } from 'angularfire2';
+import { CommonModule } from '@angular/common';
+import { AngularFireModule, FIREBASE_PROVIDERS, AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
 
-import { routing } from "./routes";
+import { AppRouting } from "./routes";
 import { AppComponent } from './app.component';
-import { AboutComponent } from './components/about/about.component';
-import { NavComponent } from './components/shared/nav/nav.component';
-import { ProjectsComponent } from './components/projects/projects.component';
-import { ProjectsListComponent } from './components/projects/projects-list.component';
-import { ProjectItemComponent } from './components/projects/project-item.component';
-import { ProjectsService } from './components/projects/projects.service';
-import { PortfolioComponent } from './components/portfolio/portfolio.component';
-import { JobsListComponent } from './components/jobs/jobs-list.component';
-import { JobItemComponent } from './components/jobs/job-item.component';
-import { JobRolesListComponent } from './components/jobs/job-roles-list.component';
-import { JobRoleItemComponent } from './components/jobs/job-role-item.component';
-import { JobsService } from './components/jobs/jobs.service';
-import { SkillsListComponent } from './components/skills/skills-list.component';
-import { SkillItemComponent } from './components/skills/skill-item.component'
-import { SkillsService } from './components/skills/skills.service';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { NavComponent } from './shared/nav/nav.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { ProjectsListComponent } from './projects/projects-list.component';
+import { ProjectItemComponent } from './projects/project-item.component';
+import { ProjectsService } from './projects/projects.service';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { JobsListComponent } from './jobs/jobs-list.component';
+import { JobItemComponent } from './jobs/job-item.component';
+import { JobRolesListComponent } from './jobs/job-roles-list.component';
+import { JobRoleItemComponent } from './jobs/job-role-item.component';
+import { JobsService } from './jobs/jobs.service';
+import { SkillsListComponent } from './skills/skills-list.component';
+import { SkillItemComponent } from './skills/skill-item.component'
+import { SkillsService } from './skills/skills.service';
+
+import { AuthModule } from './auth/auth.module';
+import { DashModule } from './dashboard/dashboard.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyAaSDoXFea9AITizvjXPMppjHdi3IQWKIc",
@@ -30,9 +36,15 @@ export const firebaseConfig = {
     messagingSenderId: "149330434512"
 };
 
+export const firebaseAuthConfig = {
+  provider: AuthProviders.Password,
+  method: AuthMethods.Password
+}
+
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     AboutComponent,
     NavComponent,
     ProjectsComponent,
@@ -51,14 +63,17 @@ export const firebaseConfig = {
     FormsModule,
     HttpModule,
     JsonpModule,
-    routing,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AppRouting,
+    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
+    AuthModule,
+    DashModule,
+    CommonModule
   ],
   providers: [
     ProjectsService,
     SkillsService,
     JobsService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

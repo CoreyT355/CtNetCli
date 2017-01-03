@@ -1,4 +1,5 @@
 {
+  "rules": "firebase-rules.json",
   "hosting": {
     "public": "dist/",
     "rewrites": [

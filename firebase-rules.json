@@ -1,0 +1,15 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": "auth != null",
+    "skills": {
+      ".indexOn": "order"
+    },
+  	"jobs": {
+      ".indexOn": "order"
+    },
+    "projects": {
+      ".indexOn": "order"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+<div class="col-sm-12 col-md-8 col-lg-6">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Account Page</h3>
+        </div>
+        <div class="panel-body">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Change Name</h3>
+                </div>
+                <div class="panel-body">
+                    <form #userData='ngForm' (ngSubmit)="changeUser(userData)">
+                        <div class="row form-group">
+                            <div class="col-sm-12 ">
+                                <label> Change Name
+                                    <input type="text" class="form-control" name="displayName" (ngModel)="displayName" required>
+                                </label>
+                            </div>
+                            <div class="col-sm-12 ">
+                                <label> PhotoURL
+                                    <input type="url" class="form-control" name="photoURL" (ngModel)="photoURL">
+                                </label>
+                            </div>
+                            <div class="col-sm-12 ">
+                                <button type="submit" class="btn btn-default" [disabled]="!userData.valid">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Change Email</h3>
+                </div>
+                <div class="panel-body">
+                    <form #emailData='ngForm' (ngSubmit)="changeEmail(emailData)">
+                        <div class="row form-group">
+                            <div class="col-sm-12 ">
+                                <label> Change Email
+                                    <input type="email" class="form-control" name="email" (ngModel)="email" required>
+                                </label>
+                            </div>
+                            <div class="col-sm-12 ">
+                                <button type="submit" class="btn btn-default" [disabled]="!emailData.valid">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Change Password</h3>
+                </div>
+                <div class="panel-body">
+                    <form #passwordData='ngForm' (ngSubmit)="changePassword(passwordData)">
+                        <div class="row form-group">
+                            <div class="col-sm-12 ">
+                                <label> Old Password
+                                    <input type="password" class="form-control" name="oldpassword" (ngModel)="oldpassword" required>
+                                </label>
+                            </div>
+                            <div class="col-sm-12 ">
+                                <label> New Password
+                                    <input type="password" class="form-control" name="newpassword" (ngModel)="newpassword" required>
+                                </label>
+                            </div>
+                            <div class="col-sm-12 ">
+                                <button type="submit" class="btn btn-default" [disabled]="!passwordData.valid">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

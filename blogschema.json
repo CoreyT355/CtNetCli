@@ -1,0 +1,20 @@
+{
+    "articles": {
+        "one": {
+            "title": "",
+            "dateModified": "",
+            "dateCreated": "",
+            "imageUrl": "",
+            "text": "",
+            "comments": {
+                "one": {
+                    "title": "",
+                    "text": "",
+                    "email": "",
+                    "dateCreated": ""
+                }
+            },
+            "tags": [ "", "" ]
+        }
+    }
+}
