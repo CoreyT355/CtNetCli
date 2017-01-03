@@ -15,7 +15,7 @@
                 <li><a [routerLink]="['/projects/']" routerLinkActive="active">Projects</a></li>
                 <li><a [routerLink]="['/portfolio/']" routerLinkActive="active">Portfolio</a></li>
                 <!--<li><a href="#">Blog</a></li>-->
-                <li *ngIf="af.auth | async"><a routerLink="['/dashboard/']">Dashboard</a></li>
+                <li *ngIf="af.auth | async"><a [routerLink]="['/dashboard/profile']">Dashboard</a></li>
                 <li *ngIf="af.auth | async"><a (click)="logout()" title="Logout">Logout</a></li>
             </ul>
             <ul class="nav navbar-nav pull-right">
