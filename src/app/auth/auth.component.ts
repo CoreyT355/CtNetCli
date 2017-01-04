@@ -44,7 +44,7 @@ export class LoginComponent {
 
   onSubmit(formData) {
     if(formData.valid) {
-      console.log(formData.value);
+      //console.log(formData.value);
       this.af.auth.login({
         email: formData.value.email,
         password: formData.value.password
@@ -72,7 +72,7 @@ export class ResetpassComponent {
   public message: any;
   constructor(private af: AngularFire, @Inject(FirebaseApp) firebaseApp: any) {
     this.auth = firebaseApp.auth()
-    console.log(this.auth);
+    //console.log(this.auth);
   }
 
   onSubmit(formData) {
