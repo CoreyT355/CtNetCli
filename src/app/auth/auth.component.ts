@@ -14,7 +14,7 @@ export class SignupComponent {
 
   onSubmit(formData) {
     if(formData.valid) {
-      console.log(formData.value);
+      //console.log(formData.value);
       this.af.auth.createUser({
         email: formData.value.email,
         password: formData.value.password
