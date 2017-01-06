@@ -34,8 +34,8 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
+    autoWatch: process.env.TRAVIS ? false : true,
     browsers: process.env.TRAVIS ? ['Firefox'] : ['Chrome'],
-    singleRun: true
+    singleRun: process.env.TRAVIS ? true : false
   });
 };
