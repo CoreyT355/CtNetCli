@@ -1,7 +1,9 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent, SignupComponent, ResetpassComponent } from './auth.component';
+import { LoginComponent } from './login.component';
+import { SignupComponent } from './signup.component';
+import { ResetpassComponent } from './resetpass.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },

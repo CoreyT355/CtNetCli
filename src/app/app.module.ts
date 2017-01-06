@@ -26,15 +26,8 @@ import { SkillsService } from './skills/skills.service';
 
 import { AuthModule } from './auth/auth.module';
 import { DashModule } from './dashboard/dashboard.module';
+import { BlogModule } from './blog/blog.module';
 import { firebaseConfig } from './firebaseProject';
-
-// export const firebaseConfig = {
-//     apiKey: "AIzaSyAaSDoXFea9AITizvjXPMppjHdi3IQWKIc",
-//     authDomain: "ctnet-ed473.firebaseapp.com",
-//     databaseURL: "https://ctnet-ed473.firebaseio.com",
-//     storageBucket: "ctnet-ed473.appspot.com",
-//     messagingSenderId: "149330434512"
-// };
 
 export const firebaseAuthConfig = {
   provider: AuthProviders.Password,
@@ -67,6 +60,7 @@ export const firebaseAuthConfig = {
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
     AuthModule,
     DashModule,
+    BlogModule,
     CommonModule
   ],
   providers: [

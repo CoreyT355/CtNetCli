@@ -3,24 +3,6 @@ import { AngularFire, FirebaseApp } from 'angularfire2';
 
 @Component({
   selector: 'profile',
-  templateUrl: './profile.component.html'
-})
-
-export class ProfileComponent { 
-    public userData: any;
-    constructor(private af: AngularFire) {  }
-
-    ngOnInit() {
-        this.af.auth.subscribe(auth => {
-          console.log(auth);
-          this.userData = auth;
-        });
-    }
-
-}
-
-@Component({
-  selector: 'profile',
   templateUrl: './account.component.html'
 })
 
@@ -82,13 +64,4 @@ export class AccountComponent {
       //   })
     }
   }
-
-
 }
-
-@Component({
-  selector: 'profile',
-  templateUrl: './settings.component.html'
-})
-
-export class SettingsComponent { }

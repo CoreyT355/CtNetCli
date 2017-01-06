@@ -2,7 +2,9 @@ import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard.component';
-import { ProfileComponent, AccountComponent, SettingsComponent } from './child.component';
+import { AccountComponent } from './account.component';
+import { ProfileComponent } from './profile.component';
+import { SettingsComponent } from './settings.component';
 import { AuthGuard } from '../auth/auth-guard.service';
 
 const appRoutes: Routes = [
@@ -18,4 +20,4 @@ const appRoutes: Routes = [
   },
 ];
 
-export const dashRouting: ModuleWithProviders = RouterModule.forChild(appRoutes);
+export const dashboardRouting: ModuleWithProviders = RouterModule.forChild(appRoutes);
