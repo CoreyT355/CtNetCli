@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { AuthGuard } from '../auth/auth-guard.service';
 
 import { blogRouting } from './blog.routing';
-
 import { BlogComponent } from './blog.component';
 
 @NgModule({
