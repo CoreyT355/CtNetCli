@@ -5,12 +5,11 @@ import { BlogComponent } from './blog.component';
 import { AuthGuard } from '../auth/auth-guard.service';
 
 const appRoutes: Routes = [
-  { path: 'dashboard',
+  { path: 'blog',
     component: BlogComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', component: BlogComponent },
-    //   { path: 'account', component: AccountComponent },
+      { path: '', component: BlogComponent }
     //   { path: 'profile', component: ProfileComponent },
     //   { path: 'settings', component: SettingsComponent }
     ]

@@ -1,8 +1,10 @@
-<div class="col-sm-12 col-md-8 col-lg-6">
-
+<div class="col-sm-12 col-md-7 col-lg-6">
+  <div class="page-header">
+        <h1>User Profile</h1>
+    </div>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">User Profile<img src="https://firebasestorage.googleapis.com/v0/b/ctnet-ed473.appspot.com/o/favicon.ico?alt=media&token=43475cb1-28c7-4a73-98e4-ed75dfe8002a" alt="image" class="m-l"></h3>
+      <h3 class="panel-title">{{userData.auth.email}}<img src="https://firebasestorage.googleapis.com/v0/b/ctnet-ed473.appspot.com/o/favicon.ico?alt=media&token=43475cb1-28c7-4a73-98e4-ed75dfe8002a" alt="image" class="m-l"></h3>
     </div>
     <div class="panel-body">
       <div *ngIf="!userData" class="callout alert">

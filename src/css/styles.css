@@ -25,16 +25,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  color: #778492;
-}
 a {
   color: #3AAA64;
   -webkit-transition: all 0.4s ease-in-out;
@@ -111,17 +101,7 @@ a.dotted-link:hover {
   text-decoration: none;
   color: #49515a;
 }
-/*
-iframe {
-    .header {
-        padding: 0;
-    }
-}
-.iframe-wrapper {
-    overflow: auto;
-    -webkit-overflow-scrolling:touch;
-}
-*/
+
 /* ======= Header ======= */
 .header {
   padding-top: 30px;

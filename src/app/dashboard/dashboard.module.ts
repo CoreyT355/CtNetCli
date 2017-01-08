@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard.component';
 import { AccountComponent } from './account.component';
 import { ProfileComponent } from './profile.component';
 import { SettingsComponent } from './settings.component';
+import { BlogDashboardComponent } from './blog-dashboard.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { SettingsComponent } from './settings.component';
     DashboardComponent,
     AccountComponent,
     ProfileComponent,
-    SettingsComponent
+    SettingsComponent,
+    BlogDashboardComponent
   ]
 })
 export class DashModule { }
