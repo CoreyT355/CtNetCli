@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile.component';
 import { SettingsComponent } from './settings.component';
 import { BlogDashboardComponent } from './blog-dashboard.component';
 import { BlogDashboardRecentArticlesComponent } from './blog-dashboard-recent.component';
+import { BlogDashboardItemComponent } from './blog-dashboard-item.component';
 
 import { TruncatePipe } from '../pipes/truncate.pipe';
 
@@ -33,6 +34,7 @@ import { TruncatePipe } from '../pipes/truncate.pipe';
     SettingsComponent,
     BlogDashboardComponent,
     BlogDashboardRecentArticlesComponent,
+    BlogDashboardItemComponent,
     TruncatePipe
   ]
 })
