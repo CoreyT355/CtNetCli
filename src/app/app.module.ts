@@ -29,6 +29,7 @@ import { DashModule } from './dashboard/dashboard.module';
 import { BlogModule } from './blog/blog.module';
 import { firebaseConfig } from './firebaseProject';
 
+
 export const firebaseAuthConfig = {
   provider: AuthProviders.Password,
   method: AuthMethods.Password

@@ -6,6 +6,7 @@ import { AuthGuard } from '../auth/auth-guard.service';
 
 import { blogRouting } from './blog.routing';
 import { BlogComponent } from './blog.component';
+import { BlogService } from './blog.service';
 
 @NgModule({
     imports: [
@@ -20,7 +21,8 @@ import { BlogComponent } from './blog.component';
         BlogComponent
     ],
     providers: [
-        AuthGuard
+        AuthGuard,
+        BlogService
     ],
 })
 export class BlogModule { }
