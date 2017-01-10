@@ -2,6 +2,7 @@ import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { BlogComponent } from './blog.component';
+
 import { AuthGuard } from '../auth/auth-guard.service';
 
 const appRoutes: Routes = [
@@ -9,8 +10,7 @@ const appRoutes: Routes = [
     component: BlogComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', component: BlogComponent }
-    //   { path: 'profile', component: ProfileComponent },
+      { path: '', component: BlogComponent },
     //   { path: 'settings', component: SettingsComponent }
     ]
   },

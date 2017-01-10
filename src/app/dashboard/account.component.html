@@ -7,7 +7,7 @@
     </div>
     <div class="panel-body">
         <form #userData='ngForm' (ngSubmit)="changeUser(userData)">
-            <div class="row form-group">
+            <div class="row">
                 <div class="col-sm-12 ">
                     <label> Change Name
                                     <input type="text" class="form-control" name="displayName" (ngModel)="displayName" required>
@@ -31,7 +31,7 @@
     </div>
     <div class="panel-body">
         <form #emailData='ngForm' (ngSubmit)="changeEmail(emailData)">
-            <div class="row form-group">
+            <div class="row">
                 <div class="col-sm-12 ">
                     <label> Change Email
                                     <input type="email" class="form-control" name="email" (ngModel)="email" required>
@@ -50,7 +50,7 @@
     </div>
     <div class="panel-body">
         <form #passwordData='ngForm' (ngSubmit)="changePassword(passwordData)">
-            <div class="row form-group">
+            <div class="row">
                 <div class="col-sm-12 ">
                     <label> Old Password
                                     <input type="password" class="form-control" name="oldpassword" (ngModel)="oldpassword" required>

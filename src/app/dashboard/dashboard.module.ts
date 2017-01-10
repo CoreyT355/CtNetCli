@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { AuthGuard } from '../auth/auth-guard.service';
@@ -13,6 +13,7 @@ import { SettingsComponent } from './settings.component';
 import { BlogDashboardComponent } from './blog-dashboard.component';
 import { BlogDashboardRecentArticlesComponent } from './blog-dashboard-recent.component';
 import { BlogDashboardItemComponent } from './blog-dashboard-item.component';
+import { BlogItemAddComponent } from './blog-item-add.component';
 
 import { TruncatePipe } from '../pipes/truncate.pipe';
 
@@ -21,6 +22,7 @@ import { TruncatePipe } from '../pipes/truncate.pipe';
   imports: [
     dashboardRouting,
     FormsModule,
+    ReactiveFormsModule,
     CommonModule
   ],
   providers: [
@@ -35,6 +37,7 @@ import { TruncatePipe } from '../pipes/truncate.pipe';
     BlogDashboardComponent,
     BlogDashboardRecentArticlesComponent,
     BlogDashboardItemComponent,
+    BlogItemAddComponent,
     TruncatePipe
   ]
 })

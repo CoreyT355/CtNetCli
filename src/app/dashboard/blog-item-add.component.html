@@ -1,0 +1,41 @@
+<div class="page-header">
+    <h1>Add a Blog Post</h1>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">New Blog Post</h3>
+    </div>
+    <div class="panel-body">
+        <form [formGroup]="blogItemAdd" (ngSubmit)="submitForm(blogItemAdd.value)">
+            <div class="row form-group">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <label>Title</label>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" class="form-control" placeholder="title" [formControl]="blogItemAdd.controls['title']">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <label>Image URL</label>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" class="form-control" placeholder="image url" [formControl]="blogItemAdd.controls['imageUrl']">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <label>Post</label>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <textarea class="form-control" placeholder="post" [formControl]="blogItemAdd.controls['text']"></textarea>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
