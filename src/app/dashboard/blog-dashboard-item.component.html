@@ -4,3 +4,4 @@
 <td>{{article.dateModified | date:'yMdjm'}}</td>
 <td>{{article.author}}</td>
 <td [innerHtml]='article.text | truncate:40'></td>
+<td><button type="button" class="btn btn-danger btn-sm" (click)="deleteArticle(article.$key)"><i class="fa fa-trash fa-lg"></i></button></td>

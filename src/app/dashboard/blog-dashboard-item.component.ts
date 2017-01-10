@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { BlogService } from '../blog/blog.service';
+
 import { Article } from '../blog/article.model';
 
 @Component({
@@ -9,7 +11,11 @@ import { Article } from '../blog/article.model';
 })
 export class BlogDashboardItemComponent implements OnInit {
     article: Article;
-    constructor() { }
+    constructor(private blogService: BlogService) { }
+
+    deleteArticle(key: string): void {
+        this.blogService.deleteArticle(key);
+    }
 
     ngOnInit() { }
 }

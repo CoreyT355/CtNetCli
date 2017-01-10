@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { BlogService } from '../blog/blog.service';
 
 import { Article } from '../blog/article.model';
 
@@ -10,19 +12,19 @@ import { Article } from '../blog/article.model';
 export class BlogItemAddComponent implements OnInit {
     blogItemAdd: FormGroup;
     
-    constructor(fb: FormBuilder) {
+    constructor(fb: FormBuilder, private blogService: BlogService) {
         this.blogItemAdd = fb.group({
-            "title": "",
+            "title": [null, Validators.required],
             "imageUrl": "",
-            "text": "",
+            "text": [null, Validators.required],
             "author": "CoreyT",
-            "dateCreated": new Date(),
-            "dateModified": new Date()
+            "published": false,
+            "dateCreated": Date.now(),
+            "dateModified": Date.now()
         });
     }
     submitForm(value: any): void {
-        console.log("Reactive Form Data: ");
-        console.log(value);
+        this.blogService.addNewArticle(value);
     }
     ngOnInit() { }
 }

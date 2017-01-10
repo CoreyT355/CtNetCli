@@ -7,7 +7,7 @@
     </div>
     <div class="panel-body">
         <form [formGroup]="blogItemAdd" (ngSubmit)="submitForm(blogItemAdd.value)">
-            <div class="row form-group">
+            <div class="row form-group" [ngClass]="{'has-error':!blogItemAdd.controls['title'].valid && blogItemAdd.controls['title'].touched}">
                 <div class="col-sm-12 col-md-6 col-lg-6">
                     <label>Title</label>
                 </div>
@@ -23,7 +23,7 @@
                     <input type="text" class="form-control" placeholder="image url" [formControl]="blogItemAdd.controls['imageUrl']">
                 </div>
             </div>
-            <div class="row form-group">
+            <div class="row form-group" [ngClass]="{'has-error':!blogItemAdd.controls['text'].valid && blogItemAdd.controls['text'].touched}">
                 <div class="col-sm-12 col-md-6 col-lg-6">
                     <label>Post</label>
                 </div>
@@ -32,8 +32,27 @@
                 </div>
             </div>
             <div class="row form-group">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <label>Publish</label>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="radio-inline">
+                        <label>
+                            <input type="radio" name="published" value="true" [formControl]="blogItemAdd.controls['published']">
+                            True
+                        </label>
+                    </div>
+                    <div class="radio-inline">
+                        <label>
+                            <input type="radio" name="published" value="false" [formControl]="blogItemAdd.controls['published']">
+                            False
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
                 <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!blogItemAdd.valid">Submit</button>
                 </div>
             </div>
         </form>

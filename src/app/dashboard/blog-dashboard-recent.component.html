@@ -13,6 +13,7 @@
                 <td>Date Modified</td>
                 <td>Author</td>
                 <td>Text</td>
+                <td></td>
             </thead>
             <tr blog-dashboard-item [article]="article" *ngFor="let article of recentArticles | async" class="text-left"></tr>
         </table>
