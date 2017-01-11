@@ -17,13 +17,15 @@ import { BlogItemAddComponent } from './blog-item-add.component';
 
 import { TruncatePipe } from '../pipes/truncate.pipe';
 
+import { QuillEditorModule } from 'ng2-quill-editor';
 
 @NgModule({
   imports: [
     dashboardRouting,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    QuillEditorModule
   ],
   providers: [
     AuthGuard,

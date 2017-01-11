@@ -8,34 +8,35 @@
     <div class="panel-body">
         <form [formGroup]="blogItemAdd" (ngSubmit)="submitForm(blogItemAdd.value)">
             <div class="row form-group" [ngClass]="{'has-error':!blogItemAdd.controls['title'].valid && blogItemAdd.controls['title'].touched}">
-                <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="col-sm-12 col-md-2 col-lg-2">
                     <label>Title</label>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="col-sm-12 col-md-10 col-lg-10">
                     <input type="text" class="form-control" placeholder="title" [formControl]="blogItemAdd.controls['title']">
                 </div>
             </div>
             <div class="row form-group">
-                <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="col-sm-12 col-md-2 col-lg-2">
                     <label>Image URL</label>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="col-sm-12 col-md-10 col-lg-10">
                     <input type="text" class="form-control" placeholder="image url" [formControl]="blogItemAdd.controls['imageUrl']">
                 </div>
             </div>
             <div class="row form-group" [ngClass]="{'has-error':!blogItemAdd.controls['text'].valid && blogItemAdd.controls['text'].touched}">
-                <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="col-sm-12 col-md-2 col-lg-2">
                     <label>Post</label>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                    <textarea class="form-control" placeholder="post" [formControl]="blogItemAdd.controls['text']"></textarea>
+                <div class="col-sm-12 col-md-10 col-lg-10">
+                    <!--<textarea class="form-control" placeholder="post" [formControl]="blogItemAdd.controls['text']"></textarea>-->
+                    <quill-editor [formControl]="blogItemAdd.controls['text']" [config]="editorConfig"></quill-editor>
                 </div>
             </div>
             <div class="row form-group">
-                <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="col-sm-12 col-md-2 col-lg-2">
                     <label>Publish</label>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="col-sm-12 col-md-10 col-lg-10">
                     <div class="radio-inline">
                         <label>
                             <input type="radio" name="published" value="true" [formControl]="blogItemAdd.controls['published']">
