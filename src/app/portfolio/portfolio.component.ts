@@ -17,7 +17,7 @@ import { FirebaseListObservable } from 'angularfire2';
 })
 export class PortfolioComponent implements OnInit {
     name: string = "About Me";
-    skills: FirebaseListObservable<any>;
+    skills: FirebaseListObservable<any[]>;
     jobs: FirebaseListObservable<any>;
     error: any;
     constructor(http: Http, private params: ActivatedRoute, private jobsService: JobsService, private skillsService: SkillsService) {

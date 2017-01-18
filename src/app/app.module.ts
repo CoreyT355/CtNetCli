@@ -29,6 +29,7 @@ import { DashModule } from './dashboard/dashboard.module';
 import { BlogModule } from './blog/blog.module';
 import { firebaseConfig } from './firebaseProject';
 
+//var db = require('./firebase-data')('https://ctnet-ed473.firebaseio.com/', [ 'jobs', 'skills', 'articles', 'projects' ]);
 
 export const firebaseAuthConfig = {
   provider: AuthProviders.Password,

@@ -19,7 +19,8 @@ const appRoutes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'settings', component: SettingsComponent },
       { path: 'blog', component: BlogDashboardComponent },
-      { path: 'blog/add', component: BlogItemAddComponent }
+      { path: 'blog/add', component: BlogItemAddComponent },
+      { path: 'blog/edit/:id', component:BlogItemAddComponent }
     ]
   },
 ];

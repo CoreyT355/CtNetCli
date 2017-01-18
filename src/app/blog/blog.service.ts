@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from "@angular/http";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-import { AngularFire, FirebaseListObservable } from 'angularfire2'
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
 import { Article } from './article.model';
 
@@ -20,6 +20,9 @@ export class BlogService {
                 limitToFirst: 5
             }
         });
+    }
+    getArticle(key: string): FirebaseObjectObservable<Article> {
+        return this.af.database.object('/articles/:' + key);
     }
     addNewArticle(article: Article): string {
         var newId = this.articles.push(article).key;

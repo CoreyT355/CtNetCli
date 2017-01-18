@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
+import { Observable } from 'rxjs/Observable';
 
 import { BlogService } from '../blog/blog.service';
-
 import { Article } from '../blog/article.model';
 
 @Component({
@@ -11,7 +13,7 @@ import { Article } from '../blog/article.model';
 })
 export class BlogItemAddComponent implements OnInit {
     blogItemAdd: FormGroup;
-
+    keyToEdit: Observable<string>;
     public editorConfig = {
         theme: 'snow',
         placeholder: "post",
@@ -29,8 +31,14 @@ export class BlogItemAddComponent implements OnInit {
         }
     };
 
-    constructor(fb: FormBuilder, private blogService: BlogService) {
-        this.blogItemAdd = fb.group({
+    constructor(private fb: FormBuilder, private blogService: BlogService, private router: Router, private route: ActivatedRoute) {
+
+    }
+    submitForm(value: any): void {
+        this.blogService.addNewArticle(value);
+    }
+    ngOnInit(): void {
+        this.blogItemAdd = this.fb.group({
             "title": [null, Validators.required],
             "imageUrl": "",
             "text": [null, Validators.required],
@@ -39,9 +47,13 @@ export class BlogItemAddComponent implements OnInit {
             "dateCreated": Date.now(),
             "dateModified": Date.now()
         });
+        this.route.params
+            .switchMap((params: Params) => {
+                //console.log("id: " + params['id']);
+                return this.blogService.getArticle(params['id']);
+            })
+            .subscribe((blogService: any) => {
+                // update the form controls
+            });
     }
-    submitForm(value: any): void {
-        this.blogService.addNewArticle(value);
-    }
-    ngOnInit() { }
 }
