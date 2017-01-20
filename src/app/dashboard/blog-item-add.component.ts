@@ -14,6 +14,7 @@ import { Article } from '../blog/article.model';
 export class BlogItemAddComponent implements OnInit {
     blogItemAdd: FormGroup;
     keyToEdit: Observable<string>;
+    articleToEdit: Article;
     public editorConfig = {
         theme: 'snow',
         placeholder: "post",
@@ -47,13 +48,21 @@ export class BlogItemAddComponent implements OnInit {
             "dateCreated": Date.now(),
             "dateModified": Date.now()
         });
-        this.route.params
-            .switchMap((params: Params) => {
-                //console.log("id: " + params['id']);
-                return this.blogService.getArticle(params['id']);
-            })
-            .subscribe((blogService: any) => {
-                // update the form controls
-            });
+        // this.route.params
+        //     .switchMap((params: Params) => this.blogService.getArticle(params['id']))
+        //     .subscribe((blogService: any) => {
+        //         // update the form controls
+        //         this.blogItemAdd.setValue({
+        //             title: this.articleToEdit.title,
+        //             imageUrl: this.articleToEdit.imageUrl,
+        //             text: this.articleToEdit.text,
+        //             author: this.articleToEdit.author,
+        //             published: this.articleToEdit.published,
+        //             dateCreated: this.articleToEdit.dateCreated,
+        //             dateModified: Date.now()
+        //         });
+        //     });
+        this.blogService.getArticle(this.route.snapshot.params['id']).subscribe(article => this.articleToEdit = article);
+        console.log("Whatevs: " + this.articleToEdit);
     }
 }
