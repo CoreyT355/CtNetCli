@@ -14,6 +14,8 @@ import { BlogDashboardComponent } from './blog-dashboard.component';
 import { BlogDashboardRecentArticlesComponent } from './blog-dashboard-recent.component';
 import { BlogDashboardItemComponent } from './blog-dashboard-item.component';
 import { BlogItemAddComponent } from './blog-item-add.component';
+import { BlogItemEditComponent } from './blog-item-edit.component';
+import { BlogResolver } from '../blog/blog.resolver';
 
 import { TruncatePipe } from '../pipes/truncate.pipe';
 
@@ -29,7 +31,8 @@ import { QuillEditorModule } from 'ng2-quill-editor';
   ],
   providers: [
     AuthGuard,
-    BlogService
+    BlogService,
+    BlogResolver
   ],
   declarations: [
     DashboardComponent,
@@ -40,6 +43,7 @@ import { QuillEditorModule } from 'ng2-quill-editor';
     BlogDashboardRecentArticlesComponent,
     BlogDashboardItemComponent,
     BlogItemAddComponent,
+    BlogItemEditComponent,
     TruncatePipe
   ]
 })

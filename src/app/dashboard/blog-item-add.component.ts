@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import 'rxjs/add/operator/switchMap';
-import { Observable } from 'rxjs/Observable';
 
 import { BlogService } from '../blog/blog.service';
 import { Article } from '../blog/article.model';
@@ -13,7 +11,6 @@ import { Article } from '../blog/article.model';
 })
 export class BlogItemAddComponent implements OnInit {
     blogItemAdd: FormGroup;
-    keyToEdit: Observable<string>;
     articleToEdit: Article;
     public editorConfig = {
         theme: 'snow',
@@ -32,9 +29,7 @@ export class BlogItemAddComponent implements OnInit {
         }
     };
 
-    constructor(private fb: FormBuilder, private blogService: BlogService, private router: Router, private route: ActivatedRoute) {
-
-    }
+    constructor(private fb: FormBuilder, private blogService: BlogService, private router: Router, private route: ActivatedRoute) { }
     submitForm(value: any): void {
         this.blogService.addNewArticle(value);
     }
@@ -48,21 +43,5 @@ export class BlogItemAddComponent implements OnInit {
             "dateCreated": Date.now(),
             "dateModified": Date.now()
         });
-        // this.route.params
-        //     .switchMap((params: Params) => this.blogService.getArticle(params['id']))
-        //     .subscribe((blogService: any) => {
-        //         // update the form controls
-        //         this.blogItemAdd.setValue({
-        //             title: this.articleToEdit.title,
-        //             imageUrl: this.articleToEdit.imageUrl,
-        //             text: this.articleToEdit.text,
-        //             author: this.articleToEdit.author,
-        //             published: this.articleToEdit.published,
-        //             dateCreated: this.articleToEdit.dateCreated,
-        //             dateModified: Date.now()
-        //         });
-        //     });
-        this.blogService.getArticle(this.route.snapshot.params['id']).subscribe(article => this.articleToEdit = article);
-        console.log("Whatevs: " + this.articleToEdit);
     }
 }
