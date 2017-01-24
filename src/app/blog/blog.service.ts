@@ -24,6 +24,11 @@ export class BlogService {
     getArticle(key: string): Observable<Article> {
         console.log("Fetching article with key: " + key);
         let foundArticle = this.db.object('/articles/' + key).map(result => Article.fromJson(result)).do(console.log);
+        let subject = new Subject();
+        setTimeout(function() {
+            subject.next(foundArticle);
+            subject.complete();
+        }, 5);
         return foundArticle;
     }
     // getArticle(key: string): Observable<Article> {
