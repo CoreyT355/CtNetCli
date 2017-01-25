@@ -1,0 +1,61 @@
+<div class="page-header">
+    <h1>Edit Post</h1>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Edit Blog Post</h3>
+    </div>
+    <div class="panel-body">
+        <form [formGroup]="blogItemToEdit" (ngSubmit)="submitForm(blogItemToEdit.value)">
+            <div class="row form-group" [ngClass]="{'has-error':!blogItemToEdit.controls['title'].valid && blogItemToEdit.controls['title'].touched}">
+                <div class="col-sm-12 col-md-2 col-lg-2">
+                    <label>Title</label>
+                </div>
+                <div class="col-sm-12 col-md-10 col-lg-10">
+                    <input type="text" class="form-control" placeholder="title" [formControl]="blogItemToEdit.controls['title']">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-12 col-md-2 col-lg-2">
+                    <label>Image URL</label>
+                </div>
+                <div class="col-sm-12 col-md-10 col-lg-10">
+                    <input type="text" class="form-control" placeholder="image url" [formControl]="blogItemToEdit.controls['imageUrl']">
+                </div>
+            </div>
+            <div class="row form-group" [ngClass]="{'has-error':!blogItemToEdit.controls['text'].valid && blogItemToEdit.controls['text'].touched}">
+                <div class="col-sm-12 col-md-2 col-lg-2">
+                    <label>Post</label>
+                </div>
+                <div class="col-sm-12 col-md-10 col-lg-10">
+                    <!--<textarea class="form-control" placeholder="post" [formControl]="blogItemToEdit.controls['text']"></textarea>-->
+                    <quill-editor [formControl]="blogItemToEdit.controls['text']" [config]="editorConfig"></quill-editor>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-12 col-md-2 col-lg-2">
+                    <label>Publish</label>
+                </div>
+                <div class="col-sm-12 col-md-10 col-lg-10">
+                    <div class="radio-inline">
+                        <label>
+                            <input type="radio" name="published" value="true" [formControl]="blogItemToEdit.controls['published']">
+                            True
+                        </label>
+                    </div>
+                    <div class="radio-inline">
+                        <label>
+                            <input type="radio" name="published" value="false" [formControl]="blogItemToEdit.controls['published']">
+                            False
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                    <button type="submit" class="btn btn-primary" [disabled]="!blogItemToEdit.valid">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

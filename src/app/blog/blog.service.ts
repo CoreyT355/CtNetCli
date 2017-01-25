@@ -10,7 +10,7 @@ export class BlogService {
     firebaseDb: any;
     articles: FirebaseListObservable<Article[]>;
     article: Observable<Article>;
-    constructor(private db:AngularFireDatabase, private af: AngularFire, private http: Http) {
+    constructor(private db: AngularFireDatabase, private af: AngularFire, private http: Http) {
         this.articles = af.database.list("/articles");
     }
     getRecentArticles(): FirebaseListObservable<Article[]> {
@@ -25,11 +25,21 @@ export class BlogService {
         console.log("Fetching article with key: " + key);
         let foundArticle = this.db.object('/articles/' + key).map(result => Article.fromJson(result)).do(console.log);
         let subject = new Subject();
-        setTimeout(function() {
+        setTimeout(function () {
             subject.next(foundArticle);
             subject.complete();
         }, 5);
         return foundArticle;
+    }
+    getArticleById(key: string): Observable<Article> {
+        return this.db.list('articles', {
+            query: {
+                equalTo: key
+            }
+        })
+            .filter(results => results && results.length > 0)
+            .map(results => Article.fromJson(results[0]))
+            .do(console.log);
     }
     // getArticle(key: string): Observable<Article> {
     //     return this.http.get("https://ctnet-ed473.firebaseio.com/articles/" + key + ".json")
