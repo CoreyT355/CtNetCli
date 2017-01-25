@@ -6,7 +6,7 @@
         <h3 class="panel-title">Edit Blog Post</h3>
     </div>
     <div class="panel-body">
-        <form [formGroup]="blogItemToEdit" (ngSubmit)="submitForm(blogItemToEdit.value)">
+        <form [formGroup]="blogItemToEdit" (ngSubmit)="save(blogItemToEdit.value)">
             <div class="row form-group" [ngClass]="{'has-error':!blogItemToEdit.controls['title'].valid && blogItemToEdit.controls['title'].touched}">
                 <div class="col-sm-12 col-md-2 col-lg-2">
                     <label>Title</label>

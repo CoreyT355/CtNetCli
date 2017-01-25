@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Http } from "@angular/http";
 import { Observable, Subject } from 'rxjs/Rx';
-import { AngularFire, FirebaseListObservable, FirebaseObjectObservable, AngularFireDatabase } from 'angularfire2';
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable, AngularFireDatabase, FirebaseRef } from 'angularfire2';
 
 import { Article } from './article.model';
 
@@ -10,7 +10,8 @@ export class BlogService {
     firebaseDb: any;
     articles: FirebaseListObservable<Article[]>;
     article: Observable<Article>;
-    constructor(private db: AngularFireDatabase, private af: AngularFire, private http: Http) {
+    constructor(private db: AngularFireDatabase, private af: AngularFire, private http: Http, @Inject(FirebaseRef) fb) {
+        this.firebaseDb = fb.database().ref();
         this.articles = af.database.list("/articles");
     }
     getRecentArticles(): FirebaseListObservable<Article[]> {
@@ -48,6 +49,27 @@ export class BlogService {
     // }
     addNewArticle(article: Article): string {
         return this.articles.push(article).key;
+    }
+    saveArticle(articleKey: string, article): Observable<any> {
+        const articleToSave = Object.assign({}, article);
+        delete (articleToSave.$key);
+        let dataToSave = {};
+        dataToSave[`articles/${articleKey}`] = articleToSave;
+        return this.firebaseUpdate(dataToSave);
+    }
+    firebaseUpdate(dataToSave) {
+        const subject = new Subject();
+        this.firebaseDb.update(dataToSave)
+            .then(
+                val => {
+                    subject.next(val);
+                    subject.complete();
+                },
+                err => {
+                    subject.error(err);
+                    subject.complete();
+                });
+        return subject.asObservable();
     }
     deleteArticle(key: string): void {
         console.log("Deleting key, " + key);

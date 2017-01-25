@@ -49,4 +49,15 @@ export class BlogItemEditComponent implements OnInit {
             "dateModified": Date.now()
         });
     }
+
+    save(article) {
+        this.blogService
+            .saveArticle(this.articleToEdit.$key, article)
+            .subscribe(() => {
+                alert("article saved succesfully.");
+            },
+            err => alert(`error saving article ${err}`)
+            );
+
+    }
 }
