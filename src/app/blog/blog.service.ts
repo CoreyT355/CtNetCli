@@ -10,7 +10,9 @@ export class BlogService {
     firebaseDb: any;
     articles: FirebaseListObservable<Article[]>;
     article: Observable<Article>;
+    userName: string;
     constructor(private db: AngularFireDatabase, private af: AngularFire, private http: Http, @Inject(FirebaseRef) fb) {
+        this.af.auth.subscribe(auth => this.userName = auth.auth.displayName);
         this.firebaseDb = fb.database().ref();
         this.articles = af.database.list("/articles");
     }
@@ -38,15 +40,10 @@ export class BlogService {
                 equalTo: key
             }
         })
-            .filter(results => results && results.length > 0)
-            .map(results => Article.fromJson(results[0]))
-            .do(console.log);
+        .filter(results => results && results.length > 0)
+        .map(results => Article.fromJson(results[0]))
+        .do(console.log);
     }
-    // getArticle(key: string): Observable<Article> {
-    //     return this.http.get("https://ctnet-ed473.firebaseio.com/articles/" + key + ".json")
-    //         .map(this.extractData)
-    //         .catch(this.handleError);
-    // }
     addNewArticle(article: Article): string {
         return this.articles.push(article).key;
     }

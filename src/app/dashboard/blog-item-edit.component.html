@@ -28,7 +28,6 @@
                     <label>Post</label>
                 </div>
                 <div class="col-sm-12 col-md-10 col-lg-10">
-                    <!--<textarea class="form-control" placeholder="post" [formControl]="blogItemToEdit.controls['text']"></textarea>-->
                     <quill-editor [formControl]="blogItemToEdit.controls['text']" [config]="editorConfig"></quill-editor>
                 </div>
             </div>
@@ -53,7 +52,10 @@
             </div>
             <div class="row form-group">
                 <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-                    <button type="submit" class="btn btn-primary" [disabled]="!blogItemToEdit.valid">Submit</button>
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-default" [routerLink]="['/dashboard/blog']">Cancel</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!blogItemToEdit.valid">Submit</button>
+                    </div>
                 </div>
             </div>
         </form>
