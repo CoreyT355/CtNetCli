@@ -18,18 +18,12 @@ export class BlogService {
     }
     getAllArticles(): Observable<Article[]>{
         return this.af.database.list('/articles', {
-            query: {
-                orderByKey: true,
-                limitToFirst: 5,
-            }
+            query: { orderByKey: true, limitToFirst: 5 }
         }).map(_articles => _articles.filter(article => article.published == "true")).do(console.log);
     }
     getRecentArticles(): FirebaseListObservable<Article[]> {
         return this.af.database.list('/articles', {
-            query: {
-                orderByKey: true,
-                limitToFirst: 5
-            }
+            query: { orderByKey: true, limitToFirst: 5 }
         });
     }
     getArticle(key: string): Observable<Article> {
@@ -41,16 +35,6 @@ export class BlogService {
             subject.complete();
         }, 5);
         return foundArticle;
-    }
-    getArticleById(key: string): Observable<Article> {
-        return this.db.list('articles', {
-            query: {
-                equalTo: key
-            }
-        })
-        .filter(results => results && results.length > 0)
-        .map(results => Article.fromJson(results[0]))
-        .do(console.log);
     }
     addNewArticle(article: Article): string {
         return this.articles.push(article).key;
@@ -77,7 +61,7 @@ export class BlogService {
         return subject.asObservable();
     }
     deleteArticle(key: string): void {
-        console.log("Deleting key, " + key);
+        //console.log("Deleting key, " + key);
         this.articles.remove(key).then(_ => console.log("Deleted!"));
     }
 }
