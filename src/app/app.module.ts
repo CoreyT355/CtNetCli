@@ -24,6 +24,8 @@ import { SkillsListComponent } from './skills/skills-list.component';
 import { SkillItemComponent } from './skills/skill-item.component'
 import { SkillsService } from './skills/skills.service';
 
+import { PipesModule } from './pipes/pipes.module';
+
 import { AuthModule } from './auth/auth.module';
 import { DashModule } from './dashboard/dashboard.module';
 import { BlogModule } from './blog/blog.module';
@@ -64,13 +66,18 @@ export const firebaseAuthConfig = {
     AuthModule,
     DashModule,
     BlogModule,
-    CommonModule
+    CommonModule,
+    PipesModule
   ],
   providers: [
     ProjectsService,
     SkillsService,
     JobsService
   ],
-  bootstrap: [ AppComponent ]
+  exports: [
+  ],
+  bootstrap: [ 
+    AppComponent 
+  ]
 })
 export class AppModule { }

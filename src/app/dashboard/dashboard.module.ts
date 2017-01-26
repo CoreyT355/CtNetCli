@@ -17,7 +17,7 @@ import { BlogItemAddComponent } from './blog-item-add.component';
 import { BlogItemEditComponent } from './blog-item-edit.component';
 import { BlogResolver } from '../blog/blog.resolver';
 
-import { TruncatePipe } from '../pipes/truncate.pipe';
+import { PipesModule } from '../pipes/pipes.module';
 
 import { QuillEditorModule } from 'ng2-quill-editor';
 
@@ -27,7 +27,8 @@ import { QuillEditorModule } from 'ng2-quill-editor';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    QuillEditorModule
+    QuillEditorModule,
+    PipesModule
   ],
   providers: [
     AuthGuard,
@@ -43,8 +44,7 @@ import { QuillEditorModule } from 'ng2-quill-editor';
     BlogDashboardRecentArticlesComponent,
     BlogDashboardItemComponent,
     BlogItemAddComponent,
-    BlogItemEditComponent,
-    TruncatePipe
+    BlogItemEditComponent
   ]
 })
 export class DashModule { }

@@ -11,10 +11,10 @@
         </div>
         <div class="collapse navbar-collapse" id="nav">
             <ul class="nav navbar-nav">
-                <li><a [routerLink]="['/about/']" routerLinkActive="active">About</a></li>
+                <li><a [routerLink]="['/blog/']">Blog</a></li>
                 <li><a [routerLink]="['/projects/']" routerLinkActive="active">Projects</a></li>
                 <li><a [routerLink]="['/portfolio/']" routerLinkActive="active">Portfolio</a></li>
-                <!--<li><a href="#">Blog</a></li>-->
+                <li><a [routerLink]="['/about/']" routerLinkActive="active">About</a></li>
                 <li *ngIf="af.auth | async"><a [routerLink]="['/dashboard/profile']">Dashboard</a></li>
                 <li *ngIf="af.auth | async"><a (click)="logout()" title="Logout">Logout</a></li>
             </ul>

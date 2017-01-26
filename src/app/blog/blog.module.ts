@@ -7,18 +7,27 @@ import { AuthGuard } from '../auth/auth-guard.service';
 import { blogRouting } from './blog.routing';
 import { BlogComponent } from './blog.component';
 import { BlogService } from './blog.service';
+import { ArticleListComponent } from './article-list.component';
+import { ArticleItemPreviewComponent } from './article-item-preview.component';
+import { ArticleItemDetailComponent } from './article-item-detail.component';
+
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
     imports: [
         blogRouting,
         FormsModule,
-        CommonModule
+        CommonModule,
+        PipesModule
     ],
     exports: [
 
     ],
     declarations: [
-        BlogComponent
+        BlogComponent,
+        ArticleListComponent,
+        ArticleItemPreviewComponent,
+        ArticleItemDetailComponent
     ],
     providers: [
         AuthGuard,

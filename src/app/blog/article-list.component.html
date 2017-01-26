@@ -1,0 +1,4 @@
+<div *ngFor="let article of articles | async">
+    <article-item-preview [article]="article"></article-item-preview>
+</div>
+<div>There are no articles to display...yet.</div>

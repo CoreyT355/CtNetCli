@@ -10,8 +10,7 @@ const appRoutes: Routes = [
     component: BlogComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', component: BlogComponent },
-    //   { path: 'settings', component: SettingsComponent }
+      { path: '', component: BlogComponent }
     ]
   },
 ];

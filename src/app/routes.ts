@@ -13,7 +13,7 @@ import { SignupComponent } from './auth/signup.component';
 import { AuthGuard } from './auth/auth-guard.service';
 
 export const routes: Route[] = [
-    { path: '', pathMatch: 'full', component: AboutComponent },
+    { path: '', pathMatch: 'full', component: BlogComponent },
     { path: 'about', component: AboutComponent },
     { path: 'portfolio', component: PortfolioComponent },
     { path: 'projects', component: ProjectsComponent },
