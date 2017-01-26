@@ -30,13 +30,11 @@ export class BlogItemEditComponent implements OnInit {
     };
 
     constructor(private route: ActivatedRoute, private blogService: BlogService, private fb: FormBuilder) {
-        console.log("Param: " + route.snapshot.params['id']);
 
     }
 
     ngOnInit(): void {
         this.route.data
-            .do(console.log)
             .subscribe(data => this.articleToEdit = data['article']);
 
         this.blogItemToEdit = this.fb.group({

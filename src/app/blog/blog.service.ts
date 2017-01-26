@@ -22,7 +22,7 @@ export class BlogService {
                 orderByKey: true,
                 limitToFirst: 5,
             }
-        }).map(_articles => _articles.filter(article => article.published == true));
+        }).map(_articles => _articles.filter(article => article.published == "true")).do(console.log);
     }
     getRecentArticles(): FirebaseListObservable<Article[]> {
         return this.af.database.list('/articles', {
