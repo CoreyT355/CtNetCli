@@ -19,7 +19,7 @@ export class BlogService {
     getAllArticles(): Observable<Article[]>{
         return this.af.database.list('/articles', {
             query: { orderByKey: true, limitToFirst: 5 }
-        }).map(_articles => _articles.filter(article => article.published == "true")).do(console.log);
+        }).map(_articles => _articles.filter(article => article.published == "true"));
     }
     getRecentArticles(): FirebaseListObservable<Article[]> {
         return this.af.database.list('/articles', {
@@ -28,7 +28,7 @@ export class BlogService {
     }
     getArticle(key: string): Observable<Article> {
         console.log("Fetching article with key: " + key);
-        let foundArticle = this.db.object('/articles/' + key).map(result => Article.fromJson(result)).do(console.log);
+        let foundArticle = this.db.object('/articles/' + key).map(result => Article.fromJson(result));
         let subject = new Subject();
         setTimeout(function () {
             subject.next(foundArticle);

@@ -12,7 +12,6 @@ export class ProfileComponent {
 
     ngOnInit() {
         this.af.auth.subscribe(auth => {
-          console.log(auth);
           this.userData = auth;
         });
     }

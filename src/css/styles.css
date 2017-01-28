@@ -289,17 +289,12 @@ a.dotted-link:hover {
   line-height: 1.5;
 }
 .experience .item .title .place {
-  color: #999;
   font-weight: normal;
-}
-.experience .item .title .place a {
-  color: #999;
 }
 .experience .item .title .place a:hover {
   color: #666666;
 }
 .experience .item .title .year {
-  color: #999;
   font-weight: normal;
 }
 /* Git section */
@@ -409,12 +404,10 @@ a.dotted-link:hover {
 .education .item .university {
   font-family: "Lato", arial, sans-serif;
   font-size: 13px;
-  color: #999;
   font-weight: 600;
   padding-left: 25px;
 }
 .education .item .university .year {
-  color: #b0b7bf;
   font-weight: 500;
 }
 /* Language Section */
@@ -457,24 +450,12 @@ a.dotted-link:hover {
 .list ul li .fa {
   margin-right: 5px;
 }
-.list ul li a {
-  color: #778492;
-}
-.list ul li a:hover {
-  color: #49515a;
-}
 /* Credits */
 .credits ul li {
   margin-bottom: 10px;
 }
 .credits ul li .fa {
   margin-right: 5px;
-}
-.credits ul li a {
-  color: #778492;
-}
-.credits ul li a:hover {
-  color: #49515a;
 }
 .credits .btn {
   margin-bottom: 15px;
