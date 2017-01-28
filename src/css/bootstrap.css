@@ -6159,7 +6159,7 @@ textarea:focus {
   text-decoration: underline;
 }
 .progress {
-  height: 10px;
+  /*height: 10px;*/
   -webkit-box-shadow: none;
   box-shadow: none;
 }
