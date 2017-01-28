@@ -28,15 +28,10 @@ export class BlogItemEditComponent implements OnInit {
             ]
         }
     };
-
-    constructor(private route: ActivatedRoute, private blogService: BlogService, private fb: FormBuilder) {
-
-    }
-
+    constructor(private route: ActivatedRoute, private blogService: BlogService, private fb: FormBuilder) { }
     ngOnInit(): void {
         this.route.data
             .subscribe(data => this.articleToEdit = data['article']);
-
         this.blogItemToEdit = this.fb.group({
             "title": [this.articleToEdit.title, Validators.required],
             "imageUrl": this.articleToEdit.imageUrl,
@@ -47,7 +42,6 @@ export class BlogItemEditComponent implements OnInit {
             "dateModified": Date.now()
         });
     }
-
     save(article) {
         this.blogService
             .saveArticle(this.articleToEdit.$key, article)
@@ -56,6 +50,5 @@ export class BlogItemEditComponent implements OnInit {
             },
             err => alert(`error saving article ${err}`)
             );
-
     }
 }
