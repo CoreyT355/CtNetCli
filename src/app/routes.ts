@@ -6,6 +6,7 @@ import { AboutComponent } from './about/about.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { BlogComponent } from './blog/blog.component';
+import { FullListSkillsComponent } from './skills/full-list-skills.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './auth/login.component';
@@ -17,8 +18,8 @@ export const routes: Route[] = [
     { path: 'about', component: AboutComponent },
     { path: 'portfolio', component: PortfolioComponent },
     { path: 'projects', component: ProjectsComponent },
-    { path: 'blog', component: BlogComponent }
-    
+    { path: 'blog', component: BlogComponent },
+    { path: 'skills', component: FullListSkillsComponent }    
 ];
 
 export const AppRouting = RouterModule.forRoot(routes, { useHash: false });

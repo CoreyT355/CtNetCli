@@ -17,10 +17,11 @@ export class SkillAddComponent implements OnInit {
     ngOnInit(): void {
         this.skillToAdd = this.fb.group({
             "title": [null, Validators.required],
-            "level": [null],
-            "style": [null],
+            "level": ["", Validators.required],
+            "style": ["", Validators.required],
             "percentage": [null, Validators.required],
             "featured": false,
+            "order": [1, Validators.required],
             "dateCreated": Date.now(),
             "dateModified": Date.now()
         });

@@ -23,6 +23,7 @@ import { JobsService } from './jobs/jobs.service';
 import { SkillsListComponent } from './skills/skills-list.component';
 import { SkillItemComponent } from './skills/skill-item.component'
 import { SkillsService } from './skills/skills.service';
+import { FullListSkillsComponent } from './skills/full-list-skills.component';
 
 import { PipesModule } from './pipes/pipes.module';
 
@@ -54,7 +55,8 @@ export const firebaseAuthConfig = {
     JobRolesListComponent,
     JobRoleItemComponent,
     SkillsListComponent,
-    SkillItemComponent
+    SkillItemComponent,
+    FullListSkillsComponent
   ],
   imports: [
     BrowserModule,

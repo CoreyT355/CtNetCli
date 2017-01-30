@@ -30,14 +30,14 @@ export class SkillsService {
         }).map(_skills => _skills.filter(skill => skill.featured == true));
     }
     getSkill(key: string): Observable<Skill> {
-        console.log("Fetching article with key: " + key);
-        let foundArticle = this.db.object('/articles/' + key).map(result => Skill.fromJson(result));
+        console.log("Fetching skill with key: " + key);
+        let foundSkill = this.db.object('/skills/' + key).map(result => Skill.fromJson(result));
         let subject = new Subject();
         setTimeout(function () {
-            subject.next(foundArticle);
+            subject.next(foundSkill);
             subject.complete();
         }, 5);
-        return foundArticle;
+        return foundSkill;
     }
     addNewSkill(skill: Skill): string {
         return this.skills.push(skill).key;

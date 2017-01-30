@@ -1,26 +1,26 @@
 <div class="page-header">
-    <h1>Add a Skill</h1>
+    <h1>Edit a Skill</h1>
 </div>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">New Skill</h3>
+        <h3 class="panel-title">Edit Skill</h3>
     </div>
     <div class="panel-body">
-        <form [formGroup]="skillToAdd" (ngSubmit)="submitForm(skillToAdd.value)">
-            <div class="row form-group" [ngClass]="{'has-error':!skillToAdd.controls['title'].valid && skillToAdd.controls['title'].touched}">
+        <form [formGroup]="skillToEditForm" (ngSubmit)="save(skillToEditForm.value)">
+            <div class="row form-group" [ngClass]="{'has-error':!skillToEditForm.controls['title'].valid && skillToEditForm.controls['title'].touched}">
                 <div class="col-sm-12 col-md-2 col-lg-2">
                     <label>Title</label>
                 </div>
                 <div class="col-sm-12 col-md-10 col-lg-10">
-                    <input type="text" class="form-control" placeholder="title" [formControl]="skillToAdd.controls['title']">
+                    <input type="text" class="form-control" placeholder="title" [formControl]="skillToEditForm.controls['title']">
                 </div>
             </div>
-            <div class="row form-group" [ngClass]="{'has-error':!skillToAdd.controls['level'].valid && skillToAdd.controls['level'].touched}">
+            <div class="row form-group" [ngClass]="{'has-error':!skillToEditForm.controls['level'].valid && skillToEditForm.controls['level'].touched}">
                 <div class="col-sm-12 col-md-2 col-lg-2">
                     <label>Level</label>
                 </div>
                 <div class="col-sm-12 col-md-10 col-lg-10">
-                    <select class="form-control" [formControl]="skillToAdd.controls['level']">
+                    <select class="form-control" [formControl]="skillToEditForm.controls['level']">
                         <option value="" disabled>Select Proficiency Level</option>
                         <option value="Beginner">Beginner</option>
                         <option value="Intermediate">Intermediate</option>
@@ -29,28 +29,28 @@
                     </select>
                 </div>
             </div>
-            <div class="row form-group" [ngClass]="{'has-error':!skillToAdd.controls['style'].valid && skillToAdd.controls['style'].touched}">
+            <div class="row form-group" [ngClass]="{'has-error':!skillToEditForm.controls['style'].valid && skillToEditForm.controls['style'].touched}">
                 <div class="col-sm-12 col-md-2 col-lg-2">
                     <label>Style</label>
                 </div>
                 <div class="col-sm-12 col-md-10 col-lg-10">
-                    <select class="form-control" [formControl]="skillToAdd.controls['style']">
+                    <select class="form-control" [formControl]="skillToEditForm.controls['style']">
                         <option value="" disabled>Select Style</option>
-                        <option value="progress-bar-default">Default</option>
-                        <option value="progress-bar-primary">Primary</option>
-                        <option value="progress-bar-info">Info</option>
-                        <option value="progress-bar-warning">Warning</option>
-                        <option value="progress-bar-danger">Danger</option>
+                        <option class="text-default" value="progress-bar-default">Default</option>
+                        <option class="text-primary" value="progress-bar-primary">Primary</option>
+                        <option class="text-info" value="progress-bar-info">Info</option>
+                        <option class="text-warning" value="progress-bar-warning">Warning</option>
+                        <option class="text-danger" value="progress-bar-danger">Danger</option>
                     </select>
                 </div>
             </div>
-            <div class="row form-group" [ngClass]="{'has-error':!skillToAdd.controls['percentage'].valid && skillToAdd.controls['percentage'].touched}">
+            <div class="row form-group" [ngClass]="{'has-error':!skillToEditForm.controls['percentage'].valid && skillToEditForm.controls['percentage'].touched}">
                 <div class="col-sm-12 col-md-2 col-lg-2">
                     <label>Percentage</label>
                 </div>
                 <div class="col-sm-12 col-md-10 col-lg-10">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="percentage" [formControl]="skillToAdd.controls['percentage']">
+                        <input type="text" class="form-control" placeholder="percentage" [formControl]="skillToEditForm.controls['percentage']">
                         <i class="input-group-addon fa fa-percent"></i>
                     </div>
                 </div>
@@ -62,31 +62,31 @@
                 <div class="col-sm-12 col-md-10 col-lg-10">
                     <div class="radio-inline">
                         <label>
-                            <input type="radio" name="published" value="true" [formControl]="skillToAdd.controls['featured']">
+                            <input type="radio" name="published" value="true" [formControl]="skillToEditForm.controls['featured']">
                             True
                         </label>
                     </div>
                     <div class="radio-inline">
                         <label>
-                            <input type="radio" name="published" value="false" [formControl]="skillToAdd.controls['featured']">
+                            <input type="radio" name="published" value="false" [formControl]="skillToEditForm.controls['featured']">
                             False
                         </label>
                     </div>
                 </div>
             </div>
-            <div class="row form-group" [ngClass]="{'has-error':!skillToAdd.controls['order'].valid && skillToAdd.controls['order'].touched}">
+            <div class="row form-group" [ngClass]="{'has-error':!skillToEditForm.controls['order'].valid && skillToEditForm.controls['order'].touched}">
                 <div class="col-sm-12 col-md-2 col-lg-2">
                     <label>Sort Order</label>
                 </div>
                 <div class="col-sm-12 col-md-10 col-lg-10">
-                    <input type="number" class="form-control" placeholder="order" [formControl]="skillToAdd.controls['order']">
+                    <input type="number" class="form-control" placeholder="order" [formControl]="skillToEditForm.controls['order']">
                 </div>
             </div>
             <div class="row form-group">
                 <div class="col-sm-12 col-md-12 col-lg-12 text-center">
                     <div class="btn-group" role="group" aria-label="...">
-                        <button type="button" class="btn btn-default" [routerLink]="['/dashboard/skills']" (click)="confirm()">Cancel</button>
-                        <button type="submit" class="btn btn-primary" [disabled]="!skillToAdd.valid">Submit</button>
+                        <button type="button" class="btn btn-default" [routerLink]="['/dashboard/skills']">Cancel</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!skillToEditForm.valid">Submit</button>
                     </div>
                 </div>
             </div>
