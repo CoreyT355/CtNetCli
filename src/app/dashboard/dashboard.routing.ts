@@ -10,6 +10,7 @@ import { BlogItemAddComponent } from './blog-item-add.component';
 import { BlogItemEditComponent } from './blog-item-edit.component';
 import { BlogResolver } from '../blog/blog.resolver';
 import { DashboardSkillsComponent } from './dashboard-skills.component';
+import { SkillAddComponent } from './skill-add.component';
 
 import { AuthGuard } from '../auth/auth-guard.service';
 
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
       { path: 'blog', component: BlogDashboardComponent },
       { path: 'blog/add', component: BlogItemAddComponent },
       { path: 'blog/edit/:id', component:BlogItemEditComponent, resolve: { article: BlogResolver } },
-      { path: 'skills', component:DashboardSkillsComponent }
+      { path: 'skills', component:DashboardSkillsComponent },
+      { path: 'skills/add', component:SkillAddComponent }
     ]
   },
 ];

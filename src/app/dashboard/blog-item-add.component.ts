@@ -29,7 +29,7 @@ export class BlogItemAddComponent implements OnInit {
         }
     };
 
-    constructor(private fb: FormBuilder, private blogService: BlogService, private router: Router, private route: ActivatedRoute) { }
+    constructor(private fb: FormBuilder, private blogService: BlogService, private router: Router) { }
     submitForm(value: any): void {
         this.blogService.addNewArticle(value);
     }

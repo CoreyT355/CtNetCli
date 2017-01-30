@@ -8,6 +8,7 @@
   "angular-cli": {},
   "scripts": {
     "start": "ng serve",
+    "lite": "lite-server",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lint": "tslint \"src/**/*.ts\"",
