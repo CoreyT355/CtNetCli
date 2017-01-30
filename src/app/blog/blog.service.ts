@@ -19,7 +19,7 @@ export class BlogService {
     getAllArticles(): Observable<Article[]>{
         return this.af.database.list('/articles', {
             query: { orderByKey: true, limitToFirst: 5 }
-        }).map(_articles => _articles.filter(article => article.published == "true"));
+        }).map(_articles => _articles.filter(article => article.published == true));
     }
     getRecentArticles(): FirebaseListObservable<Article[]> {
         return this.af.database.list('/articles', {

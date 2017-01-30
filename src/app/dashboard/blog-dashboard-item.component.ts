@@ -13,13 +13,14 @@ export class BlogDashboardItemComponent implements OnInit {
     article: Article;
     constructor(private blogService: BlogService, private router: Router) { }
 
+    gotoViewArticle(key: string): void {
+        this.router.navigate(["/blog/", key]);
+    }
     gotoEditArticle(key: string): void {
         this.router.navigate(["/dashboard/blog/edit/", key]);
     }
-
     deleteArticle(key: string): void {
         this.blogService.deleteArticle(key);
     }
-
     ngOnInit() { }
 }

@@ -3,24 +3,28 @@
         "title": "C#",
         "level": "Expert",
         "style": "progress-bar-warning",
-        "percentage": 100 
+        "percentage": 100,
+        "featured": true
     },
     {
         "title": "ASP.Net MVC",
         "level": "Advanced",
         "style": "progress-bar-warning",
-        "percentage": 75 
+        "percentage": 75 ,
+        "featured": true
     },
     {
         "title": "AngularJS",
         "level": "Intermediate",
         "style": "progress-bar-warning",
-        "percentage": 50 
+        "percentage": 50,
+        "featured": true
     },
     {
         "title": "jQuery",
         "level": "Advanced",
         "style": "progress-bar-warning",
-        "percentage": 75 
+        "percentage": 75,
+        "featured": true
     }
 ]

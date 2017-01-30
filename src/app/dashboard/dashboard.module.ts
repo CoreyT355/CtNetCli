@@ -16,6 +16,10 @@ import { BlogDashboardItemComponent } from './blog-dashboard-item.component';
 import { BlogItemAddComponent } from './blog-item-add.component';
 import { BlogItemEditComponent } from './blog-item-edit.component';
 import { BlogResolver } from '../blog/blog.resolver';
+import { DashboardSkillsComponent } from './dashboard-skills.component';
+import { DashboardListSkillsComponent } from './dashboard-list-skills.component';
+import { DashboardItemSkillComponent } from './dashboard-item-skill.component';
+import { SkillsService } from '../skills/skills.service';
 
 import { PipesModule } from '../pipes/pipes.module';
 
@@ -33,7 +37,8 @@ import { QuillEditorModule } from 'ng2-quill-editor';
   providers: [
     AuthGuard,
     BlogService,
-    BlogResolver
+    BlogResolver,
+    SkillsService
   ],
   declarations: [
     DashboardComponent,
@@ -44,7 +49,10 @@ import { QuillEditorModule } from 'ng2-quill-editor';
     BlogDashboardRecentArticlesComponent,
     BlogDashboardItemComponent,
     BlogItemAddComponent,
-    BlogItemEditComponent
+    BlogItemEditComponent,
+    DashboardSkillsComponent,
+    DashboardListSkillsComponent,
+    DashboardItemSkillComponent
   ]
 })
 export class DashModule { }

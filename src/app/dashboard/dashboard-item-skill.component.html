@@ -1,0 +1,14 @@
+<td>{{skill.title}}</td>
+<td>{{skill.level}}</td>
+<td>{{skill.style}}</td>
+<td>{{skill.percentage}}</td>
+<td>{{skill.featured}}</td>
+<!--<td>{{skill.dateCreated | date:'yMdjm'}}</td>
+<td>{{skill.dateModified | date:'yMdjm'}}</td>-->
+<td>
+    <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-success btn-sm"><i class="fa fa-eye fa-lg"></i></button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="gotoEditSkill(skill.$key)"><i class="fa fa-edit fa-lg"></i></button>
+        <button type="button" class="btn btn-danger btn-sm" (click)="deleteSkill(skill.$key)"><i class="fa fa-trash fa-lg"></i></button>
+    </div>
+</td>

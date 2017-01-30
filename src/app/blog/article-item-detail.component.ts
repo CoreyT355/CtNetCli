@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Observable } from 'rxjs';
 
 import { Article } from './article.model';
+import { BlogService } from './blog.service';
 
 @Component({
     selector: 'article-item-detail',
@@ -8,8 +12,10 @@ import { Article } from './article.model';
     templateUrl: './article-item-detail.component.html'
 })
 export class ArticleItemDetailComponent implements OnInit {
-    article: Article;
-    constructor() { }
+    article: Observable<Article>;
+    constructor(private route: ActivatedRoute, private blogService: BlogService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.article = this.blogService.getArticle(this.route.snapshot.params['id']);
+     }
 }
