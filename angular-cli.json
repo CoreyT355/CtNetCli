@@ -20,7 +20,8 @@
       "styles": [
         "css/styles.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
-        "../src/css/bootstrap.css"
+        "../src/css/bootstrap.css",
+        "../node_modules/toastr-ng2/toastr.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",

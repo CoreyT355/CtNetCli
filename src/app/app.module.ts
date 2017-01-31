@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
 import { AngularFireModule, FIREBASE_PROVIDERS, AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
+import { ToastrModule } from 'toastr-ng2';
 
 import { AppRouting } from "./routes";
 import { AppComponent } from './app.component';
@@ -69,7 +70,8 @@ export const firebaseAuthConfig = {
     DashModule,
     BlogModule,
     CommonModule,
-    PipesModule
+    PipesModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     ProjectsService,

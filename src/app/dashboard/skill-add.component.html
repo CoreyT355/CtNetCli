@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-sm-12 col-md-10 col-lg-10">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="percentage" [formControl]="skillToAdd.controls['percentage']">
+                        <input type="number" step="5" min="0" max="100" class="form-control" placeholder="percentage" [formControl]="skillToAdd.controls['percentage']">
                         <i class="input-group-addon fa fa-percent"></i>
                     </div>
                 </div>
@@ -79,14 +79,14 @@
                     <label>Sort Order</label>
                 </div>
                 <div class="col-sm-12 col-md-10 col-lg-10">
-                    <input type="number" class="form-control" placeholder="order" [formControl]="skillToAdd.controls['order']">
+                    <input type="number" min="0" max="100" class="form-control" placeholder="order" [formControl]="skillToAdd.controls['order']">
                 </div>
             </div>
             <div class="row form-group">
                 <div class="col-sm-12 col-md-12 col-lg-12 text-center">
                     <div class="btn-group" role="group" aria-label="...">
                         <button type="button" class="btn btn-default" [routerLink]="['/dashboard/skills']" (click)="confirm()">Cancel</button>
-                        <button type="submit" class="btn btn-primary" [disabled]="!skillToAdd.valid">Submit</button>
+                        <button type="submit" class="btn btn-info" [disabled]="!skillToAdd.valid">Submit</button>
                     </div>
                 </div>
             </div>

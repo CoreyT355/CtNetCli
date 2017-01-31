@@ -40,7 +40,15 @@ export class SkillsService {
         return foundSkill;
     }
     addNewSkill(skill: Skill): string {
-        return this.skills.push(skill).key;
+        return this.skills.push(skill)
+            .then(resolve => {
+                console.log('all good');
+            }, reject => {
+                console.log('error');
+            })
+            .catch(reject => {
+                console.log('catch');
+            });
     }
     saveSkill(skillKey: string, skill): Observable<any> {
         const skillToSave = Object.assign({}, skill);

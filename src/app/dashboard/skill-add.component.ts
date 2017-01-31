@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'toastr-ng2';
 
 import { Skill } from '../skills/skill.model';
 import { SkillsService } from '../skills/skills.service';
@@ -10,9 +11,9 @@ import { SkillsService } from '../skills/skills.service';
 })
 export class SkillAddComponent implements OnInit {
     skillToAdd: FormGroup;
-    constructor(private fb: FormBuilder, private skillService: SkillsService) { }
+    constructor(private fb: FormBuilder, private skillService: SkillsService, private toastr: ToastrService) { }
     submitForm(value: any): void {
-        this.skillService.addNewSkill(value);
+        let test = this.skillService.addNewSkill(value);
     }
     ngOnInit(): void {
         this.skillToAdd = this.fb.group({
