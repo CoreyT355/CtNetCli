@@ -39,7 +39,7 @@ export class SkillsService {
         }, 5);
         return foundSkill;
     }
-    addNewSkill(skill: Skill): string {
+    addNewSkill(skill: Skill): Observable<any> {
         return this.skills.push(skill)
             .then(resolve => {
                 console.log('all good');

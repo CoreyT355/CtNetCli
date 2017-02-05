@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ToastrService } from 'toastr-ng2';
 
 import { BlogService } from '../blog/blog.service';
 import { Article } from '../blog/article.model';
@@ -29,10 +30,7 @@ export class BlogItemAddComponent implements OnInit {
         }
     };
 
-    constructor(private fb: FormBuilder, private blogService: BlogService, private router: Router) { }
-    submitForm(value: any): void {
-        this.blogService.addNewArticle(value);
-    }
+    constructor(private fb: FormBuilder, private blogService: BlogService, private router: Router, private toastr: ToastrService) { }
     ngOnInit(): void {
         this.blogItemAdd = this.fb.group({
             "title": [null, Validators.required],
@@ -43,5 +41,14 @@ export class BlogItemAddComponent implements OnInit {
             "dateCreated": Date.now(),
             "dateModified": Date.now()
         });
+    }
+    submitForm(value: any): void {
+        this.blogService.addNewArticle(value)
+            .subscribe(() => {
+                this.toastr.success('Successfully saved article.', 'Success');
+                this.router.navigateByUrl('dashboard/blog');
+            },
+            err => this.toastr.error(`Error adding article: ${err}`, "Uh oh")
+            );
     }
 }

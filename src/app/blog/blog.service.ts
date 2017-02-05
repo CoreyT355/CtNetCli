@@ -16,7 +16,7 @@ export class BlogService {
         this.firebaseDb = fb.database().ref();
         this.articles = af.database.list("/articles");
     }
-    getAllArticles(): Observable<Article[]>{
+    getAllArticles(): Observable<Article[]> {
         return this.af.database.list('/articles', {
             query: { orderByKey: true, limitToFirst: 5 }
         }).map(_articles => _articles.filter(article => article.published == true));
@@ -36,8 +36,16 @@ export class BlogService {
         }, 5);
         return foundArticle;
     }
-    addNewArticle(article: Article): string {
-        return this.articles.push(article).key;
+    addNewArticle(article: Article): Observable<any> {
+        return this.articles.push(article)
+            .then(resolve => {
+                console.log('all good');
+            }, reject => {
+                console.log('error');
+            })
+            .catch(reject => {
+                console.log('catch');
+            });
     }
     saveArticle(articleKey: string, article): Observable<any> {
         const articleToSave = Object.assign({}, article);
@@ -50,14 +58,14 @@ export class BlogService {
         const subject = new Subject();
         this.firebaseDb.update(dataToSave)
             .then(
-                val => {
-                    subject.next(val);
-                    subject.complete();
-                },
-                err => {
-                    subject.error(err);
-                    subject.complete();
-                });
+            val => {
+                subject.next(val);
+                subject.complete();
+            },
+            err => {
+                subject.error(err);
+                subject.complete();
+            });
         return subject.asObservable();
     }
     deleteArticle(key: string): void {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'toastr-ng2';
 
 import { Skill } from '../skills/skill.model';
 import { SkillsService } from '../skills/skills.service';
@@ -12,7 +13,7 @@ import { SkillsService } from '../skills/skills.service';
 export class SkillEditComponent implements OnInit {
     skillToEditForm: FormGroup;
     skillToEdit: Skill;
-    constructor(private route: ActivatedRoute, private fb: FormBuilder, private skillService: SkillsService) { }
+    constructor(private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private skillService: SkillsService, private toastr: ToastrService) { }
 
     ngOnInit(): void {
         this.route.data
@@ -32,9 +33,10 @@ export class SkillEditComponent implements OnInit {
         this.skillService
             .saveSkill(this.skillToEdit.$key, skill)
             .subscribe(() => {
-                alert("skill saved succesfully.");
+                this.toastr.success('Successfully saved skill.', 'Success');
+                this.router.navigateByUrl('dashboard/skills');
             },
-            err => alert(`error saving skill ${err}`)
+            err => this.toastr.error(`Error adding skill: ${err}`, "Uh oh")
             );
     }
 }

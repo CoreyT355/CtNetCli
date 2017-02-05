@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'toastr-ng2';
 
 import { Article } from '../blog/article.model';
 import { BlogService } from '../blog/blog.service';
@@ -28,7 +29,7 @@ export class BlogItemEditComponent implements OnInit {
             ]
         }
     };
-    constructor(private route: ActivatedRoute, private blogService: BlogService, private fb: FormBuilder) { }
+    constructor(private route: ActivatedRoute, private router: Router, private blogService: BlogService, private fb: FormBuilder, private toastr: ToastrService) { }
     ngOnInit(): void {
         this.route.data
             .subscribe(data => this.articleToEdit = data['article']);
@@ -46,9 +47,10 @@ export class BlogItemEditComponent implements OnInit {
         this.blogService
             .saveArticle(this.articleToEdit.$key, article)
             .subscribe(() => {
-                alert("article saved succesfully.");
+                this.toastr.success('Successfully saved article.', 'Success');
+                this.router.navigateByUrl('dashboard/blog');
             },
-            err => alert(`error saving article ${err}`)
+            err => this.toastr.error(`Error adding article: ${err}`, "Uh oh")
             );
     }
 }

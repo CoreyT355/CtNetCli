@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'toastr-ng2';
 
 import { Skill } from '../skills/skill.model';
@@ -11,10 +12,7 @@ import { SkillsService } from '../skills/skills.service';
 })
 export class SkillAddComponent implements OnInit {
     skillToAdd: FormGroup;
-    constructor(private fb: FormBuilder, private skillService: SkillsService, private toastr: ToastrService) { }
-    submitForm(value: any): void {
-        let test = this.skillService.addNewSkill(value);
-    }
+    constructor(private router: Router, private fb: FormBuilder, private skillService: SkillsService, private toastr: ToastrService) { }
     ngOnInit(): void {
         this.skillToAdd = this.fb.group({
             "title": [null, Validators.required],
@@ -26,5 +24,14 @@ export class SkillAddComponent implements OnInit {
             "dateCreated": Date.now(),
             "dateModified": Date.now()
         });
+    }
+    submitForm(value: any): void {
+        let test = this.skillService.addNewSkill(value)
+            .subscribe(() => {
+                this.toastr.success('Successfully saved skill.', 'Success');
+                this.router.navigateByUrl('dashboard/skills');
+            },
+            err => this.toastr.error('Error adding skill: ${err}', "Uh oh")
+            );
     }
 }

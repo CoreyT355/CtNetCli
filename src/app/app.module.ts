@@ -71,7 +71,7 @@ export const firebaseAuthConfig = {
     BlogModule,
     CommonModule,
     PipesModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({ preventDuplicates: true, progressBar: true, autoDismiss: true, maxOpened: 3})
   ],
   providers: [
     ProjectsService,
