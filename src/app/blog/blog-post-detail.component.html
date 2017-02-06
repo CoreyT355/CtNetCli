@@ -1,0 +1,7 @@
+<div class="row">
+    <div class="blog-post">
+        <h2 class="blog-post-title">{{blogpost.title}}</h2>
+        <p class="blog-post-meta">{{blogpost.dateCreated | date:'yMdjm'}} by <a href="#">{{blogpost.author}}</a></p>
+        <div [innerHtml]="blogpost.text"></div>
+    </div>
+</div>

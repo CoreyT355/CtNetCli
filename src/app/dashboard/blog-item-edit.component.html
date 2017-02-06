@@ -6,13 +6,13 @@
         <h3 class="panel-title">Edit Blog Post</h3>
     </div>
     <div class="panel-body">
-        <form [formGroup]="blogItemToEdit" (ngSubmit)="save(blogItemToEdit.value)">
-            <div class="row form-group" [ngClass]="{'has-error':!blogItemToEdit.controls['title'].valid && blogItemToEdit.controls['title'].touched}">
+        <form [formGroup]="blogPostForm" (ngSubmit)="save(blogPostForm.value)">
+            <div class="row form-group" [ngClass]="{'has-error':!blogPostForm.controls['title'].valid && blogPostForm.controls['title'].touched}">
                 <div class="col-sm-12 col-md-2 col-lg-2">
                     <label>Title</label>
                 </div>
                 <div class="col-sm-12 col-md-10 col-lg-10">
-                    <input type="text" class="form-control" placeholder="title" [formControl]="blogItemToEdit.controls['title']">
+                    <input type="text" class="form-control" placeholder="title" [formControl]="blogPostForm.controls['title']">
                 </div>
             </div>
             <div class="row form-group">
@@ -20,15 +20,15 @@
                     <label>Image URL</label>
                 </div>
                 <div class="col-sm-12 col-md-10 col-lg-10">
-                    <input type="text" class="form-control" placeholder="image url" [formControl]="blogItemToEdit.controls['imageUrl']">
+                    <input type="text" class="form-control" placeholder="image url" [formControl]="blogPostForm.controls['imageUrl']">
                 </div>
             </div>
-            <div class="row form-group" [ngClass]="{'has-error':!blogItemToEdit.controls['text'].valid && blogItemToEdit.controls['text'].touched}">
+            <div class="row form-group" [ngClass]="{'has-error':!blogPostForm.controls['text'].valid && blogPostForm.controls['text'].touched}">
                 <div class="col-sm-12 col-md-2 col-lg-2">
                     <label>Post</label>
                 </div>
                 <div class="col-sm-12 col-md-10 col-lg-10">
-                    <quill-editor [formControl]="blogItemToEdit.controls['text']" [config]="editorConfig"></quill-editor>
+                    <quill-editor [formControl]="blogPostForm.controls['text']" [config]="editorConfig"></quill-editor>
                 </div>
             </div>
             <div class="row form-group">
@@ -38,13 +38,13 @@
                 <div class="col-sm-12 col-md-10 col-lg-10">
                     <div class="radio-inline">
                         <label>
-                            <input type="radio" name="published" value="true" [formControl]="blogItemToEdit.controls['published']">
+                            <input type="radio" name="published" value="true" [formControl]="blogPostForm.controls['published']">
                             True
                         </label>
                     </div>
                     <div class="radio-inline">
                         <label>
-                            <input type="radio" name="published" value="false" [formControl]="blogItemToEdit.controls['published']">
+                            <input type="radio" name="published" value="false" [formControl]="blogPostForm.controls['published']">
                             False
                         </label>
                     </div>
@@ -54,7 +54,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-12 text-center">
                     <div class="btn-group" role="group" aria-label="...">
                         <button type="button" class="btn btn-default" [routerLink]="['/dashboard/blog']">Cancel</button>
-                        <button type="submit" class="btn btn-primary" [disabled]="!blogItemToEdit.valid">Submit</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!blogPostForm.valid">Submit</button>
                     </div>
                 </div>
             </div>

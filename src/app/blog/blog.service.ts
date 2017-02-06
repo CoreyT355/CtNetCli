@@ -3,41 +3,41 @@ import { Http } from "@angular/http";
 import { Observable, Subject } from 'rxjs/Rx';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable, AngularFireDatabase, FirebaseRef } from 'angularfire2';
 
-import { Article } from './article.model';
+import { BlogPost } from './blog-post.model';
 
 @Injectable()
 export class BlogService {
     firebaseDb: any;
-    articles: FirebaseListObservable<Article[]>;
-    article: Observable<Article>;
+    blogPosts: FirebaseListObservable<BlogPost[]>;
+    blogPost: Observable<BlogPost>;
     userName: string;
     constructor(private db: AngularFireDatabase, private af: AngularFire, private http: Http, @Inject(FirebaseRef) fb) {
         this.af.auth.subscribe(auth => this.userName = auth.auth.displayName);
         this.firebaseDb = fb.database().ref();
-        this.articles = af.database.list("/articles");
+        this.blogPosts = af.database.list("/blogposts");
     }
-    getAllArticles(): Observable<Article[]> {
-        return this.af.database.list('/articles', {
+    getAllBlogPosts(): Observable<BlogPost[]> {
+        return this.af.database.list('/blogposts', {
             query: { orderByKey: true, limitToFirst: 5 }
-        }).map(_articles => _articles.filter(article => article.published == true));
+        }).map(_blogPost => _blogPost.filter(blogPost => blogPost.published == true));
     }
-    getRecentArticles(): FirebaseListObservable<Article[]> {
-        return this.af.database.list('/articles', {
+    getRecentBlogPostss(): FirebaseListObservable<BlogPost[]> {
+        return this.af.database.list('/blogposts', {
             query: { orderByKey: true, limitToFirst: 5 }
         });
     }
-    getArticle(key: string): Observable<Article> {
-        console.log("Fetching article with key: " + key);
-        let foundArticle = this.db.object('/articles/' + key).map(result => Article.fromJson(result));
+    getBlogPost(key: string): Observable<BlogPost> {
+        console.log("Fetching blog post with key: " + key);
+        let foundBlogPost = this.db.object('/blogposts/' + key).map(result => BlogPost.fromJson(result));
         let subject = new Subject();
         setTimeout(function () {
-            subject.next(foundArticle);
+            subject.next(foundBlogPost);
             subject.complete();
         }, 5);
-        return foundArticle;
+        return foundBlogPost;
     }
-    addNewArticle(article: Article): Observable<any> {
-        return this.articles.push(article)
+    addNewBlogPost(blogPost: BlogPost): Observable<any> {
+        return this.blogPosts.push(blogPost)
             .then(resolve => {
                 console.log('all good');
             }, reject => {
@@ -47,11 +47,11 @@ export class BlogService {
                 console.log('catch');
             });
     }
-    saveArticle(articleKey: string, article): Observable<any> {
-        const articleToSave = Object.assign({}, article);
-        delete (articleToSave.$key);
+    saveBlogPost(blogPostKey: string, blogPost): Observable<any> {
+        const blogPostToSave = Object.assign({}, blogPost);
+        delete (blogPostToSave.$key);
         let dataToSave = {};
-        dataToSave[`articles/${articleKey}`] = articleToSave;
+        dataToSave[`blogpost/${blogPostKey}`] = blogPostToSave;
         return this.firebaseUpdate(dataToSave);
     }
     firebaseUpdate(dataToSave) {
@@ -68,8 +68,8 @@ export class BlogService {
             });
         return subject.asObservable();
     }
-    deleteArticle(key: string): void {
+    deleteBlogPost(key: string): void {
         //console.log("Deleting key, " + key);
-        this.articles.remove(key).then(_ => console.log("Deleted!"));
+        this.blogPosts.remove(key).then(_ => console.log("Deleted!"));
     }
 }

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'toastr-ng2';
 
-import { Article } from '../blog/article.model';
+import { BlogPost } from '../blog/blog-post.model';
 import { BlogService } from '../blog/blog.service';
 
 @Component({
@@ -11,8 +11,8 @@ import { BlogService } from '../blog/blog.service';
     templateUrl: './blog-item-edit.component.html'
 })
 export class BlogItemEditComponent implements OnInit {
-    blogItemToEdit: FormGroup;
-    articleToEdit: Article;
+    blogPostForm: FormGroup;
+    blogPostToEdit: BlogPost;
     public editorConfig = {
         theme: 'snow',
         placeholder: "post",
@@ -32,25 +32,25 @@ export class BlogItemEditComponent implements OnInit {
     constructor(private route: ActivatedRoute, private router: Router, private blogService: BlogService, private fb: FormBuilder, private toastr: ToastrService) { }
     ngOnInit(): void {
         this.route.data
-            .subscribe(data => this.articleToEdit = data['article']);
-        this.blogItemToEdit = this.fb.group({
-            "title": [this.articleToEdit.title, Validators.required],
-            "imageUrl": this.articleToEdit.imageUrl,
-            "text": [this.articleToEdit.text, Validators.required],
-            "author": this.articleToEdit.author,
-            "published": this.articleToEdit.published,
-            "dateCreated": this.articleToEdit.dateCreated,
+            .subscribe(data => this.blogPostToEdit = data['blogPost']);
+        this.blogPostForm = this.fb.group({
+            "title": [this.blogPostToEdit.title, Validators.required],
+            "imageUrl": this.blogPostToEdit.imageUrl,
+            "text": [this.blogPostToEdit.text, Validators.required],
+            "author": this.blogPostToEdit.author,
+            "published": this.blogPostToEdit.published,
+            "dateCreated": this.blogPostToEdit.dateCreated,
             "dateModified": Date.now()
         });
     }
-    save(article) {
+    save(blogPost) {
         this.blogService
-            .saveArticle(this.articleToEdit.$key, article)
+            .saveBlogPost(this.blogPostToEdit.$key, blogPost)
             .subscribe(() => {
-                this.toastr.success('Successfully saved article.', 'Success');
+                this.toastr.success('Successfully saved blog post.', 'Success');
                 this.router.navigateByUrl('dashboard/blog');
             },
-            err => this.toastr.error(`Error adding article: ${err}`, "Uh oh")
+            err => this.toastr.error(`Error adding blog post: ${err}`, "Uh oh")
             );
     }
 }

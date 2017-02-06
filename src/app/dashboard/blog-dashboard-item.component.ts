@@ -2,25 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { BlogService } from '../blog/blog.service';
-import { Article } from '../blog/article.model';
+import { BlogPost } from '../blog/blog-post.model';
 
 @Component({
     selector: '[blog-dashboard-item]',
-    inputs: ['article'],
+    inputs: ['blogPost'],
     templateUrl: './blog-dashboard-item.component.html'
 })
 export class BlogDashboardItemComponent implements OnInit {
-    article: Article;
+    blogPost: BlogPost;
     constructor(private blogService: BlogService, private router: Router) { }
 
-    gotoViewArticle(key: string): void {
+    gotoViewBlogPost(key: string): void {
         this.router.navigate(["/blog/", key]);
     }
-    gotoEditArticle(key: string): void {
+    gotoEditBlogPost(key: string): void {
         this.router.navigate(["/dashboard/blog/edit/", key]);
     }
-    deleteArticle(key: string): void {
-        this.blogService.deleteArticle(key);
+    deleteBlogPost(key: string): void {
+        this.blogService.deleteBlogPost(key);
     }
     ngOnInit() { }
 }

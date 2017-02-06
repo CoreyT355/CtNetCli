@@ -1,12 +1,12 @@
-<td>{{article.title}}</td>
-<td>{{article.dateCreated | date:'yMdjm'}}</td>
-<td>{{article.dateModified | date:'yMdjm'}}</td>
-<td>{{article.author}}</td>
-<td [innerHtml]='article.text | truncate:40'></td>
+<td>{{blogPost.title}}</td>
+<td>{{blogPost.dateCreated | date:'yMdjm'}}</td>
+<td>{{blogPost.dateModified | date:'yMdjm'}}</td>
+<td>{{blogPost.author}}</td>
+<td [innerHtml]='blogPost.text | truncate:40'></td>
 <td>
     <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-success btn-sm" (click)="gotoViewArticle(article.$key)"><i class="fa fa-eye fa-lg"></i></button>
-        <button type="button" class="btn btn-primary btn-sm" (click)="gotoEditArticle(article.$key)"><i class="fa fa-edit fa-lg"></i></button>
-        <button type="button" class="btn btn-danger btn-sm" (click)="deleteArticle(article.$key)"><i class="fa fa-trash fa-lg"></i></button>
+        <button type="button" class="btn btn-success btn-sm" (click)="gotoViewBlogPost(blogPost.$key)"><i class="fa fa-eye fa-lg"></i></button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="gotoEditBlogPost(blogPost.$key)"><i class="fa fa-edit fa-lg"></i></button>
+        <button type="button" class="btn btn-danger btn-sm" (click)="deleteBlogPost(blogPost.$key)"><i class="fa fa-trash fa-lg"></i></button>
     </div>
 </td>

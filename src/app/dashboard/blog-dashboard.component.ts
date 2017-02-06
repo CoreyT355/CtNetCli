@@ -2,21 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseListObservable } from 'angularfire2';
 
 import { BlogService } from '../blog/blog.service';
-import { Article } from '../blog/article.model';
+import { BlogPost } from '../blog/blog-post.model';
 
 @Component({
     selector: 'blog-dashboard',
     templateUrl: './blog-dashboard.component.html'
 })
 export class BlogDashboardComponent implements OnInit {
-    recentArticles: FirebaseListObservable<Article[]>;
-
+    recentBlogPosts: FirebaseListObservable<BlogPost[]>;
     constructor(private blogService: BlogService) { }
-    
-    getRecentArticles(): void {
-        this.recentArticles = this.blogService.getRecentArticles();
+    getRecentBlogPosts(): void {
+        this.recentBlogPosts = this.blogService.getRecentBlogPostss();
     }
     ngOnInit(): void {
-        this.getRecentArticles();
+        this.getRecentBlogPosts();
      }
 }

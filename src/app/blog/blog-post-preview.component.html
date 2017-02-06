@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-8">
+        <div class="blog-post">
+            <h2 class="blog-post-title">{{blogPost.title}}</h2>
+            <p class="blog-post-meta">{{blogPost.dateCreated | date:'yMdjm'}} by <a href="#">{{blogPost.author}}</a></p>
+            <div [innerHtml]="blogPost.text | truncate: 250"></div>
+        </div>
+    </div>
+</div>

@@ -1,15 +1,26 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Current projects</h3>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="primary col-md-8 col-sm-12 col-xs-12">
-                <section class="latest section">
-                    <ctnet-projects-list [projects]="projects"></ctnet-projects-list>
-                </section>
+<div class="container">
+    <div class="col-sm-12 col-md-6 col-lg-8">
+        <!--<div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Current projects</h3>
             </div>
-            <!--<div class="secondary col-md-4 col-sm-12 col-xs-12"></div>-->
+            <div class="panel-body">
+                <div class="row">
+                    <div class="primary col-md-8 col-sm-12 col-xs-12">
+                        <section class="latest section">
+                            <ctnet-projects-list [projects]="projects"></ctnet-projects-list>
+                        </section>
+                    </div>
+                </div>
+            </div>-->
+        <div class="page-header">
+            <h1>Current projects <small>things I am working on</small></h1>
+        </div>
+        <ctnet-projects-list [projects]="projects"></ctnet-projects-list>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4 hidden">
+        <div class="page-header">
+            <h1>Sidebar <small>it's a thing</small></h1>
         </div>
     </div>
 </div>

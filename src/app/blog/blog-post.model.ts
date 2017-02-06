@@ -1,4 +1,4 @@
-export class Article {
+export class BlogPost {
     constructor(
         public $key: string,
         public title: string,
@@ -11,8 +11,8 @@ export class Article {
 
     }
 
-    static fromJson({$key, title, text, imageUrl, author, published, dateCreated, dateModified}):Article {
-        return new Article(
+    static fromJson({$key, title, text, imageUrl, author, published, dateCreated, dateModified}):BlogPost {
+        return new BlogPost(
             $key,
             title,
             text,

@@ -4,15 +4,15 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ToastrService } from 'toastr-ng2';
 
 import { BlogService } from '../blog/blog.service';
-import { Article } from '../blog/article.model';
+import { BlogPost } from '../blog/blog-post.model';
 
 @Component({
     selector: 'blog-item-add',
     templateUrl: './blog-item-add.component.html'
 })
 export class BlogItemAddComponent implements OnInit {
-    blogItemAdd: FormGroup;
-    articleToEdit: Article;
+    blogPostAdd: FormGroup;
+    blogPostToEdit: BlogPost;
     public editorConfig = {
         theme: 'snow',
         placeholder: "post",
@@ -32,7 +32,7 @@ export class BlogItemAddComponent implements OnInit {
 
     constructor(private fb: FormBuilder, private blogService: BlogService, private router: Router, private toastr: ToastrService) { }
     ngOnInit(): void {
-        this.blogItemAdd = this.fb.group({
+        this.blogPostAdd = this.fb.group({
             "title": [null, Validators.required],
             "imageUrl": "",
             "text": [null, Validators.required],
@@ -43,12 +43,12 @@ export class BlogItemAddComponent implements OnInit {
         });
     }
     submitForm(value: any): void {
-        this.blogService.addNewArticle(value)
+        this.blogService.addNewBlogPost(value)
             .subscribe(() => {
-                this.toastr.success('Successfully saved article.', 'Success');
+                this.toastr.success('Successfully saved blog post.', 'Success');
                 this.router.navigateByUrl('dashboard/blog');
             },
-            err => this.toastr.error(`Error adding article: ${err}`, "Uh oh")
+            err => this.toastr.error(`Error adding blog post: ${err}`, "Uh oh")
             );
     }
 }

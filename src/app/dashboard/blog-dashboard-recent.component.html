@@ -15,7 +15,7 @@
                 <td>Text</td>
                 <td></td>
             </thead>
-            <tr blog-dashboard-item [article]="article" *ngFor="let article of recentArticles | async" class="text-left"></tr>
+            <tr blog-dashboard-item [blogPost]="blogPost" *ngFor="let blogPost of recentBlogPosts | async" class="text-left"></tr>
         </table>
     </div>
 </div>

@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Article } from '../blog/article.model';
+import { BlogPost } from '../blog/blog-post.model';
 
 @Component({
-    selector: 'blog-dashboard-recent-articles',
-    inputs: ['recentArticles'],
+    selector: 'blog-dashboard-recent-blog-posts',
+    inputs: ['recentBlogPosts'],
     templateUrl: './blog-dashboard-recent.component.html'
 })
-export class BlogDashboardRecentArticlesComponent implements OnInit {
-    recentArticles: Array<Article>;
+export class BlogDashboardRecentBlogPostsComponent implements OnInit {
+    recentBlogPosts: Array<BlogPost>;
     constructor() { }
-
     ngOnInit() { }
 }

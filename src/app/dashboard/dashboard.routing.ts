@@ -27,7 +27,7 @@ const appRoutes: Routes = [
       { path: 'settings', component: SettingsComponent },
       { path: 'blog', component: BlogDashboardComponent },
       { path: 'blog/add', component: BlogItemAddComponent },
-      { path: 'blog/edit/:id', component:BlogItemEditComponent, resolve: { article: BlogResolver } },
+      { path: 'blog/edit/:id', component:BlogItemEditComponent, resolve: { blogPost: BlogResolver } },
       { path: 'skills', component:DashboardSkillsComponent },
       { path: 'skills/add', component: SkillAddComponent },
       { path: 'skills/edit/:id', component:SkillEditComponent, resolve: { skill: SkillsResolver } },

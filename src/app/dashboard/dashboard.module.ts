@@ -11,7 +11,7 @@ import { AccountComponent } from './account.component';
 import { ProfileComponent } from './profile.component';
 import { SettingsComponent } from './settings.component';
 import { BlogDashboardComponent } from './blog-dashboard.component';
-import { BlogDashboardRecentArticlesComponent } from './blog-dashboard-recent.component';
+import { BlogDashboardRecentBlogPostsComponent } from './blog-dashboard-recent.component';
 import { BlogDashboardItemComponent } from './blog-dashboard-item.component';
 import { BlogItemAddComponent } from './blog-item-add.component';
 import { BlogItemEditComponent } from './blog-item-edit.component';
@@ -50,7 +50,7 @@ import { QuillEditorModule } from 'ng2-quill-editor';
     ProfileComponent,
     SettingsComponent,
     BlogDashboardComponent,
-    BlogDashboardRecentArticlesComponent,
+    BlogDashboardRecentBlogPostsComponent,
     BlogDashboardItemComponent,
     BlogItemAddComponent,
     BlogItemEditComponent,
