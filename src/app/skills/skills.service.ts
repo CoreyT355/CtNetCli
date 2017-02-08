@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { Headers, Http, Response } from "@angular/http";
 
+import 'rxjs/add/operator/map';
 import { Observable, Subject } from 'rxjs/Rx';
 
 import { Skill } from './skill.model';

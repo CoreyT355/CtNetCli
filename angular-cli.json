@@ -1,6 +1,6 @@
 {
   "project": {
-    "version": "1.0.0-beta.24",
+    "version": "1.0.0-beta.30",
     "name": "coreytess-website"
   },
   "apps": [
@@ -25,7 +25,8 @@
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../node_modules/quill/dist/quill.js"
       ],
       "environments": {
         "source": "environments/environment.ts",

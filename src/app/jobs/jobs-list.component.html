@@ -1,8 +1,6 @@
-<div class="section-inner">
-    <h2 class="heading">Work Experience</h2>
-    <div class="content">
-        <div *ngFor="let job of jobs | async" class="item">
-            <ctnet-job-item [job]="job"></ctnet-job-item>
-        </div>
-    </div> 
+<h2 class="page-header">Work Experience</h2>
+<div class="content">
+    <div *ngFor="let job of jobs | async" class="item">
+        <ctnet-job-item [job]="job"></ctnet-job-item>
+    </div>
 </div>

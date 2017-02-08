@@ -1,11 +1,9 @@
-<div class="section-inner">
-    <h2 class="heading">Skills</h2>
-    <div class="content">
-        <p class="intro">Below are the skills I use most on a daily basis. Please click <a routerLink="/skills" title="full list of skills">here</a> for a more complete list of skills.</p>
-        <ul class="list-group">
-            <li *ngFor="let skill of skills | async" class="list-group-item">
-                <ctnet-skill-item [skill]="skill"></ctnet-skill-item>
-            </li>
-        </ul>
-    </div>
+<h2 class="page-header">Skills</h2>
+<div class="content">
+    <p class="intro">Below are the skills I use most on a daily basis. Please click <a routerLink="/skills" title="full list of skills">here</a>        for a more complete list of skills.</p>
+    <ul class="list-group">
+        <li *ngFor="let skill of skills | async" class="list-group-item">
+            <ctnet-skill-item [skill]="skill"></ctnet-skill-item>
+        </li>
+    </ul>
 </div>

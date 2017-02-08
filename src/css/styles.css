@@ -150,15 +150,15 @@ a.dotted-link:hover {
 }
 /* ======= Sections======= */
 .sections-wrapper {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .section {
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
 }
 .section .section-inner {
-  /*background: #fff;*/
-  padding: 30px;
+  /*background: #fff;
+  padding: 30px;*/
 }
 .section .heading {
   margin-top: 0;
