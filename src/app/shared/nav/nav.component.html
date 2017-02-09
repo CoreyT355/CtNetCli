@@ -1,25 +1,27 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<!--Navbar-->
+<nav class="navbar navbar-toggleable-md navbar-dark stylish-color-dark">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <span class="navbar-brand">Corey Tess</span>
-        </div>
-        <div class="collapse navbar-collapse" id="nav">
-            <ul class="nav navbar-nav">
-                <li><a [routerLink]="['/blog/']">Blog</a></li>
-                <li><a [routerLink]="['/projects/']" routerLinkActive="active">Projects</a></li>
-                <li><a [routerLink]="['/portfolio/']" routerLinkActive="active">Portfolio</a></li>
-                <li><a [routerLink]="['/about/']" routerLinkActive="active">About</a></li>
-                <li *ngIf="af.auth | async"><a [routerLink]="['/dashboard/profile']">Dashboard</a></li>
-                <li *ngIf="af.auth | async"><a (click)="logout()" title="Logout">Logout</a></li>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+            <strong>Corey Tess</strong>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav1">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" [routerLink]="['/blog/']">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="['/projects/']" routerLinkActive="active">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="['/portfolio/']" routerLinkActive="active">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="['/about/']" routerLinkActive="active">About</a></li>
+                <li class="nav-item" *ngIf="af.auth | async"><a class="nav-link" [routerLink]="['/dashboard/profile']">Dashboard</a></li>
+                <li class="nav-item" *ngIf="af.auth | async"><a class="nav-link" (click)="logout()" title="Logout">Logout</a></li>
             </ul>
-            <ul class="nav navbar-nav pull-right">
-                <li><a href="https://firebasestorage.googleapis.com/v0/b/ctnet-ed473.appspot.com/o/corey-tess-resume.pdf?alt=media&token=2d8d07bd-be93-4495-839e-0594687b8ae8" target="_blank" title="resume"><i class="fa fa-lg fa-file-pdf-o"></i></a></li>
+            <ul class="navbar-nav pull-right">
+                <li>
+                    <a href="https://firebasestorage.googleapis.com/v0/b/ctnet-ed473.appspot.com/o/corey-tess-resume.pdf?alt=media&token=2d8d07bd-be93-4495-839e-0594687b8ae8"
+                        target="_blank" title="resume"><i class="fa fa-lg fa-file-pdf-o"></i></a>
+                </li>
                 <li><a href="https://www.linkedin.com/in/ctess" target="_blank" title="linkedin"><i class="fa fa-lg fa-linkedin"></i></a></li>
                 <li><a href="http://stackoverflow.com/users/322478/coreyt" target="_blank" title="stack overflow"><i class="fa fa-lg fa-stack-overflow"></i></a></li>
                 <li><a href="https://github.com/CoreyT355" target="_blank" title="github"><i class="fa fa-lg fa-github"></i></a></li>
