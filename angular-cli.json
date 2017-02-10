@@ -21,6 +21,7 @@
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "../node_modules/mdbootstrap/css/bootstrap.min.css",
         "../node_modules/mdbootstrap/css/mdb.min.css",
+        "../node_modules/mdbootstrap/css/style.css",
         "../node_modules/toastr-ng2/toastr.css"
       ],
       "scripts": [

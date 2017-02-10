@@ -1,3 +1,9 @@
-<h4 class="title"><strong>{{job.title}}</strong> <span class="year pull-right">{{job.startDate | date:'MMMM, y'}} - {{job.endDate == "Present" ? job.endDate : job.endDate | date:'MMMM, y' }}</span></h4>
-<h4 class="title"><span>{{job.company}}</span> <em class="year pull-right">{{job.city}}, {{job.state}}</em></h4>
-<ctnet-job-roles-list [jobRoles]="job.jobRoles"></ctnet-job-roles-list>
+<div class="card">
+    <div class="card-header unique-color white-text">
+        <h6><strong>{{job.title}}</strong> <span class="year pull-right">{{job.startDate | date:'MMMM, y'}} - {{job.endDate == "Present" ? job.endDate : job.endDate | date:'MMMM, y' }}</span></h6>
+        <h6><span>{{job.company}}</span> <em class="year pull-right">{{job.city}}, {{job.state}}</em></h6>
+    </div>
+    <div class="card-block">
+        <ctnet-job-roles-list [jobRoles]="job.jobRoles"></ctnet-job-roles-list>
+    </div>
+</div>
