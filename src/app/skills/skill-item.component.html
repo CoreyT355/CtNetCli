@@ -1,4 +1,5 @@
-<h4 class="level-title">{{skill.title}}<span class="small pull-right" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to add more info...">{{skill.level}}</span></h4>
+<span>{{skill.title}}</span>
+<small class="text-muted pull-right" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to add more info...">{{skill.level}}</small>
 <div class="progress">
     <div [class]="'progress-bar ' + skill.style" role="progressbar" (aria-valuenow)="skill.percentage" aria-valuemin="0" aria-aria-valuemax="100" [style.width]="skill.percentage + '%'">
         <span class="sr-only">{{skill.percentage}}%</span>

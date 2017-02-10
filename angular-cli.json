@@ -27,8 +27,8 @@
       "scripts": [
         "../node_modules/mdbootstrap/js/jquery-3.1.1.min.js",
         "../node_modules/mdbootstrap/js/bootstrap.min.js",
-        "../node_modules/mdbootstrap/js/mdb.min.js",
         "../node_modules/mdbootstrap/js/tether.min.js",
+        "../node_modules/mdbootstrap/js/mdb.min.js",
         "../node_modules/quill/dist/quill.js"
       ],
       "environments": {
