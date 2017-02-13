@@ -1,7 +1,14 @@
-<div class="item featured text-center">
-    <h2 class="">{{project.title}}</h2>
-    <p class="summary">{{project.subTitle}}</p>
-    <div class="desc text-left">
-        <div [innerHTML]="project.content"></div>
+<div class="col-md-12 mb-r">
+    <div class="card-overlay" [style.background-image]="'url(' + project.imageUrl + ')'">
+        <div class="white-text text-center">
+            <div class="card-block">
+                <a href="" class="red-text">
+                    <h5><i class="fa fa-code"></i> Programming</h5>
+                </a>
+                <h3>{{project.title}}</h3>
+                <div [innerHTML]="project.content | truncate: 500"></div>
+                <a class="btn btn-lg btn-outline-white"><i class="fa fa-clone left"></i> View project</a>
+            </div>
+        </div>
     </div>
 </div>

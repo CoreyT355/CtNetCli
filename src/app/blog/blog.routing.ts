@@ -10,7 +10,6 @@ const appRoutes: Routes = [
     component: BlogComponent,
     //canActivate: [AuthGuard],
     children: [
-      { path: '', component: BlogComponent },
       { path: ':id', component: BlogComponent }
     ]
   },

@@ -1,9 +1,25 @@
 <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-8">
-        <div class="blog-post">
-            <h4 class="blog-post-title">{{blogPost.title}}</h4>
-            <p class="blog-post-meta">{{blogPost.dateCreated | date:'yMdjm'}} by <a href="#">{{blogPost.author}}</a></p>
-            <div [innerHtml]="blogPost.text | truncate: 250"></div>
+    <!--First Column -->
+    <div class="col-md-5 mb-r">
+        <!--Featured image-->
+        <div class="view overlay hm-white-slight">
+            <img [src]="blogPost.imageUrl">
+            <a>
+                <div class="mask"></div>
+            </a>
         </div>
     </div>
+    <!--/First column-->
+    <!--Second column-->
+    <div class="col-md-7 mb-r">
+        <!--Excerpt-->
+        <a href="" class="purple-text">
+            <h5><i class="fa fa-code"></i>Websites</h5>
+        </a>
+        <h4>{{blogPost.Title}}</h4>
+        <div [innerHtml]="blogPost.text | truncate: 250"></div>
+        <p>by <a><strong>{{blogPost.author}}</strong></a>, {{blogPost.dateCreated | date:'yMdjm'}}</p>
+        <a class="btn btn-cyan">Read more</a>
+    </div>
+    <!--/Second column-->
 </div>

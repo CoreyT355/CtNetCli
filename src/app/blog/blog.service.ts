@@ -12,7 +12,7 @@ export class BlogService {
     blogPost: Observable<BlogPost>;
     userName: string;
     constructor(private db: AngularFireDatabase, private af: AngularFire, private http: Http, @Inject(FirebaseRef) fb) {
-        this.af.auth.subscribe(auth => this.userName = auth.auth.displayName);
+        //this.af.auth.subscribe(auth => this.userName = auth.auth.displayName);
         this.firebaseDb = fb.database().ref();
         this.blogPosts = af.database.list("/blogposts");
     }
