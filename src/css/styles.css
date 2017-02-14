@@ -2,6 +2,47 @@ body {
   padding-bottom: 50px;
 }
 
-ctnet-skill-item {
+ctnet-skill-item, dashboard-list-skills {
   width: 100%;
 }
+
+.pa-0 {
+  padding: 0 !important; }
+.pa-1 {
+  padding: 1rem !important; }
+
+.pa-2 {
+  padding: 2rem !important; }
+
+.pa-3 {
+  padding: 3rem !important; }
+
+.pa-4 {
+  padding: 4rem !important; }
+
+.pa-5 {
+  padding: 5rem !important; }
+
+.pa-6 {
+  padding: 6rem !important; }
+
+.ma-0 {
+  margin: 0 !important; }
+
+.ma-1 {
+  margin: 1rem !important; }
+
+.ma-2 {
+  margin: 2rem !important; }
+
+.ma-3 {
+  margin: 3rem !important; }
+
+.ma-4 {
+  margin: 4rem !important; }
+
+.ma-5 {
+  margin: 5rem !important; }
+
+.ma-6 {
+  margin: 6rem !important; }

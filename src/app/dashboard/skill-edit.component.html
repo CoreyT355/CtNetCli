@@ -1,94 +1,90 @@
-<div class="page-header">
-    <h1>Edit a Skill</h1>
-</div>
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">Edit Skill</h3>
-    </div>
-    <div class="panel-body">
+<div class="card">
+    <div clss="card-block">
+        <div class="form-header purple darken-4">
+            <h3><i class="fa fa-pencil"></i> Edit Skill</h3>
+        </div>
         <form [formGroup]="skillToEditForm" (ngSubmit)="save(skillToEditForm.value)">
-            <div class="row form-group" [ngClass]="{'has-error':!skillToEditForm.controls['title'].valid && skillToEditForm.controls['title'].touched}">
-                <div class="col-sm-12 col-md-2 col-lg-2">
-                    <label>Title</label>
-                </div>
-                <div class="col-sm-12 col-md-10 col-lg-10">
-                    <input type="text" class="form-control" placeholder="title" [formControl]="skillToEditForm.controls['title']">
-                </div>
-            </div>
-            <div class="row form-group" [ngClass]="{'has-error':!skillToEditForm.controls['level'].valid && skillToEditForm.controls['level'].touched}">
-                <div class="col-sm-12 col-md-2 col-lg-2">
-                    <label>Level</label>
-                </div>
-                <div class="col-sm-12 col-md-10 col-lg-10">
-                    <select class="form-control" [formControl]="skillToEditForm.controls['level']">
-                        <option value="" disabled>Select Proficiency Level</option>
-                        <option value="Just Starting">Just Starting</option>
-                        <option value="Knowledgeable">Knowledgeable</option>
-                        <option value="Strong">Strong</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row form-group" [ngClass]="{'has-error':!skillToEditForm.controls['style'].valid && skillToEditForm.controls['style'].touched}">
-                <div class="col-sm-12 col-md-2 col-lg-2">
-                    <label>Style</label>
-                </div>
-                <div class="col-sm-12 col-md-10 col-lg-10">
-                    <select class="form-control" [formControl]="skillToEditForm.controls['style']">
-                        <option value="" disabled>Select Style</option>
-                        <option class="text-default" value="progress-bar-default">Default</option>
-                        <option class="text-primary" value="progress-bar-primary">Primary</option>
-                        <option class="text-info" value="progress-bar-info">Info</option>
-                        <option class="text-warning" value="progress-bar-warning">Warning</option>
-                        <option class="text-danger" value="progress-bar-danger">Danger</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row form-group" [ngClass]="{'has-error':!skillToEditForm.controls['percentage'].valid && skillToEditForm.controls['percentage'].touched}">
-                <div class="col-sm-12 col-md-2 col-lg-2">
-                    <label>Percentage</label>
-                </div>
-                <div class="col-sm-12 col-md-10 col-lg-10">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="percentage" [formControl]="skillToEditForm.controls['percentage']">
-                        <i class="input-group-addon fa fa-percent"></i>
+            <div class="row">
+                <div class="col-lg-6 col-md-8">
+                    <div class="md-form">
+                        <input type="text" class="form-control" id="title" [formControl]="skillToEditForm.controls['title']">
+                        <label for="title">Title</label>
                     </div>
                 </div>
             </div>
-            <div class="row form-group">
-                <div class="col-sm-12 col-md-2 col-lg-2">
-                    <label>Featured</label>
-                </div>
-                <div class="col-sm-12 col-md-10 col-lg-10">
-                    <div class="radio-inline">
-                        <label>
-                            <input type="radio" name="published" value="true" [formControl]="skillToEditForm.controls['featured']">
-                            True
-                        </label>
-                    </div>
-                    <div class="radio-inline">
-                        <label>
-                            <input type="radio" name="published" value="false" [formControl]="skillToEditForm.controls['featured']">
-                            False
-                        </label>
+            <div class="row">
+                <div class="col-lg-6 col-md-8">
+                    <div class="md-form">
+                        <select class="mdb-select" [formControl]="skillToEditForm.controls['level']">
+                    <option value="" disabled>Select Proficiency Level</option>
+                    <option value="Just Starting">Just Starting</option>
+                    <option value="Knowledgeable">Knowledgeable</option>
+                    <option value="Strong">Strong</option>
+                </select>
+                        <label>Level</label>
                     </div>
                 </div>
             </div>
-            <div class="row form-group" [ngClass]="{'has-error':!skillToEditForm.controls['order'].valid && skillToEditForm.controls['order'].touched}">
-                <div class="col-sm-12 col-md-2 col-lg-2">
-                    <label>Sort Order</label>
-                </div>
-                <div class="col-sm-12 col-md-10 col-lg-10">
-                    <input type="number" class="form-control" placeholder="order" [formControl]="skillToEditForm.controls['order']">
+            <div class="row">
+                <div class="col-lg-6 col-md-8">
+                    <div class="md-form">
+                        <select class="mdb-select" [formControl]="skillToEditForm.controls['style']">
+                    <option value="" disabled>Select Style</option>
+                    <option class="text-default" value="progress-bar-default">Default</option>
+                    <option class="text-primary" value="progress-bar-primary">Primary</option>
+                    <option class="text-info" value="progress-bar-info">Info</option>
+                    <option class="text-warning" value="progress-bar-warning">Warning</option>
+                    <option class="text-danger" value="progress-bar-danger">Danger</option>
+                </select>
+                        <label>Style</label>
+                    </div>
                 </div>
             </div>
-            <div class="row form-group">
-                <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-                    <div class="btn-group" role="group" aria-label="...">
-                        <button type="button" class="btn btn-default" [routerLink]="['/dashboard/skills']">Cancel</button>
-                        <button type="submit" class="btn btn-primary" [disabled]="!skillToEditForm.valid">Submit</button>
+            <div class="row">
+                <div class="col-lg-6 col-md-8">
+                    <div class="md-form">
+                        <div class="input-group">
+                            <input type="text" class="form-control" [formControl]="skillToEditForm.controls['percentage']">
+                            <i class="input-group-addon fa fa-percent"></i>
+                        </div>
+                        <label>Percentage</label>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-8">
+                    <div class="md-form">
+                        <div class="switch">
+                            <label>
+                    Yes
+                    <input type="checkbox" [formControl]="skillToEditForm.controls['featured']">
+                    <span class="lever"></span>
+                    No
+                    </label>
+                        </div>
+                        <label>Featured</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-8">
+                    <div class="md-form">
+                        <input type="number" class="form-control" id="order" [formControl]="skillToEditForm.controls['order']">
+                        <label for="order">Sort Order</label>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default" [routerLink]="['/dashboard/skills']">Cancel</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!skillToEditForm.valid">Submit</button>
                 </div>
             </div>
         </form>
+    </div>
+    <div class="modal-footer">
+        <div class="options">
+
+        </div>
     </div>
 </div>
