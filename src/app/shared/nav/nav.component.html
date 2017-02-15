@@ -1,5 +1,5 @@
 <!--Navbar-->
-<nav class="navbar navbar-toggleable-md fixed-top navbar-dark scrolling-navbar stylish-color-dark">
+<!--<nav class="navbar navbar-toggleable-md fixed-top navbar-dark scrolling-navbar stylish-color-dark">
     <div class="container">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -17,15 +17,41 @@
                 <li class="nav-item" *ngIf="af.auth | async"><a class="nav-link" [routerLink]="['/dashboard/profile']">Dashboard</a></li>
                 <li class="nav-item" *ngIf="af.auth | async"><a class="nav-link" (click)="logout()" title="Logout">Logout</a></li>
             </ul>
-            <!--<ul class="d-flex">
-                <li class="pr-3">
-                    <a href="https://firebasestorage.googleapis.com/v0/b/ctnet-ed473.appspot.com/o/corey-tess-resume.pdf?alt=media&token=2d8d07bd-be93-4495-839e-0594687b8ae8"
-                        target="_blank" title="resume"><i class="fa fa-file-pdf-o white-text"></i></a>
-                </li>
-                <li class="pr-3"><a href="https://www.linkedin.com/in/ctess" target="_blank" title="linkedin"><i class="fa fa-linkedin white-text"></i></a></li>
-                <li class="pr-3"><a href="http://stackoverflow.com/users/322478/coreyt" target="_blank" title="stack overflow"><i class="fa fa-stack-overflow white-text"></i></a></li>
-                <li class="pr-3"><a href="https://github.com/CoreyT355" target="_blank" title="github"><i class="fa fa-github white-text"></i></a></li>
-            </ul>-->
         </div>
     </div>
-</nav>
+</nav>-->
+
+<md-toolbar>
+  <button md-icon-button>
+    <md-icon>menu</md-icon>
+  </button>
+  <span>Corey Tess</span>
+  <span flex></span>
+  <button md-icon-button [mdMenuTriggerFor]="toolbarMenu1"><md-icon>more_vert</md-icon></button>
+  <md-menu #toolbarMenu1="mdMenu">
+    <button md-menu-item [routerLink]="['/blog/']">
+      <i class="fa fa-cog fa-lg"></i>
+      <span>Blog</span>
+    </button>
+    <button md-menu-item [routerLink]="['/projects/']">
+      <md-icon>settings</md-icon>
+      <span>Projects</span>
+    </button>
+    <button md-menu-item [routerLink]="['/portfolio/']">
+      <md-icon>settings</md-icon>
+      <span>Portfolio</span>
+    </button>
+    <button md-menu-item [routerLink]="['/about/']">
+      <md-icon>person</md-icon>
+      <span>About</span>
+    </button>
+    <button md-menu-item [routerLink]="['/blog/']">
+      <md-icon><i class="fa fa-user fa-lg"></i></md-icon>
+      <span>Blog</span>
+    </button>
+    <button md-menu-item>
+      <md-icon>exit_to_app</md-icon>
+      <span>Sign out</span>
+    </button>
+  </md-menu>
+</md-toolbar>
