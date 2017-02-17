@@ -3,11 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'ctnet-about',
-    templateUrl: './about.component.html',
-    //styleUrls: ['./about/about.component.css']
+    templateUrl: './about.component.html'
 })
 export class AboutComponent {
-    name: string = "About Me";
-
+    componentName: string = "Who I Am";
     constructor(private params: ActivatedRoute) { }
 }

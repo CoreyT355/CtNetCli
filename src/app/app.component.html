@@ -1,26 +1,31 @@
-<header>
-  <ctnet-nav></ctnet-nav>
-</header>
-<div class="container" style="margin-top: 75px;">
+<td-layout #layout>
+  <td-navigation-drawer logo="" sidenavTitle="Corey Tess">
+    <md-nav-list>
+      <a md-list-item [routerLink]="['/blog']" (click)="layout.close()">
+        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-rss"></md-icon>
+        <span>Blog</span>
+      </a>
+      <a md-list-item [routerLink]="['/projects']" (click)="layout.close()">
+        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-folder-open-o"></md-icon>
+        <span>Projects</span>
+      </a>
+      <a md-list-item [routerLink]="['/portfolio']" (click)="layout.close()">
+        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-newspaper-o"></md-icon>
+        <span>Portfolio</span>
+      </a>
+      <a md-list-item [routerLink]="['/about']" (click)="layout.close()">
+        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-user"></md-icon>
+        <span>About</span>
+      </a>
+      <a *ngIf="af.auth | async" md-list-item [routerLink]="['/dashboard']" (click)="layout.close()">
+        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-tachometer"></md-icon>
+        <span>Dashboard</span>
+      </a>
+      <a *ngIf="af.auth | async" md-list-item (click)="logout(); layout.close();">
+        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-sign-out"></md-icon>
+        <span>Sign out</span>
+      </a>
+    </md-nav-list>
+  </td-navigation-drawer>
   <router-outlet></router-outlet>
-</div>
-<footer class="page-footer fixed-bottom stylish-color-dark">
-  <div class="social-section">
-    <ul>
-      <li>
-        <a class="btn-floating btn-small danger-color-dark" href="https://firebasestorage.googleapis.com/v0/b/ctnet-ed473.appspot.com/o/corey-tess-resume.pdf?alt=media&token=2d8d07bd-be93-4495-839e-0594687b8ae8"
-          target="_blank" title="resume"><i class="fa fa-file-pdf-o white-text"></i></a>
-      </li>
-      <li><a class="btn-floating btn-small btn-so" href="http://stackoverflow.com/users/322478/coreyt" target="_blank" title="stack overflow"><i class="fa fa-stack-overflow white-text"></i></a></li>
-      <li><a class="btn-floating btn-small btn-li" href="https://www.linkedin.com/in/ctess" target="_blank" title="linkedin"><i class="fa fa-linkedin"> </i></a></li>
-      <li><a class="btn-floating btn-small btn-git" href="https://github.com/CoreyT355" target="_blank" title="github"><i class="fa fa-github"> </i></a></li>
-      <li><a class="btn-floating btn-small btn-ins" href="https://www.instagram.com/corey_tess/" target="_blank" title="instagram"><i class="fa fa-instagram"> </i></a></li>
-      <li><a class="btn-floating btn-small btn-gplus" href="https://plus.google.com/u/0/116118617540666945210" target="_blank" title="google+"><i class="fa fa-google-plus"> </i></a></li>
-    </ul>
-  </div>
-  <div class="footer-copyright">
-    <div class="container-fluid">
-      <i class="fa fa-copyright"></i> 2017 Corey Tess
-    </div>
-  </div>
-</footer>
+</td-layout>

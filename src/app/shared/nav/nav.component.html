@@ -20,8 +20,35 @@
         </div>
     </div>
 </nav>-->
-
-<md-toolbar>
+<td-navigation-drawer logo="assets:covalent" sidenavTitle="Corey Tess">
+    <md-nav-list>
+      <a md-list-item [routerLink]="['/blog/']">
+        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-rss"></md-icon>
+        <span>Blog</span>
+      </a>
+      <a md-list-item [routerLink]="['/projects/']">
+        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-folder-open-o"></md-icon>
+        <span>Projects</span>
+      </a>
+      <a md-list-item [routerLink]="['/portfolio/']">
+        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-newspaper-o"></md-icon>
+        <span>Portfolio</span>
+      </a>
+      <a md-list-item [routerLink]="['/about/']">
+        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-user"></md-icon>
+        <span>About</span>
+      </a>
+      <a *ngIf="af.auth | async" md-list-item [routerLink]="['/dashboard/']">
+        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-tachometer"></md-icon>
+        <span>Dashboard</span>
+      </a>
+      <a *ngIf="af.auth | async" md-list-item (click)="logout()">
+        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-sign-out"></md-icon>
+        <span>Sign out</span>
+      </a>
+    </md-nav-list>
+  </td-navigation-drawer>
+<!--<md-toolbar>
   <button md-icon-button>
     <md-icon>menu</md-icon>
   </button>
@@ -54,4 +81,4 @@
       <span>Sign out</span>
     </button>
   </md-menu>
-</md-toolbar>
+</md-toolbar>-->
