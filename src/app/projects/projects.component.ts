@@ -9,7 +9,7 @@ import { FirebaseListObservable } from 'angularfire2';
     templateUrl: './projects.component.html'
 })
 export class ProjectsComponent implements OnInit {
-    name: string = "Projects";
+    componentName: string = "Projects";
     projects: FirebaseListObservable<any>;
     error: any;
     constructor(private projectsService: ProjectsService ) { }

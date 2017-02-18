@@ -1,61 +1,72 @@
-<div class="row">
-    <div class="primary col-md-8 col-sm-12 col-xs-12">
-        <section class="experience section">
-            <ctnet-jobs-list [jobs]="jobs"></ctnet-jobs-list>
-        </section>
-    </div>
-    <div class="secondary col-md-4 col-sm-12 col-xs-12">
-        <aside class="skills aside section">
-            <ctnet-skills-list [skills]="skills"></ctnet-skills-list>
-        </aside>
-        <aside class="education aside section">
-            <div class="section-inner">
-                <h3 class="heading">Education</h3>
-                <div class="content">
-                    <div class="item">
-                        <p><i class="fa fa-graduation-cap"></i> AS in Game Design and Development</p>
-                        <p>Full Sail University<span class="year pull-right">2001-2002</span></p>
+<td-layout-card-over cardTitle="{{componentName}}" cardSubtitle="" cardWidth="75">
+    <div class="row">
+        <div class="primary col-md-8 col-sm-12 col-xs-12">
+            <section class="experience section">
+                <ctnet-jobs-list [jobs]="jobs"></ctnet-jobs-list>
+            </section>
+        </div>
+        <div class="secondary col-md-4 col-sm-12 col-xs-12">
+            <aside class="skills aside section">
+                <ctnet-skills-list [skills]="skills"></ctnet-skills-list>
+            </aside>
+            <aside class="education aside section">
+                <div class="section-inner">
+                    <h3 class="heading">Education</h3>
+                    <div class="content">
+                        <div class="item">
+                            <p><i class="fa fa-graduation-cap"></i> AS in Game Design and Development</p>
+                            <p>Full Sail University<span class="year pull-right">2001-2002</span></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </aside>
-        <aside class="education aside section">
-            <div class="section-inner">
-                <h3 class="heading">Certifications</h3>
-                <div class="content">
-                    <div class="item">
-                        <p><i class="fa fa-certificate"></i> Certified ScrumMaster</p>
-                        <p>SolutionsIQ<span class="year pull-right">2016-2018</span></p>
+            </aside>
+            <aside class="education aside section">
+                <div class="section-inner">
+                    <h3 class="heading">Certifications</h3>
+                    <div class="content">
+                        <div class="item">
+                            <p><i class="fa fa-certificate"></i> Certified ScrumMaster</p>
+                            <p>SolutionsIQ<span class="year pull-right">2016-2018</span></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </aside>
-        <aside class="list music aside section">
-            <div class="section-inner">
-                <h3 class="heading">Coding Music</h3>
-                <div class="content">
-                    <ul class="list-unstyled" style="color: #fff;">
-                        <li><a href="https://play.google.com/music/listen?u=0#/wst/situations/L7yyx4akq7fvqanr2sxeemvwhvq" target="_blank"><i class="fa fa-headphones"></i> Epic Film Scores</a></li>
-                        <li><a href="https://www.youtube.com/playlist?list=PL7atuZxmT954bCkC062rKwXTvJtcqFB8i" target="_blank"><i class="fa fa-youtube-play"></i> Critical Role</a></li>
-                        <li><a href="https://play.google.com/music/listen?u=0#/wst/artist/A2yuzeawfml3ribpb7n3gq5nb4y" target="_blank"><i class="fa fa-headphones"></i> Muse Radio</a></li>
-                        <li><a href="https://play.google.com/music/listen?u=0#/wst/situations/Ly5bahjletfsanpyglhp5xkoabu" target="_blank"><i class="fa fa-headphones"></i> Hit Songs from '80s Movies</a></li>
-                        <li><a href="https://play.google.com/music/listen?u=0#/wst/situations/Lrobfggxzidgdulpibkysbut64m" target="_blank"><i class="fa fa-headphones"></i> Relaxing Film Scores</a></li>
-                    </ul>
+            </aside>
+            <aside class="list music aside section">
+                <div class="section-inner">
+                    <h3 class="heading">Coding Music</h3>
+                    <div class="content">
+                        <ul class="list-unstyled" style="color: #fff;">
+                            <li>
+                                <a href="https://play.google.com/music/listen?u=0#/wst/situations/L7yyx4akq7fvqanr2sxeemvwhvq"
+                                    target="_blank"><i class="fa fa-headphones"></i> Epic Film Scores</a>
+                            </li>
+                            <li><a href="https://www.youtube.com/playlist?list=PL7atuZxmT954bCkC062rKwXTvJtcqFB8i" target="_blank"><i class="fa fa-youtube-play"></i> Critical Role</a></li>
+                            <li><a href="https://play.google.com/music/listen?u=0#/wst/artist/A2yuzeawfml3ribpb7n3gq5nb4y" target="_blank"><i class="fa fa-headphones"></i> Muse Radio</a></li>
+                            <li>
+                                <a href="https://play.google.com/music/listen?u=0#/wst/situations/Ly5bahjletfsanpyglhp5xkoabu"
+                                    target="_blank"><i class="fa fa-headphones"></i> Hit Songs from '80s Movies</a>
+                            </li>
+                            <li>
+                                <a href="https://play.google.com/music/listen?u=0#/wst/situations/Lrobfggxzidgdulpibkysbut64m"
+                                    target="_blank"><i class="fa fa-headphones"></i> Relaxing Film Scores</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </aside>
-        <aside class="credits aside section">
-            <div class="section-inner">
-                <h3 class="heading">Credits</h3>
-                <div class="content">
-                    <ul class="list-unstyled" style="color: #fff;">
-                        <li><a href="https://angular.io/" target="_blank" title="angular 2"><i class="fa fa-external-link"></i> Angular 2</a></li>
-                        <li><a href="http://getbootstrap.com/" target="_blank" title="bootstrap"><i class="fa fa-external-link"></i> Bootstrap</a></li>
-                        <li><a href="http://fortawesome.github.io/Font-Awesome/" target="_blank" title="font awesome"><i class="fa fa-external-link"></i> FontAwesome</a></li>
-                        <li><a href="https://firebase.google.com/" target="_blank" title="firebase"><i class="fa fa-external-link"></i> Firebase</a></li>
-                    </ul>
+            </aside>
+            <aside class="credits aside section">
+                <div class="section-inner">
+                    <h3 class="heading">Credits</h3>
+                    <div class="content">
+                        <ul class="list-unstyled" style="color: #fff;">
+                            <li><a href="https://angular.io/" target="_blank" title="angular 2"><i class="fa fa-external-link"></i> Angular 2</a></li>
+                            <li><a href="http://getbootstrap.com/" target="_blank" title="bootstrap"><i class="fa fa-external-link"></i> Bootstrap</a></li>
+                            <li><a href="http://fortawesome.github.io/Font-Awesome/" target="_blank" title="font awesome"><i class="fa fa-external-link"></i> FontAwesome</a></li>
+                            <li><a href="https://firebase.google.com/" target="_blank" title="firebase"><i class="fa fa-external-link"></i> Firebase</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </aside>
+            </aside>
+        </div>
     </div>
-</div>
+</td-layout-card-over>

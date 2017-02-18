@@ -17,7 +17,7 @@ import { FirebaseListObservable } from 'angularfire2';
     templateUrl: './portfolio.component.html'
 })
 export class PortfolioComponent implements OnInit {
-    name: string = "About Me";
+    componentName: string = "My Career";
     skills: Observable<Skill[]>;
     jobs: FirebaseListObservable<any>;
     error: any;
