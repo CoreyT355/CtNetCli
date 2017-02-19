@@ -1,25 +1,20 @@
-<div class="row">
+<div class="row pa-1">
     <!--First Column -->
-    <div class="col-md-5 mb-r">
+    <div class="col-md-5">
         <!--Featured image-->
-        <div class="view overlay hm-white-slight">
-            <img [src]="blogPost.imageUrl">
-            <a>
-                <div class="mask"></div>
-            </a>
-        </div>
+        <img [src]="blogPost.imageUrl">
     </div>
     <!--/First column-->
     <!--Second column-->
-    <div class="col-md-7 mb-r">
+    <div class="col-md-7">
         <!--Excerpt-->
-        <a href="" class="purple-text">
+        <a href="" class="tc-deep-purple-A700">
             <h5><i class="fa fa-code"></i>Websites</h5>
         </a>
         <h4>{{blogPost.Title}}</h4>
         <div [innerHtml]="blogPost.text | truncate: 250"></div>
         <p>by <a><strong>{{blogPost.author}}</strong></a>, {{blogPost.dateCreated | date:'yMdjm'}}</p>
-        <a class="btn btn-cyan">Read more</a>
+        <a class="btn bgc-cyan-500 tc-grey-50">Read more</a>
     </div>
     <!--/Second column-->
 </div>
