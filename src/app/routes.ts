@@ -15,6 +15,7 @@ import { AuthGuard } from './auth/auth-guard.service';
 
 export const routes: Route[] = [{ 
     path: '', component: HomeComponent, children: [
+        { path: '', redirectTo: '/blog', pathMatch: 'full' },
         { path: 'about', component: AboutComponent },
         { path: 'portfolio', component: PortfolioComponent },
         { path: 'projects', component: ProjectsComponent },
