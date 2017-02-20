@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CovalentCoreModule } from '@covalent/core';
 
 import { AuthGuard } from '../auth/auth-guard.service';
 
-import { blogRouting } from './blog.routing';
+//import { blogRouting } from './blog.routing';
 import { BlogComponent } from './blog.component';
 import { BlogService } from './blog.service';
 import { BlogPostListComponent } from './blog-post-list.component';
@@ -15,10 +16,11 @@ import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
     imports: [
-        blogRouting,
+        //blogRouting,
         FormsModule,
         CommonModule,
-        PipesModule
+        PipesModule,
+        CovalentCoreModule.forRoot()
     ],
     exports: [
 

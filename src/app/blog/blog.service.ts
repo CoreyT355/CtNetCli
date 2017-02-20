@@ -51,7 +51,7 @@ export class BlogService {
         const blogPostToSave = Object.assign({}, blogPost);
         delete (blogPostToSave.$key);
         let dataToSave = {};
-        dataToSave[`blogpost/${blogPostKey}`] = blogPostToSave;
+        dataToSave[`blogposts/${blogPostKey}`] = blogPostToSave;
         return this.firebaseUpdate(dataToSave);
     }
     firebaseUpdate(dataToSave) {

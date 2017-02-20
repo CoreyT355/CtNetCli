@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './blog.component.html'
 })
 
-export class BlogComponent { }
+export class BlogComponent {
+  componentName: string = "Deep Thoughts";
+}

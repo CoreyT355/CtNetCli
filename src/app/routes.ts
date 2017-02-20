@@ -1,4 +1,4 @@
-import { ModuleWithProviders }  from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
@@ -13,13 +13,15 @@ import { LoginComponent } from './auth/login.component';
 import { SignupComponent } from './auth/signup.component';
 import { AuthGuard } from './auth/auth-guard.service';
 
-export const routes: Route[] = [
-    { path: '', pathMatch: 'full', component: BlogComponent },
-    { path: 'about', component: AboutComponent },
-    { path: 'portfolio', component: PortfolioComponent },
-    { path: 'projects', component: ProjectsComponent },
-    { path: 'blog', component: BlogComponent },
-    { path: 'skills', component: FullListSkillsComponent }    
+export const routes: Route[] = [{ 
+    path: '', component: HomeComponent, children: [
+        { path: '', redirectTo: '/blog', pathMatch: 'full' },
+        { path: 'about', component: AboutComponent },
+        { path: 'portfolio', component: PortfolioComponent },
+        { path: 'projects', component: ProjectsComponent },
+        { path: 'blog', component: BlogComponent },
+        { path: 'skills', component: FullListSkillsComponent }
+    ]},
 ];
 
 export const AppRouting = RouterModule.forRoot(routes, { useHash: false });

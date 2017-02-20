@@ -1,35 +1,53 @@
-<nav class="navbar navbar-toggleable-md navbar-dark bg-primary">
-    <div class="container">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav2" aria-controls="navbarNav2"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">
-            <strong>Administration</strong>
-        </a>
-        <div class="collapse navbar-collapse" id="navbarNav2">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" routerLink="profile">Profile <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="account">Account</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="blog">Blog Admin</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="skills">Skills Admin</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="settings">Settings</a>
-                </li>
-            </ul>
-        </div>
+<td-layout-nav>
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
+        Corey Tess
     </div>
-</nav>
-<div class="row">
-    <div class="col-lg-12 mt-4">
-        <router-outlet></router-outlet>
-    </div>
-</div>
+  <td-layout-manage-list #manageList>
+    <md-toolbar td-sidenav-content>
+      <span>Administration</span>
+    </md-toolbar>
+    <md-nav-list td-sidenav-content>
+      <a md-list-item 
+        md-ripple class="block relative"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact:true}"
+        [routerLink]="['/profile']">
+        <md-icon md-list-icon class="fa-lg" fontSet="fa" fontIcon="fa-user"></md-icon>
+        Profile
+      </a>
+      <a md-list-item 
+        md-ripple class="block relative"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact:true}"
+        [routerLink]="['account']">
+        <md-icon md-list-icon class="fa-lg" fontSet="fa" fontIcon="fa-user-circle"></md-icon>
+        Account
+      </a>
+      <a md-list-item 
+        md-ripple class="block relative"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact:true}"
+        [routerLink]="['blog']">
+        <md-icon md-list-icon class="fa-lg" fontSet="fa" fontIcon="fa-rss"></md-icon>
+        Blog Administration
+      </a>
+      <a md-list-item 
+        md-ripple class="block relative"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact:true}"
+        [routerLink]="['skills']">
+        <md-icon md-list-icon class="fa-lg" fontSet="fa" fontIcon="fa-graduation-cap"></md-icon>
+        Skills Administration
+      </a>
+      <a md-list-item 
+        md-ripple class="block relative"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact:true}"
+        [routerLink]="['settings']">
+        <md-icon md-list-icon class="fa-lg" fontSet="fa" fontIcon="fa-cog"></md-icon>
+        Settings
+      </a>
+    </md-nav-list>
+    <router-outlet></router-outlet>
+  </td-layout-manage-list>
+</td-layout-nav>

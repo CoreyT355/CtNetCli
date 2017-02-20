@@ -1,18 +1,17 @@
-import { ModuleWithProviders }  from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+// import { ModuleWithProviders }  from '@angular/core';
+// import { Routes, RouterModule } from '@angular/router';
 
-import { BlogComponent } from './blog.component';
+// import { BlogComponent } from './blog.component';
 
-import { AuthGuard } from '../auth/auth-guard.service';
+// import { AuthGuard } from '../auth/auth-guard.service';
 
-const appRoutes: Routes = [
-  { path: 'blog',
-    component: BlogComponent,
-    //canActivate: [AuthGuard],
-    children: [
-      { path: ':id', component: BlogComponent }
-    ]
-  },
-];
+// const appRoutes: Routes = [
+//   { path: 'blog',
+//     component: BlogComponent,
+//     children: [
+//       { path: ':id', component: BlogComponent }
+//     ]
+//   },
+// ];
 
-export const blogRouting: ModuleWithProviders = RouterModule.forChild(appRoutes);
+// export const blogRouting: ModuleWithProviders = RouterModule.forChild(appRoutes);

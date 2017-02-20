@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CovalentCoreModule } from '@covalent/core';
 
 import { AuthGuard } from '../auth/auth-guard.service';
 import { BlogService } from '../blog/blog.service';
@@ -35,7 +36,8 @@ import { QuillEditorModule } from 'ng2-quill-editor';
     ReactiveFormsModule,
     CommonModule,
     QuillEditorModule,
-    PipesModule
+    PipesModule,
+    CovalentCoreModule
   ],
   providers: [
     AuthGuard,
