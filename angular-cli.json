@@ -20,15 +20,15 @@
       "styles": [
         "theme.scss",
         "css/styles.css",
-        "../node_modules/font-awesome/css/font-awesome.min.css",
         "css/bootstrap.min.css",
+        "../node_modules/font-awesome/css/font-awesome.min.css",
         "../node_modules/toastr-ng2/toastr.css",
         "../node_modules/@covalent/core/common/platform.scss"
       ],
       "scripts": [
-        "js/jquery-3.1.1.min.js",
-        "js/tether.min.js",
-        "js/bootstrap.min.js",
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../node_modules/tether/dist/js/tether.min.js",
         "../node_modules/quill/dist/quill.js"
       ],
       "environmentSource": "environments/environment.ts",
