@@ -14,7 +14,7 @@
         <h4>{{blogPost.Title}}</h4>
         <div [innerHtml]="blogPost.text | truncate: 250"></div>
         <p>by <a><strong>{{blogPost.author}}</strong></a>, {{blogPost.dateCreated | date:'yMdjm'}}</p>
-        <a class="btn bgc-cyan-500 tc-grey-50">Read more</a>
+        <a class="btn bgc-cyan-500 tc-grey-50" [routerLink]="['/blog', blogPost.$key]">Read more</a>
     </div>
     <!--/Second column-->
 </div>
