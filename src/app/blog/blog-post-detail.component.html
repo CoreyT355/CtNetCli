@@ -1,17 +1,3 @@
-<!--<md-card>
-  <md-card-title>{{blogPost.title}}</md-card-title>
-  <md-card-subtitle>{{blogPost.dateCreated | date:'yMdjm'}} by <a href="#">{{blogPost.author}}</a></md-card-subtitle>
-  <md-divider></md-divider>
-  <md-card-content>
-    <div [innerHtml]="blogPost.text"></div>
-  </md-card-content>
-  <!--<md-divider></md-divider>
-  <md-card-actions>
-    <button md-button color="accent">Action</button>
-    <button md-button>Cancel</button>
-  </md-card-actions>
-</md-card>-->
-
 <td-layout-card-over cardTitle="{{blogPost.title}}" cardSubtitle="{{blogPost.dateCreated | date:'yMdjm'}} by {{blogPost.author}}" cardWidth="75" color="primary">
     <div class="pa-1" [innerHtml]="blogPost.text"></div>
 </td-layout-card-over>
