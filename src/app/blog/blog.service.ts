@@ -18,12 +18,12 @@ export class BlogService {
     }
     getAllBlogPosts(): Observable<BlogPost[]> {
         return this.af.database.list('/blogposts', {
-            query: { orderByKey: true, limitToFirst: 5 }
+            query: { orderByChild: 'priority' }
         }).map(_blogPost => _blogPost.filter(blogPost => blogPost.published == true));
     }
     getRecentBlogPostss(): FirebaseListObservable<BlogPost[]> {
         return this.af.database.list('/blogposts', {
-            query: { orderByKey: true, limitToFirst: 5 }
+            query: { orderByChild: 'priority', limitToFirst: 5 }
         });
     }
     getBlogPost(key: string): Observable<BlogPost> {
@@ -37,6 +37,7 @@ export class BlogService {
         return foundBlogPost;
     }
     addNewBlogPost(blogPost: BlogPost): Observable<any> {
+        blogPost.priority = 0 - Date.now();
         return this.blogPosts.push(blogPost)
             .then(resolve => {
                 console.log('all good');

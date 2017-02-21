@@ -12,10 +12,11 @@ import { BlogService } from './blog.service';
     templateUrl: './blog-post-detail.component.html'
 })
 export class BlogPostDetailComponent implements OnInit {
-    blogPost: Observable<BlogPost>;
+    blogPost: BlogPost;
     constructor(private route: ActivatedRoute, private blogService: BlogService) { }
 
-    ngOnInit() {
-        this.blogPost = this.blogService.getBlogPost(this.route.snapshot.params['id']);
+    ngOnInit(): void {
+        this.route.data
+            .subscribe(data => this.blogPost = data['blogPost']);
      }
 }

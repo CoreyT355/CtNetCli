@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CovalentCoreModule } from '@covalent/core';
+import { RouterModule } from '@angular/router';
 
 import { AuthGuard } from '../auth/auth-guard.service';
 
@@ -16,7 +17,7 @@ import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
     imports: [
-        //blogRouting,
+        RouterModule,
         FormsModule,
         CommonModule,
         PipesModule,
