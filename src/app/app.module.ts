@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
 import { AngularFireModule, FIREBASE_PROVIDERS, AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
@@ -11,6 +11,7 @@ import { AppRouting } from "./routes";
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectsListComponent } from './projects/projects-list.component';
@@ -26,6 +27,8 @@ import { SkillsListComponent } from './skills/skills-list.component';
 import { SkillItemComponent } from './skills/skill-item.component'
 import { SkillsService } from './skills/skills.service';
 import { FullListSkillsComponent } from './skills/full-list-skills.component';
+
+import { SendGridService } from './shared/email/sendgrid.service';
 
 import { PipesModule } from './pipes/pipes.module';
 
@@ -47,6 +50,7 @@ export const firebaseAuthConfig = {
     AppComponent,
     HomeComponent,
     AboutComponent,
+    ContactComponent,
     NavComponent,
     ProjectsComponent,
     ProjectsListComponent,
@@ -64,6 +68,7 @@ export const firebaseAuthConfig = {
     CovalentCoreModule.forRoot(),
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     JsonpModule,
     AppRouting,
@@ -78,7 +83,8 @@ export const firebaseAuthConfig = {
   providers: [
     ProjectsService,
     SkillsService,
-    JobsService
+    JobsService,
+    SendGridService
   ],
   exports: [
   ],

@@ -14,8 +14,12 @@
         <span>Portfolio</span>
       </a>
       <a md-list-item [routerLink]="['/about']" (click)="layout.close()">
-        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-user"></md-icon>
+        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-user-o"></md-icon>
         <span>About</span>
+      </a>
+      <a md-list-item [routerLink]="['/contact']" (click)="layout.close()">
+        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-envelope-o"></md-icon>
+        <span>Contact</span>
       </a>
       <a *ngIf="af.auth | async" md-list-item [routerLink]="['/dashboard']" (click)="layout.close()">
         <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-tachometer"></md-icon>
