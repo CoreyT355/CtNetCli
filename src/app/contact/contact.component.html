@@ -1,36 +1,25 @@
 <td-layout-card-over cardTitle="{{componentName}}" cardSubtitle="" cardWidth="75">
     <div class="row pa-1">
-        <form [formGroup]="contact" (ngSubmit)="submitForm(contact.value)">
-            <div class="row form-group" [ngClass]="{'has-error':!contact.controls['fromEmail'].valid && contact.controls['fromEmail'].touched}">
-                <div class="col-sm-12 col-md-2 col-lg-2">
-                    <label>From</label>
-                </div>
-                <div class="col-sm-12 col-md-10 col-lg-10">
-                    <input type="email" class="form-control" placeholder="from" [formControl]="contact.controls['fromEmail']">
-                </div>
+        <form [formGroup]="contact" (ngSubmit)="submitForm(contact.value)" style="width: 100%;">
+            <div layout="row" layout-margin [ngClass]="{'has-error':!contact.controls['fromEmail'].valid && contact.controls['fromEmail'].touched}">
+                <md-input-container flex>
+                    <input md-input placeholder="your email" [formControl]="contact.controls['fromEmail']">
+                </md-input-container>
             </div>
-            <div class="row form-group" [ngClass]="{'has-error':!contact.controls['subject'].valid && contact.controls['subject'].touched}">
-                <div class="col-sm-12 col-md-2 col-lg-2">
-                    <label>Subject</label>
-                </div>
-                <div class="col-sm-12 col-md-10 col-lg-10">
-                    <input type="text" class="form-control" placeholder="subject" [formControl]="contact.controls['subject']">
-                </div>
+            <div layout="row" layout-margin [ngClass]="{'has-error':!contact.controls['subject'].valid && contact.controls['subject'].touched}">
+                <md-input-container flex>
+                    <input md-input placeholder="subject" [formControl]="contact.controls['subject']">
+                </md-input-container>
             </div>
-            <div class="row form-group" [ngClass]="{'has-error':!contact.controls['content'].valid && contact.controls['content'].touched}">
-                <div class="col-sm-12 col-md-2 col-lg-2">
-                    <label>Message</label>
-                </div>
-                <div class="col-sm-12 col-md-10 col-lg-10">
-                    <textarea class="form-control" placeholder="message" [formControl]="contact.controls['content']"></textarea>
-                </div>
+            <div layout="row" layout-margin [ngClass]="{'has-error':!contact.controls['content'].valid && contact.controls['content'].touched}">
+                <md-input-container flex>
+                    <textarea md-input placeholder="message" maxlength="500" #contentCount [formControl]="contact.controls['content']">
+                    </textarea>
+                    <md-hint align="end">{{contentCount.value.length}} / 500</md-hint>
+                </md-input-container>
             </div>
-            <div class="row form-group">
-                <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-                    <div class="btn-group" role="group" aria-label="...">
-                        <button type="submit" class="btn btn-primary" [disabled]="!contact.valid">Submit</button>
-                    </div>
-                </div>
+            <div layout="row" class="justify-content-center" layout-margin>
+                <button type="submit" class="btn btn-primary" [disabled]="!contact.valid">Submit</button>
             </div>
         </form>
     </div>
