@@ -7,7 +7,7 @@ import { Email } from './email.model';
 @Injectable()
 export class SendGridService {
     SENDGRID_API_URL: string = 'https://api.sendgrid.com/v3/mail';
-    SENDGRID_API_KEY: string = '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';
+    SENDGRID_API_KEY: string = '';
     headers = new Headers({ 'Content-Type': 'application/json' });
     options = new RequestOptions({ headers: this.headers });
     toEmail: string = 'coreyatess@gmail.com';
