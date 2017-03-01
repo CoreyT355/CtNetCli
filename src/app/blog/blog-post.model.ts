@@ -7,12 +7,14 @@ export class BlogPost {
         public author: string,
         public published: boolean,
         public priority: number,
+        public tag: string,
+        public icon: string,
         public dateCreated: string,
         public dateModified: string) {
 
     }
 
-    static fromJson({$key, title, text, imageUrl, author, published, priority, dateCreated, dateModified}):BlogPost {
+    static fromJson({$key, title, text, imageUrl, author, published, priority, tag, icon, dateCreated, dateModified}):BlogPost {
         return new BlogPost(
             $key,
             title,
@@ -21,6 +23,8 @@ export class BlogPost {
             author,
             published,
             priority,
+            tag,
+            icon,
             dateCreated,
             dateModified);
     }

@@ -1,20 +1,13 @@
-<div class="row pa-1">
-    <!--First Column -->
-    <div class="col-md-5">
-        <!--Featured image-->
-        <img [src]="blogPost.imageUrl">
-    </div>
-    <!--/First column-->
-    <!--Second column-->
-    <div class="col-md-7">
-        <!--Excerpt-->
+<div layout="column" class="pa-1">
+    <div layout-gt-md="row" layout-sm="column">
+        <h3 class="mr-3">{{blogPost.title}} <span class="text-xs">by <a><strong>{{blogPost.author}}</strong></a>, {{blogPost.dateCreated | date:'yMdjm'}}</span></h3>
         <a href="" class="tc-deep-purple-A700">
-            <h5><i class="fa fa-code"></i> Websites</h5>
+            <h5><i class="fa" [ngClass]="blogPost.icon"></i> {{blogPost.tag || 'General'}}</h5>
         </a>
-        <h4>{{blogPost.Title}}</h4>
-        <div [innerHtml]="blogPost.text | truncate: 250"></div>
-        <p>by <a><strong>{{blogPost.author}}</strong></a>, {{blogPost.dateCreated | date:'yMdjm'}}</p>
-        <a class="btn bgc-cyan-500 tc-grey-50" [routerLink]="['/blog', blogPost.$key]">Read more</a>
     </div>
-    <!--/Second column-->
+    <div layout-gt-md="row" layout-sm="column">
+        <img flex="initial" [src]="blogPost.imageUrl">
+        <div class="ml-2" [innerHtml]="blogPost.text | truncate: 1000"></div>
+    </div>
+    <a class="btn bgc-cyan-500 tc-grey-50 mt-2" [routerLink]="['/blog', blogPost.$key]">Read more</a>
 </div>
