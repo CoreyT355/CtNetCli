@@ -1,4 +1,15 @@
-<div class="page-header">
-    <h1>Blog Administration</h1>
-</div>
-<blog-dashboard-recent-blog-posts [recentBlogPosts]="recentBlogPosts"></blog-dashboard-recent-blog-posts>
+<md-card tdMediaToggle="gt-xs" [mediaClasses]="['push']">
+    <!--<template tdLoading="features.load">-->
+        <!--<td-search-box class="push-left push-right" placeholder="search" [alwaysVisible]="true" (searchDebounce)="recentBlogPosts($event)"></td-search-box>-->
+        <md-divider></md-divider>
+        <md-list class="will-load">
+            <div class="md-padding" *ngIf="!recentBlogPosts || recentBlogPosts.length === 0" layout="row" layout-align="center center">
+                <h3>No blog posts to display.</h3>
+            </div>
+            <blog-dashboard-recent-blog-posts [recentBlogPosts]="recentBlogPosts"></blog-dashboard-recent-blog-posts>
+        </md-list>
+    <!--</template>-->
+</md-card>
+<button md-fab color="accent" class="mat-fab-bottom-right fixed" [routerLink]="['add']"> 
+    <md-icon>add</md-icon>
+</button>

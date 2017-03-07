@@ -1,19 +1,23 @@
-<div class="card card-block">
-    <h4 class="card-title">Blog Posts</h4>
-    <div class="card-text">
-        <table class="table table-striped table-hover">
-            <thead>
-                <td>Title</td>
-                <td>Date Created</td>
-                <td>Date Modified</td>
-                <td>Author</td>
-                <td>Text</td>
-                <td></td>
-            </thead>
-            <tr blog-dashboard-item [blogPost]="blogPost" *ngFor="let blogPost of recentBlogPosts | async" class="text-left"></tr>
-        </table>
-    </div>
-    <div class="flex-row">
-        <button type="button" class="btn btn-default btn-sm m-l" routerLink="add"><i class="fa fa-plus"></i> New Post</button>
-    </div>
-</div>
+<template let-item let-last="last" ngFor [ngForOf]="recentBlogPosts | async">
+    <md-list-item>
+        <md-slide-toggle md-list-icon [(ngModel)]="item.published" class="mr-2"></md-slide-toggle>
+        <h3 md-line flex-gt-xs="60" flex-xs="40"> {{item.title}} </h3>
+        <div class="md-caption tc-grey-500" flex-gt-xs="40" [innerHtml]='item.text | truncate:40'></div>
+        <span flex></span>
+        <span flex-gt-xs="60" flex-xs="40" layout-gt-xs="row">
+            <div class="md-caption tc-grey-500" flex-gt-xs="50"> {{ item.author }} </div>
+            <div class="md-caption tc-grey-500" flex-gt-xs="50"> {{ item.dateCreated | date:'yMdjm' }} </div>
+            <div class="md-caption tc-grey-500" flex-gt-xs="50"> {{ item.dateModified | date:'yMdjm' }} </div>
+        </span>
+        <span>
+            <button md-icon-button [md-menu-trigger-for]="menu">
+            <md-icon>more_vert</md-icon>
+            </button>
+            <md-menu x-position="before" #menu="mdMenu">
+                <button (click)="gotoEditBlogPost(item.$key)" md-menu-item>Edit</button>
+                <button (click)="openConfirm(item.id)" md-menu-item>Delete</button>
+            </md-menu>
+        </span>
+    </md-list-item>
+    <md-divider *ngIf="!last"></md-divider>
+</template>

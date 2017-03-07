@@ -1,3 +1,6 @@
+
+
+
 module.exports = function (config) {
   config.set({
     basePath: '',
@@ -6,7 +9,6 @@ module.exports = function (config) {
       require('karma-jasmine'),
       require('karma-jasmine-html-reporter'),
       require('karma-chrome-launcher'),
-      require('karma-firefox-launcher'),
       require('karma-coverage-istanbul-reporter'),
       require('@angular/cli/plugins/karma')
     ],

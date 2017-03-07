@@ -1,12 +1,20 @@
-<td>{{blogPost.title}}</td>
-<td>{{blogPost.dateCreated | date:'yMdjm'}}</td>
-<td>{{blogPost.dateModified | date:'yMdjm'}}</td>
-<td>{{blogPost.author}}</td>
-<td [innerHtml]='blogPost.text | truncate:40'></td>
-<td>
-    <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-outline-success btn-sm" (click)="gotoViewBlogPost(blogPost.$key)"><i class="fa fa-eye fa-lg"></i></button>
-        <button type="button" class="btn btn-outline-primary btn-sm" (cl-outlineick)="gotoEditBlogPost(blogPost.$key)"><i class="fa fa-edit fa-lg"></i></button>
-        <button type="button" class="btn btn-outline-danger btn-sm" (click)="del-outlineeteBlogPost(blogPost.$key)"><i class="fa fa-trash fa-lg"></i></button>
-    </div>
-</td>
+<md-list-item>
+    <md-slide-toggle md-list-icon [(ngModel)]="blogPost.published" class="mr-2"></md-slide-toggle>
+    <h3 md-line flex-gt-xs="60" flex-xs="40"> {{blogPost.title}} </h3>
+    <div class="md-caption tc-grey-500" flex-gt-xs="40" [innerHtml]='blogPost.text | truncate:40'></div>
+    <span flex></span>
+    <span flex-gt-xs="60" flex-xs="40" layout-gt-xs="row">
+        <div class="md-caption tc-grey-500" flex-gt-xs="50"> {{ blogPost.author }} </div>
+        <div class="md-caption tc-grey-500" flex-gt-xs="50"> {{ blogPost.dateCreated | date:'yMdjm' }} </div>
+        <div class="md-caption tc-grey-500" flex-gt-xs="50"> {{ blogPost.dateModified | date:'yMdjm' }} </div>
+    </span>
+    <span>
+        <button md-icon-button [md-menu-trigger-for]="menu">
+        <md-icon>more_vert</md-icon>
+        </button>
+        <md-menu x-position="before" #menu="mdMenu">
+            <button (click)="gotoEditBlogPost(blogPost.$key)" md-menu-item>Edit</button>
+            <button (click)="openConfirm(blogPost.id)" md-menu-item>Delete</button>
+        </md-menu>
+    </span>
+</md-list-item>

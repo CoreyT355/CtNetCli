@@ -16,5 +16,5 @@ export class BlogDashboardComponent implements OnInit {
     }
     ngOnInit(): void {
         this.getRecentBlogPosts();
-     }
+    }
 }
