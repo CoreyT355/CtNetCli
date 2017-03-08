@@ -1,15 +1,19 @@
 <div layout="column" class="pa-1">
     <div layout-gt-md="row" layout-sm="column">
-        <h3 class="mr-3">{{blogPost.title}} <span class="text-xs">by <a><strong>{{blogPost.author}}</strong></a>, {{blogPost.dateCreated | date:'yMdjm'}}</span></h3>
+        <h3 class="mr-3"><a [routerLink]="['/blog', blogPost.$key]"> {{blogPost.title}} </a><span class="text-xs">by <strong>{{blogPost.author}}</strong>, {{blogPost.dateCreated | date:'yMdjm'}}</span></h3>
         <a href="" class="tc-deep-purple-A700 mt-2">
             <h5><i class="fa" [ngClass]="blogPost.icon"></i> {{blogPost.tag || 'General'}}</h5>
         </a>
     </div>
     <div layout-gt-md="row" layout-sm="column">
         <div style="width: 100%;">
-            <img flex="initial" [src]="blogPost.imageUrl">
+            <a [routerLink]="['/blog', blogPost.$key]">
+                <img flex="initial" [src]="blogPost.imageUrl">
+            </a>
         </div>
         <div class="ml-2" [innerHtml]="blogPost.text | truncate: 1000"></div>
     </div>
-    <a class="btn bgc-cyan-500 tc-grey-50 mt-2" [routerLink]="['/blog', blogPost.$key]">Read more</a>
+    <div layout layout-align="end start">
+        <a class="btn bgc-cyan-500 tc-grey-50 mt-2" [routerLink]="['/blog', blogPost.$key]">Read more</a>
+    </div>
 </div>
