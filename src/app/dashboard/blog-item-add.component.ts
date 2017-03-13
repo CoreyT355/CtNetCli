@@ -38,6 +38,8 @@ export class BlogItemAddComponent implements OnInit {
             "text": [null, Validators.required],
             "author": "CoreyT",
             "published": false,
+            "tag": "",
+            "icon": "",
             "dateCreated": Date.now(),
             "dateModified": Date.now()
         });

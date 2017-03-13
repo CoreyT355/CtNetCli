@@ -11,11 +11,6 @@ import { SkillsService } from '../skills/skills.service';
 export class DashboardItemSkillComponent implements OnInit {
     @Input() public skill: Skill;
     constructor(private router: Router, private skillsService: SkillsService) { }
-    gotoEditSkill(key: string): void {
-        this.router.navigate(["/dashboard/skills/edit/", key]);
-    }
-    deleteSkill(key: string): void {
-        this.skillsService.deleteSkill(key);
-    }
+
     ngOnInit(): void { }
 }

@@ -1,182 +1,46 @@
-<!--<div class="page-header">
-    <h1>Add a Skill</h1>
-</div>
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">New Skill</h3>
-    </div>
-    <div class="panel-body">
-        <form [formGroup]="skillToAdd" (ngSubmit)="submitForm(skillToAdd.value)">
-            <div class="row form-group" [ngClass]="{'has-error':!skillToAdd.controls['title'].valid && skillToAdd.controls['title'].touched}">
-                <div class="col-sm-12 col-md-2 col-lg-2">
-                    <label>Title</label>
-                </div>
-                <div class="col-sm-12 col-md-10 col-lg-10">
-                    <input type="text" class="form-control" placeholder="title" [formControl]="skillToAdd.controls['title']">
-                </div>
-            </div>
-            <div class="row form-group" [ngClass]="{'has-error':!skillToAdd.controls['level'].valid && skillToAdd.controls['level'].touched}">
-                <div class="col-sm-12 col-md-2 col-lg-2">
-                    <label>Level</label>
-                </div>
-                <div class="col-sm-12 col-md-10 col-lg-10">
-                    <select class="form-control" [formControl]="skillToAdd.controls['level']">
-                        <option value="" disabled>Select Proficiency Level</option>
-                        <option value="Just Starting">Just Starting</option>
-                        <option value="Knowledgeable">Knowledgeable</option>
-                        <option value="Strong">Strong</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row form-group" [ngClass]="{'has-error':!skillToAdd.controls['style'].valid && skillToAdd.controls['style'].touched}">
-                <div class="col-sm-12 col-md-2 col-lg-2">
-                    <label>Style</label>
-                </div>
-                <div class="col-sm-12 col-md-10 col-lg-10">
-                    <select class="form-control" [formControl]="skillToAdd.controls['style']">
-                        <option value="" disabled>Select Style</option>
-                        <option value="progress-bar-default">Default</option>
-                        <option value="progress-bar-primary">Primary</option>
-                        <option value="progress-bar-info">Info</option>
-                        <option value="progress-bar-warning">Warning</option>
-                        <option value="progress-bar-danger">Danger</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row form-group" [ngClass]="{'has-error':!skillToAdd.controls['percentage'].valid && skillToAdd.controls['percentage'].touched}">
-                <div class="col-sm-12 col-md-2 col-lg-2">
-                    <label>Percentage</label>
-                </div>
-                <div class="col-sm-12 col-md-10 col-lg-10">
-                    <div class="input-group">
-                        <input type="number" step="5" min="0" max="100" class="form-control" placeholder="percentage" [formControl]="skillToAdd.controls['percentage']">
-                        <i class="input-group-addon fa fa-percent"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="row form-group">
-                <div class="col-sm-12 col-md-2 col-lg-2">
-                    <label>Featured</label>
-                </div>
-                <div class="col-sm-12 col-md-10 col-lg-10">
-                    <div class="radio-inline">
-                        <label>
-                            <input type="radio" name="published" value="true" [formControl]="skillToAdd.controls['featured']">
-                            True
-                        </label>
-                    </div>
-                    <div class="radio-inline">
-                        <label>
-                            <input type="radio" name="published" value="false" [formControl]="skillToAdd.controls['featured']">
-                            False
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="row form-group" [ngClass]="{'has-error':!skillToAdd.controls['order'].valid && skillToAdd.controls['order'].touched}">
-                <div class="col-sm-12 col-md-2 col-lg-2">
-                    <label>Sort Order</label>
-                </div>
-                <div class="col-sm-12 col-md-10 col-lg-10">
-                    <input type="number" min="0" max="100" class="form-control" placeholder="order" [formControl]="skillToAdd.controls['order']">
-                </div>
-            </div>
-            <div class="row form-group">
-                <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-                    <div class="btn-group" role="group" aria-label="...">
-                        <button type="button" class="btn btn-default" [routerLink]="['/dashboard/skills']" (click)="confirm()">Cancel</button>
-                        <button type="submit" class="btn btn-info" [disabled]="!skillToAdd.valid">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>-->
-
-<div class="card">
-    <div clss="card-block">
-        <div class="form-header purple darken-4">
-            <h3><i class="fa fa-pencil"></i> Add Skill</h3>
-        </div>
+<md-card>
+    <md-card-title>New Skill</md-card-title>
+    <md-divider></md-divider>
+    <md-card-content class="push-bottom-none">
         <form [formGroup]="skillToAdd" (ngSubmit)="save(skillToAdd.value)">
-            <div class="row">
-                <div class="col-lg-6 col-md-8">
-                    <div class="md-form">
-                        <input type="text" class="form-control" id="title" [formControl]="skillToAdd.controls['title']">
-                        <label for="title">Title</label>
-                    </div>
-                </div>
+            <div layout="row" layout-margin [ngClass]="{'has-error':!skillToAdd.controls['title'].valid && skillToAdd.controls['title'].touched}">
+                <md-input-container flex>
+                    <input mdInput type="text" placeholder="Title" [formControl]="skillToAdd.controls['title']" name="title" required>
+                </md-input-container>
+                <md-select flex="50" placeholder="Select Skill Level" [formControl]="skillToAdd.controls['level']" name="level">
+                    <md-option value="Just Starting">Just Starting</md-option>
+                    <md-option value="Knowledgeable">Knowledgeable</md-option>
+                    <md-option value="Strong">Strong</md-option>
+                </md-select>
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-8">
-                    <div class="md-form">
-                        <select class="mdb-select" id="level" name="level" [formControl]="skillToAdd.controls['level']">
-                            <option value="" disabled selected>Select Proficiency Level</option>
-                            <option value="Just Starting">Just Starting</option>
-                            <option value="Knowledgeable">Knowledgeable</option>
-                            <option value="Strong">Strong</option>
-                        </select>
-                        <label>Level</label>
-                    </div>
-                </div>
+            <div layout="row" layout-margin>
+                <md-input-container flex layout-margin>
+                    <input mdInput type="number" min="1" max="100" placeholder="Percentage" [formControl]="skillToAdd.controls['percentage']"
+                        name="percentage">
+                </md-input-container>
+                <md-select flex="50" placeholder="Select a Style" [formControl]="skillToAdd.controls['style']" name="style">
+                    <md-option value="bg-primary">Primary</md-option>
+                    <md-option value="bg-success">Success</md-option>
+                    <md-option value="bg-info">Info</md-option>
+                    <md-option value="bg-warning">Warning</md-option>
+                    <md-option value="bg-danger">Danger</md-option>
+                </md-select>
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-8">
-                    <div class="md-form">
-                        <select class="mdb-select" [formControl]="skillToAdd.controls['style']">
-                            <option value="" disabled>Select Style</option>
-                            <option class="text-default" value="progress-bar-default">Default</option>
-                            <option class="text-primary" value="progress-bar-primary">Primary</option>
-                            <option class="text-info" value="progress-bar-info">Info</option>
-                            <option class="text-warning" value="progress-bar-warning">Warning</option>
-                            <option class="text-danger" value="progress-bar-danger">Danger</option>
-                        </select>
-                        <label>Style</label>
-                    </div>
-                </div>
+            <div layout="row" layout-margin flex="10" [ngClass]="{'has-error':!skillToAdd.controls['order'].valid && skillToAdd.controls['order'].touched}">
+                <md-input-container flex layout-margin>
+                    <input mdInput placeholder="Order" type="number" min="0" max="1000" id="order" [formControl]="skillToAdd.controls['order']">
+                </md-input-container>
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-8">
-                    <div class="md-form">
-                        <input type="text" class="form-control" id="percentage" name="percentage" [formControl]="skillToAdd.controls['percentage']">
-                        <label for="percentage">Percentage</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-8">
-                    <div class="md-form">
-                        <div class="switch">
-                            <label>
-                    Yes
-                    <input type="checkbox" [formControl]="skillToAdd.controls['featured']">
-                    <span class="lever"></span>
-                    No
-                    </label>
-                        </div>
-                        <label>Featured</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-8">
-                    <div class="md-form">
-                        <input type="number" class="form-control" id="order" [formControl]="skillToAdd.controls['order']">
-                        <label for="order">Sort Order</label>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center">
-                <div class="btn-group" role="group" aria-label="...">
-                    <button type="button" class="btn btn-default" [routerLink]="['/dashboard/skills']">Cancel</button>
-                    <button type="submit" class="btn btn-primary" [disabled]="!skillToAdd.valid">Submit</button>
-                </div>
+            <div layout="row" layout-margin>
+                <md-slide-toggle [formControl]="skillToAdd.controls['featured']" name="featured">Featured</md-slide-toggle>
             </div>
         </form>
-    </div>
-    <div class="modal-footer">
-        <div class="options">
-
+    </md-card-content>
+    <md-divider></md-divider>
+    <md-card-actions>
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" [routerLink]="['/dashboard/skills']" (click)="confirm()">Cancel</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!skillToAdd.valid">Submit</button>
         </div>
-    </div>
-</div>
+    </md-card-actions>
+</md-card>
