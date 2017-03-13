@@ -3,6 +3,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CovalentCoreModule } from '@covalent/core';
 
+import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
+
 import { AuthGuard } from '../auth/auth-guard.service';
 import { BlogService } from '../blog/blog.service';
 
@@ -37,7 +39,8 @@ import { QuillEditorModule } from 'ng2-quill-editor';
     CommonModule,
     QuillEditorModule,
     PipesModule,
-    CovalentCoreModule
+    CovalentCoreModule,
+    CovalentDynamicFormsModule.forRoot()
   ],
   providers: [
     AuthGuard,
