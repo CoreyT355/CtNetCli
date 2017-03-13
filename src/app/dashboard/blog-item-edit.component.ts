@@ -39,6 +39,8 @@ export class BlogItemEditComponent implements OnInit {
             "text": [this.blogPostToEdit.text, Validators.required],
             "author": this.blogPostToEdit.author,
             "published": this.blogPostToEdit.published,
+            "tag": "",
+            "icon": "",
             "dateCreated": this.blogPostToEdit.dateCreated,
             "dateModified": Date.now()
         });

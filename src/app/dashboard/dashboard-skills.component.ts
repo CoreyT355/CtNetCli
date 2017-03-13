@@ -10,6 +10,7 @@ import { SkillsService } from '../skills/skills.service';
     templateUrl: './dashboard-skills.component.html'
 })
 export class DashboardSkillsComponent implements OnInit {
+    title: string = "Skills";
     skills: Observable<Skill[]>;
     constructor(private skillService: SkillsService) { }
 

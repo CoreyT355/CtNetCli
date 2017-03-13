@@ -1,4 +1,44 @@
-<div class="page-header">
+<md-card>
+    <md-card-title>New Blog Post</md-card-title>
+    <md-divider></md-divider>
+    <md-card-content class="push-bottom-none">
+        <form [formGroup]="blogPostAdd" (ngSubmit)="submitForm(blogPostAdd.value)">
+            <div layout="column">
+                <div layout="row" layout-margin [ngClass]="{'has-error':!blogPostAdd.controls['title'].valid && blogPostAdd.controls['title'].touched}">
+                    <md-input-container flex>
+                        <input mdInput type="text" placeholder="Title" [formControl]="blogPostAdd.controls['title']" name="title" required>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <input mdInput type="text" placeholder="Image URL" [formControl]="blogPostAdd.controls['imageUrl']" name="imageUrl">
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-margin>
+                    <md-input-container flex>
+                        <input mdInput type="text" placeholder="Category" [formControl]="blogPostAdd.controls['tag']" name="tag">
+                    </md-input-container>
+                    <md-input-container flex>
+                        <input mdInput type="text" placeholder="Icon" [formControl]="blogPostAdd.controls['icon']" name="icon">
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-margin flex="100" [ngClass]="{'has-error':!blogPostAdd.controls['text'].valid && blogPostAdd.controls['text'].touched}">
+                    <quill-editor flex="100" [formControl]="blogPostAdd.controls['text']" [config]="editorConfig"></quill-editor>
+                </div>
+                <div layout="row" layout-margin flex="20">
+                    <md-slide-toggle [formControl]="blogPostAdd.controls['published']" name="published">Published</md-slide-toggle>
+                </div>
+            </div>
+        </form>
+    </md-card-content>
+    <md-divider></md-divider>
+    <md-card-actions>
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" [routerLink]="['/dashboard/blog']" (click)="confirm()">Cancel</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!blogPostAdd.valid">Submit</button>
+        </div>
+    </md-card-actions>
+</md-card>
+
+<!--<div class="page-header">
     <h1>Add a Blog Post</h1>
 </div>
 <div class="panel panel-primary">
@@ -7,7 +47,7 @@
     </div>
     <div class="panel-body">
         <form [formGroup]="blogPostAdd" (ngSubmit)="submitForm(blogPostAdd.value)">
-            <div class="row form-group" [ngClass]="{'has-error':!blogPostAdd.controls['title'].valid && blogPostAdd.controls['title'].touched}">
+            <div layout="row" [ngClass]="{'has-error':!blogPostAdd.controls['title'].valid && blogPostAdd.controls['title'].touched}">
                 <div class="col-sm-12 col-md-2 col-lg-2">
                     <label>Title</label>
                 </div>
@@ -15,7 +55,7 @@
                     <input type="text" class="form-control" placeholder="title" [formControl]="blogPostAdd.controls['title']">
                 </div>
             </div>
-            <div class="row form-group">
+            <div layout="row">
                 <div class="col-sm-12 col-md-2 col-lg-2">
                     <label>Image URL</label>
                 </div>
@@ -23,7 +63,7 @@
                     <input type="text" class="form-control" placeholder="image url" [formControl]="blogPostAdd.controls['imageUrl']">
                 </div>
             </div>
-            <div class="row form-group" [ngClass]="{'has-error':!blogPostAdd.controls['text'].valid && blogPostAdd.controls['text'].touched}">
+            <div layout="row" [ngClass]="{'has-error':!blogPostAdd.controls['text'].valid && blogPostAdd.controls['text'].touched}">
                 <div class="col-sm-12 col-md-2 col-lg-2">
                     <label>Post</label>
                 </div>
@@ -31,7 +71,7 @@
                     <quill-editor [formControl]="blogPostAdd.controls['text']" [config]="editorConfig"></quill-editor>
                 </div>
             </div>
-            <div class="row form-group">
+            <div layout="row">
                 <div class="col-sm-12 col-md-2 col-lg-2">
                     <label>Publish</label>
                 </div>
@@ -50,7 +90,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row form-group">
+            <div layout="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 text-center">
                     <div class="btn-group" role="group" aria-label="...">
                         <button type="button" class="btn btn-default" [routerLink]="['/dashboard/blog']" (click)="confirm()">Cancel</button>
@@ -60,4 +100,4 @@
             </div>
         </form>
     </div>
-</div>
+</div>-->

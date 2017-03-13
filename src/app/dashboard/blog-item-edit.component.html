@@ -1,4 +1,43 @@
-<div class="page-header">
+<md-card>
+    <md-card-title>Edit Blog Post</md-card-title>
+    <md-divider></md-divider>
+    <md-card-content class="push-bottom-none">
+        <form [formGroup]="blogPostForm" (ngSubmit)="submitForm(blogPostForm.value)">
+            <div layout="column">
+                <div layout="row" layout-margin [ngClass]="{'has-error':!blogPostForm.controls['title'].valid && blogPostForm.controls['title'].touched}">
+                    <md-input-container flex>
+                        <input mdInput type="text" placeholder="Title" [formControl]="blogPostForm.controls['title']" name="title" required>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <input mdInput type="text" placeholder="Image URL" [formControl]="blogPostForm.controls['imageUrl']" name="imageUrl">
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-margin>
+                    <md-input-container flex>
+                        <input mdInput type="text" placeholder="Category" [formControl]="blogPostForm.controls['tag']" name="tag">
+                    </md-input-container>
+                    <md-input-container flex>
+                        <input mdInput type="text" placeholder="Icon" [formControl]="blogPostForm.controls['icon']" name="icon">
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-margin flex="100" [ngClass]="{'has-error':!blogPostForm.controls['text'].valid && blogPostForm.controls['text'].touched}">
+                    <quill-editor flex="100" [formControl]="blogPostForm.controls['text']" [config]="editorConfig"></quill-editor>
+                </div>
+                <div layout="row" layout-margin flex="20">
+                    <md-slide-toggle [formControl]="blogPostForm.controls['published']" name="published">Published</md-slide-toggle>
+                </div>
+            </div>
+        </form>
+    </md-card-content>
+    <md-divider></md-divider>
+    <md-card-actions>
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" [routerLink]="['/dashboard/blog']" (click)="confirm()">Cancel</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!blogPostForm.valid">Submit</button>
+        </div>
+    </md-card-actions>
+</md-card>
+<!--<div class="page-header">
     <h1>Edit Post</h1>
 </div>
 <div class="panel panel-primary">
@@ -60,4 +99,4 @@
             </div>
         </form>
     </div>
-</div>
+</div>-->
