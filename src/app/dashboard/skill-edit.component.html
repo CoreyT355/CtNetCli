@@ -1,90 +1,46 @@
-<div class="card">
-    <div clss="card-block">
-        <div class="form-header purple darken-4">
-            <h3><i class="fa fa-pencil"></i> Edit Skill</h3>
-        </div>
+<md-card>
+    <md-card-title>New Skill</md-card-title>
+    <md-divider></md-divider>
+    <md-card-content class="push-bottom-none">
         <form [formGroup]="skillToEditForm" (ngSubmit)="save(skillToEditForm.value)">
-            <div class="row">
-                <div class="col-lg-6 col-md-8">
-                    <div class="md-form">
-                        <input type="text" class="form-control" id="title" [formControl]="skillToEditForm.controls['title']">
-                        <label for="title">Title</label>
-                    </div>
-                </div>
+            <div layout="row" layout-margin [ngClass]="{'has-error':!skillToEditForm.controls['title'].valid && skillToEditForm.controls['title'].touched}">
+                <md-input-container flex>
+                    <input mdInput type="text" placeholder="Title" [formControl]="skillToEditForm.controls['title']" name="title" required>
+                </md-input-container>
+                <md-select flex="50" placeholder="Select Skill Level" [formControl]="skillToEditForm.controls['level']" name="level">
+                    <md-option value="Just Starting">Just Starting</md-option>
+                    <md-option value="Knowledgeable">Knowledgeable</md-option>
+                    <md-option value="Strong">Strong</md-option>
+                </md-select>
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-8">
-                    <div class="md-form">
-                        <select class="mdb-select" [formControl]="skillToEditForm.controls['level']">
-                    <option value="" disabled>Select Proficiency Level</option>
-                    <option value="Just Starting">Just Starting</option>
-                    <option value="Knowledgeable">Knowledgeable</option>
-                    <option value="Strong">Strong</option>
-                </select>
-                        <label>Level</label>
-                    </div>
-                </div>
+            <div layout="row" layout-margin>
+                <md-input-container flex layout-margin>
+                    <input mdInput type="number" min="1" max="100" placeholder="Percentage" [formControl]="skillToEditForm.controls['percentage']"
+                        name="percentage">
+                </md-input-container>
+                <md-select flex="50" placeholder="Select a Style" [formControl]="skillToEditForm.controls['style']" name="style">
+                    <md-option value="bg-primary">Primary</md-option>
+                    <md-option value="bg-success">Success</md-option>
+                    <md-option value="bg-info">Info</md-option>
+                    <md-option value="bg-warning">Warning</md-option>
+                    <md-option value="bg-danger">Danger</md-option>
+                </md-select>
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-8">
-                    <div class="md-form">
-                        <select class="mdb-select" [formControl]="skillToEditForm.controls['style']">
-                    <option value="" disabled>Select Style</option>
-                    <option class="text-default" value="progress-bar-default">Default</option>
-                    <option class="text-primary" value="progress-bar-primary">Primary</option>
-                    <option class="text-info" value="progress-bar-info">Info</option>
-                    <option class="text-warning" value="progress-bar-warning">Warning</option>
-                    <option class="text-danger" value="progress-bar-danger">Danger</option>
-                </select>
-                        <label>Style</label>
-                    </div>
-                </div>
+            <div layout="row" layout-margin flex="10" [ngClass]="{'has-error':!skillToEditForm.controls['order'].valid && skillToEditForm.controls['order'].touched}">
+                <md-input-container flex layout-margin>
+                    <input mdInput placeholder="Order" type="number" min="0" max="1000" id="order" [formControl]="skillToEditForm.controls['order']">
+                </md-input-container>
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-8">
-                    <div class="md-form">
-                        <div class="input-group">
-                            <input type="text" class="form-control" [formControl]="skillToEditForm.controls['percentage']">
-                            <i class="input-group-addon fa fa-percent"></i>
-                        </div>
-                        <label>Percentage</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-8">
-                    <div class="md-form">
-                        <div class="switch">
-                            <label>
-                    Yes
-                    <input type="checkbox" [formControl]="skillToEditForm.controls['featured']">
-                    <span class="lever"></span>
-                    No
-                    </label>
-                        </div>
-                        <label>Featured</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-8">
-                    <div class="md-form">
-                        <input type="number" class="form-control" id="order" [formControl]="skillToEditForm.controls['order']">
-                        <label for="order">Sort Order</label>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center">
-                <div class="btn-group" role="group" aria-label="...">
-                    <button type="button" class="btn btn-default" [routerLink]="['/dashboard/skills']">Cancel</button>
-                    <button type="submit" class="btn btn-primary" [disabled]="!skillToEditForm.valid">Submit</button>
-                </div>
+            <div layout="row" layout-margin>
+                <md-slide-toggle [formControl]="skillToEditForm.controls['featured']" name="featured">Featured</md-slide-toggle>
             </div>
         </form>
-    </div>
-    <div class="modal-footer">
-        <div class="options">
-
+    </md-card-content>
+    <md-divider></md-divider>
+    <md-card-actions>
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" [routerLink]="['/dashboard/skills']" (click)="confirm()">Cancel</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!skillToEditForm.valid">Submit</button>
         </div>
-    </div>
-</div>
+    </md-card-actions>
+</md-card>
