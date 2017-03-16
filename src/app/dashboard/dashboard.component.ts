@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
 })
 
 export class DashboardComponent {
-  title: string = "Testing";
+  title: string = "Profile";
  }

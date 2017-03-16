@@ -1,8 +1,8 @@
 <md-card>
-    <md-card-title>New Blog Post</md-card-title>
-    <md-divider></md-divider>
-    <md-card-content class="push-bottom-none">
-        <form [formGroup]="blogPostAdd" (ngSubmit)="submitForm(blogPostAdd.value)">
+    <form [formGroup]="blogPostAdd" (ngSubmit)="submitForm(blogPostAdd.value)">
+        <md-card-title>New Blog Post</md-card-title>
+        <md-divider></md-divider>
+        <md-card-content class="push-bottom-none">
             <div layout="column">
                 <div layout="row" layout-margin [ngClass]="{'has-error':!blogPostAdd.controls['title'].valid && blogPostAdd.controls['title'].touched}">
                     <md-input-container flex>
@@ -27,15 +27,15 @@
                     <md-slide-toggle [formControl]="blogPostAdd.controls['published']" name="published">Published</md-slide-toggle>
                 </div>
             </div>
-        </form>
-    </md-card-content>
-    <md-divider></md-divider>
-    <md-card-actions>
-        <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default" [routerLink]="['/dashboard/blog']" (click)="confirm()">Cancel</button>
-            <button type="submit" class="btn btn-primary" [disabled]="!blogPostAdd.valid">Submit</button>
-        </div>
-    </md-card-actions>
+        </md-card-content>
+        <md-divider></md-divider>
+        <md-card-actions>
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-default" [routerLink]="['/dashboard/blog']" (click)="confirm()">Cancel</button>
+                <button type="submit" class="btn btn-primary" [disabled]="!blogPostAdd.valid">Submit</button>
+            </div>
+        </md-card-actions>
+    </form>
 </md-card>
 
 <!--<div class="page-header">

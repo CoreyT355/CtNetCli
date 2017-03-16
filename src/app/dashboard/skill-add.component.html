@@ -1,8 +1,8 @@
 <md-card>
-    <md-card-title>New Skill</md-card-title>
-    <md-divider></md-divider>
-    <md-card-content class="push-bottom-none">
-        <form [formGroup]="skillToAdd" (ngSubmit)="save(skillToAdd.value)">
+    <form [formGroup]="skillToAdd" (ngSubmit)="save(skillToAdd.value)">
+        <md-card-title>New Skill</md-card-title>
+        <md-divider></md-divider>
+        <md-card-content class="push-bottom-none">
             <div layout="row" layout-margin [ngClass]="{'has-error':!skillToAdd.controls['title'].valid && skillToAdd.controls['title'].touched}">
                 <md-input-container flex>
                     <input mdInput type="text" placeholder="Title" [formControl]="skillToAdd.controls['title']" name="title" required>
@@ -34,13 +34,13 @@
             <div layout="row" layout-margin>
                 <md-slide-toggle [formControl]="skillToAdd.controls['featured']" name="featured">Featured</md-slide-toggle>
             </div>
-        </form>
-    </md-card-content>
-    <md-divider></md-divider>
-    <md-card-actions>
-        <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default" [routerLink]="['/dashboard/skills']" (click)="confirm()">Cancel</button>
-            <button type="submit" class="btn btn-primary" [disabled]="!skillToAdd.valid">Submit</button>
-        </div>
-    </md-card-actions>
+        </md-card-content>
+        <md-divider></md-divider>
+        <md-card-actions>
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-default" [routerLink]="['/dashboard/skills']" (click)="confirm()">Cancel</button>
+                <button type="submit" class="btn btn-primary" [disabled]="!skillToAdd.valid">Submit</button>
+            </div>
+        </md-card-actions>
+    </form>
 </md-card>

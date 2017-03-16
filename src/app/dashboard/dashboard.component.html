@@ -11,7 +11,8 @@
         md-ripple class="block relative"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{exact:true}"
-        [routerLink]="['/profile']">
+        [routerLink]="['/profile']"
+        (click)="title = 'Profile'">
         <md-icon md-list-icon class="fa-lg" fontSet="fa" fontIcon="fa-user"></md-icon>
         Profile
       </a>
@@ -19,7 +20,8 @@
         md-ripple class="block relative"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{exact:true}"
-        [routerLink]="['account']">
+        [routerLink]="['account']"
+        (click)="title = 'Account'">
         <md-icon md-list-icon class="fa-lg" fontSet="fa" fontIcon="fa-user-circle"></md-icon>
         Account
       </a>
@@ -27,7 +29,8 @@
         md-ripple class="block relative"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{exact:true}"
-        [routerLink]="['blog']">
+        [routerLink]="['blog']"
+        (click)="title = 'Blog Administration'">
         <md-icon md-list-icon class="fa-lg" fontSet="fa" fontIcon="fa-rss"></md-icon>
         Blog Administration
       </a>
@@ -35,7 +38,8 @@
         md-ripple class="block relative"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{exact:true}"
-        [routerLink]="['skills']">
+        [routerLink]="['skills']"
+        (click)="title = 'Skills Administration'">
         <md-icon md-list-icon class="fa-lg" fontSet="fa" fontIcon="fa-graduation-cap"></md-icon>
         Skills Administration
       </a>
@@ -43,7 +47,8 @@
         md-ripple class="block relative"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{exact:true}"
-        [routerLink]="['settings']">
+        [routerLink]="['settings']"
+        (click)="title = 'Settings'">
         <md-icon md-list-icon class="fa-lg" fontSet="fa" fontIcon="fa-cog"></md-icon>
         Settings
       </a>
