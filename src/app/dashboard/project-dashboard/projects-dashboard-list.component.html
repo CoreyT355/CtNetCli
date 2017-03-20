@@ -1,0 +1,28 @@
+<template let-item let-last="last" ngFor [ngForOf]="projects | async">
+    <md-list-item>
+        
+        <!--<md-slide-toggle md-list-icon [(ngModel)]="item.featured" class="mr-2">Featured</md-slide-toggle>-->
+        <h3 md-line flex-gt-xs="40" flex-xs="40"> {{item.title}} </h3>
+        <md-slide-toggle md-list-icon [(ngModel)]="item.published" class="mr-2">Published</md-slide-toggle>
+        <div class="md-caption tc-grey-500" flex-gt-xs="40" [innerHtml]='item.content | truncate:50'></div>
+        <span flex>
+            
+        </span>
+        <span flex-gt-xs="60" flex-xs="40" layout-gt-xs="row">
+            <div class="md-caption tc-grey-500" flex-gt-xs="50"> {{ item.teaser }} </div>
+            <div class="md-caption tc-grey-500" flex-gt-xs="50"> {{ item.dateCreated | date:'yMdjm' }} </div>
+            <div class="md-caption tc-grey-500" flex-gt-xs="50"> {{ item.dateModified | date:'yMdjm' }} </div>
+        </span>
+        <span>
+            <button md-icon-button [md-menu-trigger-for]="menu">
+            <md-icon>more_vert</md-icon>
+            </button>
+            <md-menu x-position="before" #menu="mdMenu">
+                <button (click)="gotoViewProject(item.$key)" md-menu-item>View</button>
+                <button (click)="gotoEditProject(item.$key)" md-menu-item>Edit</button>
+                <button (click)="openConfirm(item.id)" md-menu-item>Delete</button>
+            </md-menu>
+        </span>
+    </md-list-item>
+    <md-divider *ngIf="!last"></md-divider>
+</template>
