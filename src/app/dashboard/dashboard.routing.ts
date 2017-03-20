@@ -13,6 +13,8 @@ import { DashboardSkillsComponent } from './dashboard-skills.component';
 import { SkillAddComponent } from './skill-add.component';
 import { SkillEditComponent } from './skill-edit.component';
 import { SkillsResolver } from '../skills/skill.resolver';
+import { ProjectsDashboardComponent } from './project-dashboard/projects-dashboard.component';
+import { ProjectsDashboardListComponent } from './project-dashboard/projects-dashboard-list.component';
 
 import { AuthGuard } from '../auth/auth-guard.service';
 
@@ -31,6 +33,7 @@ const appRoutes: Routes = [
       { path: 'skills', component:DashboardSkillsComponent },
       { path: 'skills/add', component: SkillAddComponent },
       { path: 'skills/edit/:id', component:SkillEditComponent, resolve: { skill: SkillsResolver } },
+      { path: 'projects', component: ProjectsDashboardComponent }
     ]
   },
 ];

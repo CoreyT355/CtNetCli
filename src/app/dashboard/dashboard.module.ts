@@ -26,6 +26,10 @@ import { SkillsService } from '../skills/skills.service';
 import { SkillsResolver } from '../skills/skill.resolver';
 import { SkillAddComponent } from './skill-add.component';
 import { SkillEditComponent } from './skill-edit.component';
+import { ProjectsService } from '../projects/projects.service';
+import { ProjectsResolver } from '../projects/projects.resolver';
+import { ProjectsDashboardComponent } from './project-dashboard/projects-dashboard.component';
+import { ProjectsDashboardListComponent } from './project-dashboard/projects-dashboard-list.component';
 
 import { PipesModule } from '../pipes/pipes.module';
 
@@ -47,7 +51,9 @@ import { QuillEditorModule } from 'ng2-quill-editor';
     BlogService,
     BlogResolver,
     SkillsService,
-    SkillsResolver
+    SkillsResolver,
+    ProjectsService,
+    ProjectsResolver
   ],
   declarations: [
     DashboardComponent,
@@ -63,7 +69,9 @@ import { QuillEditorModule } from 'ng2-quill-editor';
     DashboardListSkillsComponent,
     DashboardItemSkillComponent,
     SkillAddComponent,
-    SkillEditComponent
+    SkillEditComponent,
+    ProjectsDashboardComponent,
+    ProjectsDashboardListComponent
   ]
 })
 export class DashModule { }

@@ -47,6 +47,15 @@
         md-ripple class="block relative"
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{exact:true}"
+        [routerLink]="['projects']"
+        (click)="title = 'Projects Administration'">
+        <md-icon md-list-icon class="fa-lg" fontSet="fa" fontIcon="fa-folder-open"></md-icon>
+        Projects Administration
+      </a>
+      <a md-list-item 
+        md-ripple class="block relative"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact:true}"
         [routerLink]="['settings']"
         (click)="title = 'Settings'">
         <md-icon md-list-icon class="fa-lg" fontSet="fa" fontIcon="fa-cog"></md-icon>
