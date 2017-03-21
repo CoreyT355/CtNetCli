@@ -30,6 +30,7 @@ import { ProjectsService } from '../projects/projects.service';
 import { ProjectsResolver } from '../projects/projects.resolver';
 import { ProjectsDashboardComponent } from './project-dashboard/projects-dashboard.component';
 import { ProjectsDashboardListComponent } from './project-dashboard/projects-dashboard-list.component';
+import { ProjectAddComponent } from './project-dashboard/projects-add.component';
 
 import { PipesModule } from '../pipes/pipes.module';
 
@@ -71,7 +72,8 @@ import { QuillEditorModule } from 'ng2-quill-editor';
     SkillAddComponent,
     SkillEditComponent,
     ProjectsDashboardComponent,
-    ProjectsDashboardListComponent
+    ProjectsDashboardListComponent,
+    ProjectAddComponent
   ]
 })
 export class DashModule { }

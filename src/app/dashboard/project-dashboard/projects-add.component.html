@@ -1,0 +1,43 @@
+<md-card>
+    <form [formGroup]="projectToAdd" (ngSubmit)="submitForm(projectToAdd.value)">
+        <md-card-title>New Blog Post</md-card-title>
+        <md-divider></md-divider>
+        <md-card-content class="push-bottom-none">
+            <div layout="column">
+                <div layout="row" layout-margin [ngClass]="{'has-error':!projectToAdd.controls['title'].valid && projectToAdd.controls['title'].touched}">
+                    <md-input-container flex>
+                        <input mdInput type="text" placeholder="Title" [formControl]="projectToAdd.controls['title']" name="title" required>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <input mdInput type="text" placeholder="Image URL" [formControl]="projectToAdd.controls['imageUrl']" name="imageUrl" required>
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-margin [ngClass]="{'has-error':!projectToAdd.controls['teaser'].valid && projectToAdd.controls['teaser'].touched}">
+                    <md-input-container flex>
+                        <input mdInput type="text" placeholder="Teaser" [formControl]="projectToAdd.controls['teaser']" name="teaser" required>
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-margin>
+                    <md-input-container flex>
+                        <input mdInput type="number" min="0" max="1000" placeholder="Order" [formControl]="projectToAdd.controls['order']" name="order">
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-margin flex="100" [ngClass]="{'has-error':!projectToAdd.controls['content'].valid && projectToAdd.controls['content'].touched}">
+                    <quill-editor flex="100" [formControl]="projectToAdd.controls['content']" [config]="editorConfig"></quill-editor>
+                </div>
+                <div layout="row" layout-margin flex="60">
+                    <md-slide-toggle [formControl]="projectToAdd.controls['published']" name="published">Published</md-slide-toggle>
+                    <md-slide-toggle [formControl]="projectToAdd.controls['featured']" name="published">Featured</md-slide-toggle>
+                    <md-slide-toggle [formControl]="projectToAdd.controls['isActive']" name="published">Active</md-slide-toggle>
+                </div>
+            </div>
+        </md-card-content>
+        <md-divider></md-divider>
+        <md-card-actions>
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-default" [routerLink]="['/dashboard/projects']" (click)="confirm()">Cancel</button>
+                <button type="submit" class="btn btn-primary" [disabled]="!projectToAdd.valid">Submit</button>
+            </div>
+        </md-card-actions>
+    </form>
+</md-card>
