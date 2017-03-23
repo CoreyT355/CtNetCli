@@ -39,18 +39,18 @@ export class BlogItemEditComponent implements OnInit {
             "text": [this.blogPostToEdit.text, Validators.required],
             "author": this.blogPostToEdit.author,
             "published": this.blogPostToEdit.published,
-            "tag": "",
-            "icon": "",
+            "tag": this.blogPostToEdit.tag,
+            "icon": this.blogPostToEdit.icon,
             "dateCreated": this.blogPostToEdit.dateCreated,
             "dateModified": Date.now()
         });
     }
-    save(blogPost) {
+    submitForm(value: any) {
         this.blogService
-            .saveBlogPost(this.blogPostToEdit.$key, blogPost)
+            .saveBlogPost(this.blogPostToEdit.$key, value)
             .subscribe(() => {
                 this.toastr.success('Successfully saved blog post.', 'Success');
-                this.router.navigateByUrl('dashboard/blog');
+                //this.router.navigateByUrl('dashboard/blog');
             },
             err => this.toastr.error(`Error adding blog post: ${err}`, "Uh oh")
             );
