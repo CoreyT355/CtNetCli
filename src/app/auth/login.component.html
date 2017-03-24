@@ -1,7 +1,3 @@
-<div class="alert" *ngIf="error">
-    {{ error }}
-</div>
-
 <div class="row d-flex justify-content-center">
     <div class=" col-lg-6 col-md-8 mt-2">
         <div class="card">
@@ -9,19 +5,19 @@
                 <div class="form-header">
                     <h3>Login</h3>
                 </div>
-                <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+                <form [formGroup]="login" (ngSubmit)="onSubmit(login)">
                     <div layout="row" layout-margin [ngClass]="{'has-error':!login.controls['email'].valid && login.controls['email'].touched}">
                         <md-input-container flex>
-                            <input md-input type="text" placeholder="email" (ngModel)="email" required>
+                            <input mdInput type="text" placeholder="email" [formControl]="login.controls['email']" name="email">
                         </md-input-container>
                     </div>
                     <div layout="row" layout-margin [ngClass]="{'has-error':!login.controls['password'].valid && login.controls['password'].touched}">
                         <md-input-container flex>
-                            <input md-input type="password" placeholder="password" (ngModel)="password" required>
+                            <input mdInput type="password" placeholder="password" [formControl]="login.controls['password']" name="password">
                         </md-input-container>
                     </div>
                     <div layout="row" class="justify-content-center" layout-margin>
-                        <button class="btn btn-primary" [disabled]="!formData.valid">Login</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!login.valid">Login</button>
                     </div>
                 </form>
             </div>
