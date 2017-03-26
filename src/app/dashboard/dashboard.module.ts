@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CovalentCoreModule } from '@covalent/core';
@@ -40,6 +41,7 @@ import { QuillEditorModule } from 'ng2-quill-editor';
   imports: [
     dashboardRouting,
     FormsModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     CommonModule,
     QuillEditorModule,

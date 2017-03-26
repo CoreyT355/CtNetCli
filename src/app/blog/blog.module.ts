@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CovalentCoreModule } from '@covalent/core';
@@ -19,6 +20,7 @@ import { PipesModule } from '../pipes/pipes.module';
     imports: [
         RouterModule,
         FormsModule,
+        BrowserAnimationsModule,
         CommonModule,
         PipesModule,
         CovalentCoreModule.forRoot()

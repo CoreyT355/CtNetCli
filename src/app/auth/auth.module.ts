@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CovalentCoreModule } from '@covalent/core';
@@ -12,6 +13,7 @@ import { ResetpassComponent } from './resetpass.component';
   imports:      [ 
     authRouting,
     FormsModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     CommonModule,
     CovalentCoreModule
