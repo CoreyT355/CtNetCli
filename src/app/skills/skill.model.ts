@@ -7,11 +7,12 @@ export class Skill {
         public percentage: number,
         public featured: boolean,
         public order: number,
+        public isActive: boolean,
         public dateCreated: string,
         public dateModified: string) {
 
     }
-    static fromJson({$key, title, level, style, percentage, featured, order, dateCreated, dateModified}): Skill {
+    static fromJson({$key, title, level, style, percentage, featured, order, isActive, dateCreated, dateModified}): Skill {
         return new Skill(
             $key,
             title,
@@ -20,6 +21,7 @@ export class Skill {
             percentage,
             featured,
             order,
+            isActive,
             dateCreated,
             dateModified);
     }
