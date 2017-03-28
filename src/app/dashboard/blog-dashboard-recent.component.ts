@@ -1,19 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { TdLoadingService } from '@covalent/core';
-import { TdDialogService } from '@covalent/core';
+import { TdLoadingService, TdDialogService, ITdDataTableColumn } from '@covalent/core';
 
 import { BlogService } from '../blog/blog.service';
 import { BlogPost } from '../blog/blog-post.model';
 
 @Component({
     selector: 'blog-dashboard-recent-blog-posts',
-    inputs: ['recentBlogPosts'],
     templateUrl: './blog-dashboard-recent.component.html'
 })
 export class BlogDashboardRecentBlogPostsComponent implements OnInit {
-    recentBlogPosts: Array<BlogPost>;
+    @Input() blogPosts: Array<BlogPost>;
+
+    columns: ITdDataTableColumn[] = [
+        { name: 'published', label: 'Published' },
+        { name: 'title',  label: 'Title', sortable:true },
+        { name: 'text', label: 'Text' },
+        { name: 'imageUrl', label: 'Image URL' },
+        { name: 'author', label: 'Author' },
+        { name: 'tag', label: 'Tag' },
+        { name: 'icon', label: 'Icon' },
+        { name: 'isActive', label: 'Active' },
+        { name: 'dateCreated', label: 'Date Created' },
+        { name: 'dateModified', label: 'Date Modified' }
+    ];
+
     constructor(private router: Router,
         private blogService: BlogService,
         private dialogService: TdDialogService,

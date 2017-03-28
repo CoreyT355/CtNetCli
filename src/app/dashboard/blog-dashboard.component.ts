@@ -9,10 +9,10 @@ import { BlogPost } from '../blog/blog-post.model';
     templateUrl: './blog-dashboard.component.html'
 })
 export class BlogDashboardComponent implements OnInit {
-    recentBlogPosts: FirebaseListObservable<BlogPost[]>;
+    blogPosts: FirebaseListObservable<BlogPost[]>;
     constructor(private blogService: BlogService) { }
     getRecentBlogPosts(): void {
-        this.recentBlogPosts = this.blogService.getRecentBlogPostss();
+        this.blogPosts = this.blogService.getRecentBlogPostss();
     }
     ngOnInit(): void {
         this.getRecentBlogPosts();

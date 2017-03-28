@@ -1,4 +1,4 @@
-<template let-item let-last="last" ngFor [ngForOf]="skills | async">
+<!--<template let-item let-last="last" ngFor [ngForOf]="skills | async">
     <md-list-item>
         <md-slide-toggle md-list-icon [(ngModel)]="item.featured" class="mr-2"></md-slide-toggle>
         <h3 md-line flex-gt-xs="20" flex-xs="40"> {{item.title}} </h3>
@@ -13,11 +13,59 @@
                 <md-icon>more_vert</md-icon>
             </button>
             <md-menu x-position="before" #menu="mdMenu">
-                <!--<button (click)="gotoViewBlogPost(item.$key)" md-menu-item>View</button>-->
                 <button (click)="gotoEditSkill(item.$key)" md-menu-item>Edit</button>
                 <button (click)="openConfirm(item.id)" md-menu-item>Delete</button>
             </md-menu>
         </span>
     </md-list-item>
     <md-divider *ngIf="!last"></md-divider>
-</template>
+</template>-->
+
+<table td-data-table>
+    <th td-data-table-column *ngFor="let column of columns" [numeric]="column.numeric">
+        {{column.label}}
+    </th>
+    <th td-data-table-column>
+
+    </th>
+    <tr td-data-table-row *ngFor="let row of skills | async">
+        <td td-data-table-cell>
+            <md-slide-toggle md-list-icon [(ngModel)]="row.featured"></md-slide-toggle>
+        </td>
+        <td td-data-table-cell>
+            {{row.title}}
+        </td>
+        <td td-data-table-cell>
+            {{row.level}}
+        </td>
+        <td td-data-table-cell>
+            {{row.style}}
+        </td>
+        <td td-data-table-cell>
+            {{row.percentage}}
+        </td>
+        <td td-data-table-cell>
+            {{row.ordertag}}
+        </td>
+        <td td-data-table-cell>
+            <md-slide-toggle md-list-icon [(ngModel)]="row.isActive"></md-slide-toggle>
+        </td>
+        <td td-data-table-cell>
+            {{row.dateCreated | date:'yMdjm'}}
+        </td>
+        <td td-data-table-cell>
+            {{row.dateModified | date:'yMdjm'}}
+        </td>
+        <td td-data-table-cell>
+            <span>
+                <button md-icon-button [md-menu-trigger-for]="menu">
+                    <md-icon>more_vert</md-icon>
+                </button>
+                <md-menu x-position="before" #menu="mdMenu">
+                    <button (click)="gotoEditSkill(row.$key)" md-menu-item>Edit</button>
+                <button (click)="openConfirm(row.id)" md-menu-item>Delete</button>
+                </md-menu>
+            </span>
+        </td>
+    </tr>
+</table>
