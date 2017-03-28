@@ -1,24 +1,52 @@
-<template let-item let-last="last" ngFor [ngForOf]="recentBlogPosts | async">
-    <md-list-item>
-        <md-slide-toggle md-list-icon [(ngModel)]="item.published" class="mr-2"></md-slide-toggle>
-        <h3 md-line flex-gt-xs="40" flex-xs="40"> {{item.title}} </h3>
-        <div class="md-caption tc-grey-500" flex-gt-xs="40" [innerHtml]='item.text | truncate:50'></div>
-        <span flex></span>
-        <span flex-gt-xs="60" flex-xs="40" layout-gt-xs="row">
-            <div class="md-caption tc-grey-500" flex-gt-xs="50"> {{ item.author }} </div>
-            <div class="md-caption tc-grey-500" flex-gt-xs="50"> {{ item.dateCreated | date:'yMdjm' }} </div>
-            <div class="md-caption tc-grey-500" flex-gt-xs="50"> {{ item.dateModified | date:'yMdjm' }} </div>
-        </span>
-        <span>
-            <button md-icon-button [md-menu-trigger-for]="menu">
-            <md-icon>more_vert</md-icon>
-            </button>
-            <md-menu x-position="before" #menu="mdMenu">
-                <button (click)="gotoViewBlogPost(item.$key)" md-menu-item>View</button>
-                <button (click)="gotoEditBlogPost(item.$key)" md-menu-item>Edit</button>
-                <button (click)="openConfirm(item.id)" md-menu-item>Delete</button>
-            </md-menu>
-        </span>
-    </md-list-item>
-    <md-divider *ngIf="!last"></md-divider>
-</template>
+<table td-data-table>
+    <th td-data-table-column *ngFor="let column of columns" [numeric]="column.numeric">
+        {{column.label}}
+    </th>
+    <th td-data-table-column>
+
+    </th>
+    <tr td-data-table-row *ngFor="let row of blogPosts | async">
+        <td td-data-table-cell>
+            <md-slide-toggle md-list-icon [(ngModel)]="row.published"></md-slide-toggle>
+        </td>
+        <td td-data-table-cell>
+            {{row.title}}
+        </td>
+        <td td-data-table-cell>
+            <span [innerHtml]='row.text | truncate:25'></span>
+        </td>
+        <td td-data-table-cell>
+            <a href="{{row.imageUrl}}" target="_blank">Image</a>
+        </td>
+        <td td-data-table-cell>
+            {{row.author}}
+        </td>
+        <td td-data-table-cell>
+            {{row.tag}}
+        </td>
+        <td td-data-table-cell>
+            {{row.icon}}
+        </td>
+        <td td-data-table-cell>
+            <md-slide-toggle md-list-icon [(ngModel)]="row.isActive"></md-slide-toggle>
+        </td>
+        <td td-data-table-cell>
+            {{row.dateCreated | date:'yMdjm'}}
+        </td>
+        <td td-data-table-cell>
+            {{row.dateModified | date:'yMdjm'}}
+        </td>
+        <td td-data-table-cell>
+            <span>
+                <button md-icon-button [md-menu-trigger-for]="menu">
+                    <md-icon>more_vert</md-icon>
+                </button>
+                <md-menu x-position="before" #menu="mdMenu">
+                    <button (click)="gotoViewProject(row.$key)" md-menu-item>View</button>
+                    <button (click)="gotoEditProject(row.$key)" md-menu-item>Edit</button>
+                    <button (click)="openConfirm(row.id)" md-menu-item>Delete</button>
+                </md-menu>
+            </span>
+        </td>
+    </tr>
+</table>
