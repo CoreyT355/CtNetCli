@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-import { Observable } from 'rxjs';
+import { FirebaseListObservable } from 'angularfire2';
 
 import { Skill } from '../skills/skill.model';
 import { SkillsService } from '../skills/skills.service';
@@ -11,7 +10,7 @@ import { SkillsService } from '../skills/skills.service';
 })
 export class DashboardSkillsComponent implements OnInit {
     title: string = "Skills";
-    skills: Observable<Skill[]>;
+    skills: FirebaseListObservable<Skill[]>;
     constructor(private skillService: SkillsService) { }
 
     ngOnInit() {
