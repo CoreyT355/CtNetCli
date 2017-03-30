@@ -42,8 +42,8 @@
                     <md-icon>more_vert</md-icon>
                 </button>
                 <md-menu x-position="before" #menu="mdMenu">
-                    <button (click)="gotoViewProject(row.$key)" md-menu-item>View</button>
-                    <button (click)="gotoEditProject(row.$key)" md-menu-item>Edit</button>
+                    <button (click)="gotoViewBlogPost(row.$key)" md-menu-item>View</button>
+                    <button (click)="gotoEditBlogPost(row.$key)" md-menu-item>Edit</button>
                     <button (click)="openConfirm(row.id)" md-menu-item>Delete</button>
                 </md-menu>
             </span>
