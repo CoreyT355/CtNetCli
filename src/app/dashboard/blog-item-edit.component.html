@@ -21,7 +21,8 @@
                     </md-input-container>
                 </div>
                 <div layout="row" layout-margin flex="100" [ngClass]="{'has-error':!blogPostForm.controls['text'].valid && blogPostForm.controls['text'].touched}">
-                    <quill-editor flex="100" [formControl]="blogPostForm.controls['text']" [config]="editorConfig"></quill-editor>
+                    <!--<quill-editor flex="100" [formControl]="blogPostForm.controls['text']" [config]="editorConfig"></quill-editor>-->
+                    <textarea flex="100" [froalaEditor]="options" formControlName="text" ></textarea>
                 </div>
                 <div layout="row" layout-margin flex="20">
                     <md-slide-toggle [formControl]="blogPostForm.controls['published']" name="published">Published</md-slide-toggle>

@@ -13,22 +13,10 @@ import { BlogPost } from '../blog/blog-post.model';
 export class BlogItemAddComponent implements OnInit {
     blogPostAdd: FormGroup;
     blogPostToEdit: BlogPost;
-    public editorConfig = {
-        theme: 'snow',
-        placeholder: "post",
-        modules: {
-            toolbar: [
-                ['bold', 'italic', 'underline', 'strike'],
-                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-                [{ 'color': [] }, { 'background': [] }],
-                [{ 'font': [] }],
-                [{ 'align': [] }],
-                ['link', 'image'],
-                ['clean']
-            ]
-        }
-    };
+    public options: Object = {
+        placeholderText: 'Edit Your Content Here!',
+        height: 300
+    }
 
     constructor(private fb: FormBuilder, private blogService: BlogService, private router: Router, private toastr: ToastrService) { }
     ngOnInit(): void {

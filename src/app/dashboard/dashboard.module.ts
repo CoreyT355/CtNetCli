@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CovalentCoreModule } from '@covalent/core';
 
+import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
+
 import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
 
 import { AuthGuard } from '../auth/auth-guard.service';
@@ -35,8 +37,6 @@ import { ProjectAddComponent } from './project-dashboard/projects-add.component'
 
 import { PipesModule } from '../pipes/pipes.module';
 
-import { QuillEditorModule } from 'ng2-quill-editor';
-
 @NgModule({
   imports: [
     dashboardRouting,
@@ -44,10 +44,11 @@ import { QuillEditorModule } from 'ng2-quill-editor';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     CommonModule,
-    QuillEditorModule,
     PipesModule,
     CovalentCoreModule,
-    CovalentDynamicFormsModule.forRoot()
+    CovalentDynamicFormsModule.forRoot(),
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot()
   ],
   providers: [
     AuthGuard,

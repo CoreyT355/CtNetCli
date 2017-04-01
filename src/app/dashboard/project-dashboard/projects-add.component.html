@@ -23,7 +23,8 @@
                     </md-input-container>
                 </div>
                 <div layout="row" layout-margin flex="100" [ngClass]="{'has-error':!projectToAdd.controls['content'].valid && projectToAdd.controls['content'].touched}">
-                    <quill-editor flex="100" [formControl]="projectToAdd.controls['content']" [config]="editorConfig"></quill-editor>
+                    <!--<quill-editor flex="100" [formControl]="projectToAdd.controls['content']" [config]="editorConfig"></quill-editor>-->
+                    <textarea flex="100" [froalaEditor]="options" formControlName="content" ></textarea>
                 </div>
                 <div layout="row" layout-margin flex="60">
                     <md-slide-toggle [formControl]="projectToAdd.controls['published']" name="published">Published</md-slide-toggle>

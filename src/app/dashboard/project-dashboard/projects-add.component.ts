@@ -13,22 +13,10 @@ import { Project } from '../../projects/project.model';
 })
 export class ProjectAddComponent implements OnInit {
     projectToAdd: FormGroup;
-    public editorConfig = {
-        theme: 'snow',
-        placeholder: "post",
-        modules: {
-            toolbar: [
-                ['bold', 'italic', 'underline', 'strike'],
-                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-                [{ 'color': [] }, { 'background': [] }],
-                [{ 'font': [] }],
-                [{ 'align': [] }],
-                ['link', 'image'],
-                ['clean']
-            ]
-        }
-    };
+    public options: Object = {
+        placeholderText: 'Edit Your Content Here!',
+        height: 300
+    }
     constructor(private fb: FormBuilder, private projectsService: ProjectsService, private router: Router, private toastr: ToastrService) { }
     ngOnInit(): void {
         this.projectToAdd = this.fb.group({

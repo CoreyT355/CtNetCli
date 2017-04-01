@@ -13,22 +13,9 @@ import { BlogService } from '../blog/blog.service';
 export class BlogItemEditComponent implements OnInit {
     blogPostForm: FormGroup;
     blogPostToEdit: BlogPost;
-    public editorConfig = {
-        theme: 'snow',
-        placeholder: "post",
-        modules: {
-            toolbar: [
-                ['bold', 'italic', 'underline', 'strike'],
-                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-                [{ 'color': [] }, { 'background': [] }],
-                [{ 'font': [] }],
-                [{ 'align': [] }],
-                ['link', 'image'],
-                ['clean']
-            ]
-        }
-    };
+    public options: Object = {
+        height: 300
+    }
     constructor(private route: ActivatedRoute, private router: Router, private blogService: BlogService, private fb: FormBuilder, private toastr: ToastrService) { }
     ngOnInit(): void {
         this.route.data
