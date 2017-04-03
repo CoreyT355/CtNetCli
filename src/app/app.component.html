@@ -1,26 +1,9 @@
 <td-layout #layout>
   <td-navigation-drawer sidenavTitle="Corey Tess">
     <md-nav-list>
-      <a md-list-item [routerLink]="['/blog']" (click)="layout.close()">
-        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-rss"></md-icon>
-        <span>Blog</span>
+      <a *ngFor="let item of routes" md-list-item (click)="layout.close()" [routerLink]="[item.route]">
+        <md-icon class="fa-lg" fontSet="fa" [fontIcon]="[item.icon]"></md-icon>{{item.title}}
       </a>
-      <a md-list-item [routerLink]="['/projects']" (click)="layout.close()">
-        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-folder-open-o"></md-icon>
-        <span>Projects</span>
-      </a>
-      <a md-list-item [routerLink]="['/portfolio']" (click)="layout.close()">
-        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-newspaper-o"></md-icon>
-        <span>Portfolio</span>
-      </a>
-      <a md-list-item [routerLink]="['/about']" (click)="layout.close()">
-        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-user-o"></md-icon>
-        <span>About</span>
-      </a>
-      <!--<a md-list-item [routerLink]="['/contact']" (click)="layout.close()">
-        <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-envelope-o"></md-icon>
-        <span>Contact</span>
-      </a>-->
       <a *ngIf="af.auth | async" md-list-item [routerLink]="['/dashboard']" (click)="layout.close()">
         <md-icon class="fa-lg" fontSet="fa" fontIcon="fa-tachometer"></md-icon>
         <span>Dashboard</span>

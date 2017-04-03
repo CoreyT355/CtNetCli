@@ -1,26 +1,3 @@
-<!--<template let-item let-last="last" ngFor [ngForOf]="skills | async">
-    <md-list-item>
-        <md-slide-toggle md-list-icon [(ngModel)]="item.featured" class="mr-2"></md-slide-toggle>
-        <h3 md-line flex-gt-xs="20" flex-xs="40"> {{item.title}} </h3>
-        <div class="md-caption tc-grey-500" flex-gt-xs="20"> {{ item.level }} </div>
-        <div class="md-caption tc-grey-500" flex-gt-xs="20"> {{ item.style }} </div>
-        <div class="md-caption tc-grey-500" flex-gt-xs="10"> {{ item.percentage }} </div>
-        <div class="md-caption tc-grey-500" flex-gt-xs="10"> {{ item.order }} </div>
-        <div class="md-caption tc-grey-500" flex-gt-xs="20"> {{ item.dateCreated | date:'yMdjm' }} </div>
-        <div class="md-caption tc-grey-500" flex-gt-xs="20"> {{ item.dateModified | date:'yMdjm' }} </div>
-        <span>
-            <button md-icon-button [md-menu-trigger-for]="menu">
-                <md-icon>more_vert</md-icon>
-            </button>
-            <md-menu x-position="before" #menu="mdMenu">
-                <button (click)="gotoEditSkill(item.$key)" md-menu-item>Edit</button>
-                <button (click)="openConfirm(item.id)" md-menu-item>Delete</button>
-            </md-menu>
-        </span>
-    </md-list-item>
-    <md-divider *ngIf="!last"></md-divider>
-</template>-->
-
 <table td-data-table>
     <th td-data-table-column *ngFor="let column of columns" [numeric]="column.numeric">
         {{column.label}}
