@@ -1,7 +1,9 @@
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
-import { Skill } from "./skill.model";
-import { Observable } from "rxjs/Rx";
 import { Injectable } from "@angular/core";
+
+import { Observable } from "rxjs/Rx";
+
+import { Skill } from "./skill.model";
 import { SkillsService } from "./skills.service";
 
 @Injectable()
