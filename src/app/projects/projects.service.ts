@@ -31,7 +31,7 @@ export class ProjectsService {
         }).map(_projects => _projects.filter(project => project.featured == true));
     }
     getProject(key: string): Observable<Project> {
-        let foundProject = this.db.object('/projects' + key).map(result => Project.fromJson(result));
+        let foundProject = this.db.object('/projects/' + key).map(result => Project.fromJson(result));
         let subject = new Subject();
         setTimeout(function () {
             subject.next(foundProject);

@@ -16,6 +16,7 @@ import { SkillsResolver } from '../skills/skill.resolver';
 import { ProjectsDashboardComponent } from './project-dashboard/projects-dashboard.component';
 import { ProjectsDashboardListComponent } from './project-dashboard/projects-dashboard-list.component';
 import { ProjectAddComponent } from './project-dashboard/projects-add.component';
+import { ProjectsResolver } from '../projects/projects.resolver';
 
 import { AuthGuard } from '../auth/auth-guard.service';
 
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
       { path: 'skills/add', component: SkillAddComponent },
       { path: 'skills/edit/:id', component:SkillEditComponent, resolve: { skill: SkillsResolver } },
       { path: 'projects', component: ProjectsDashboardComponent },
-      { path: 'projects/add', component: ProjectAddComponent }
+      { path: 'projects/add', component: ProjectAddComponent },
+      { path: 'projects/edit/:id', component: ProjectAddComponent, resolve: { project: ProjectsResolver } }
     ]
   },
 ];
