@@ -1,17 +1,43 @@
-<div class="panel panel-success">
+<!--<div class="panel panel-success">
     <div class="panel-heading">
         <h3 class="panel-title">All of the Skills</h3>
     </div>
     <div class="panel-body">
-        <div *ngFor="let skill of skills | async" class="col-md-4 col-lg-4">
+        
+    </div>
+</div>-->
+
+<td-layout-card-over cardTitle="{{componentName}}" cardSubtitle="" cardWidth="75">
+    <section class="section" layout="row" layout-wrap>
+
+        <md-card *ngFor="let skill of skills | async" flex="25">
+            <div layout="row" layout-align="space-between end">
+                <md-card-title>{{skill.title}}</md-card-title>
+                <md-card-subtitle>{{skill.level}}</md-card-subtitle>
+            </div>
+            <md-divider></md-divider>
+            <md-card-content>
+                <div layout="row" layout-align="space-between center">
+                    <md-progress-spinner mode="determinate" [value]="skill.percentage" color="accent"></md-progress-spinner>
+                    <span class="md-display-3">{{skill.percentage}}%</span>
+                </div>
+            </md-card-content>
+            <md-divider></md-divider>
+            <!--<md-card-actions>
+                <button md-button color="accent" class="text-upper">Action</button>
+                <button md-button class="text-upper">Cancel</button>
+            </md-card-actions>-->
+        </md-card>
+
+        <!--<div *ngFor="let skill of skills | async">
             <div class="panel panel-default">
-                <!--<div class="panel-heading">
+                <div class="panel-heading">
                     <h3 class="panel-title">{{skill.title}} - {{skill.level}}</h3>
-                </div>-->
+                </div>
                 <div class="panel-body">
                     <ctnet-skill-item [skill]="skill"></ctnet-skill-item>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+        </div>-->
+    </section>
+</td-layout-card-over>

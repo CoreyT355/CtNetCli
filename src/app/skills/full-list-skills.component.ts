@@ -10,6 +10,7 @@ import { SkillsService } from './skills.service';
     templateUrl: './full-list-skills.component.html'
 })
 export class FullListSkillsComponent implements OnInit {
+    componentName: string = "All of the Skills";
     skills: Observable<Skill[]>;
     constructor(private skillsService: SkillsService) {
         this.skills = this.skillsService.getSkills();
