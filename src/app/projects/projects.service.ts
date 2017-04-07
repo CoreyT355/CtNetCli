@@ -15,12 +15,12 @@ export class ProjectsService {
         this.firebaseDb = fb.database().ref();
         this.projects = af.database.list('projects');
     }
-    getProjects(): FirebaseListObservable<any> {
+    getProjects(): Observable<Project[]> {
         return this.af.database.list('/projects', {
             query: {
                 orderByChild: 'order'
             }
-        });
+        }).map(_projects => _projects.filter(project => project.published == true && project.isActive == true));
     }
     getFeaturedProjects(): Observable<Project[]> {
         return this.af.database.list('/projects', {
@@ -28,7 +28,7 @@ export class ProjectsService {
                 orderByChild: 'order',
                 limitToFirst: 5
             }
-        }).map(_projects => _projects.filter(project => project.featured == true));
+        }).map(_projects => _projects.filter(project => project.featured == true && project.isActive == true));
     }
     getProject(key: string): Observable<Project> {
         let foundProject = this.db.object('/projects/' + key).map(result => Project.fromJson(result));
